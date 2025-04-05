@@ -1,46 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\",
+  "WorkspaceRootPath": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\bin\\Debug\\data.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:bin\\Debug\\data.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\save-read.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:save-read.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\save-read.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:save-read.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|c:\\users\\kacko\\documents\\productivityquest\\zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,124 +50,131 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EditProfile.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\EditProfile.cs",
+              "RelativeDocumentMoniker": "EditProfile.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\EditProfile.cs [Design]",
+              "RelativeToolTip": "EditProfile.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T13:15:12.013Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "data.json",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\bin\\Debug\\data.json",
-              "RelativeDocumentMoniker": "bin\\Debug\\data.json",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\bin\\Debug\\data.json",
-              "RelativeToolTip": "bin\\Debug\\data.json",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAIAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-31T15:48:13.815Z",
+              "Title": "EditProfile.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\EditProfile.cs",
+              "RelativeDocumentMoniker": "EditProfile.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\EditProfile.cs",
+              "RelativeToolTip": "EditProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T13:15:26.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DodajZadanieForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\DodajZadanieForm.cs",
+              "RelativeDocumentMoniker": "DodajZadanieForm.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\DodajZadanieForm.cs [Design]",
+              "RelativeToolTip": "DodajZadanieForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T16:12:26.215Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T19:34:45.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "EditProfile.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\EditProfile.cs",
-              "RelativeDocumentMoniker": "EditProfile.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\EditProfile.cs",
-              "RelativeToolTip": "EditProfile.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAIAAAAAAAAAA==",
+              "Title": "DodajZadanieForm.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\DodajZadanieForm.cs",
+              "RelativeDocumentMoniker": "DodajZadanieForm.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\DodajZadanieForm.cs",
+              "RelativeToolTip": "DodajZadanieForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T14:09:55.489Z"
+              "WhenOpened": "2025-03-30T17:14:00.217Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "EditProfile.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\EditProfile.cs",
-              "RelativeDocumentMoniker": "EditProfile.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\EditProfile.cs [Design]",
-              "RelativeToolTip": "EditProfile.cs [Design]",
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwCgAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T14:06:06.963Z"
+              "WhenOpened": "2025-03-30T16:30:38.842Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
+              "Title": "Save-read.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Save-read.cs",
+              "RelativeDocumentMoniker": "Save-read.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Save-read.cs",
+              "RelativeToolTip": "Save-read.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T20:21:40.661Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAiwCQAAACBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T19:34:45.216Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DodajZadanieForm.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\DodajZadanieForm.cs",
-              "RelativeDocumentMoniker": "DodajZadanieForm.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\DodajZadanieForm.cs",
-              "RelativeToolTip": "DodajZadanieForm.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAIwBgAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T17:14:00.217Z"
+              "WhenOpened": "2025-03-30T16:26:21.04Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Player.cs",
-              "RelativeDocumentMoniker": "Player.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Player.cs",
-              "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA1AAAAAAAAAA==",
+              "Title": "Zadanie.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Zadanie.cs",
+              "RelativeDocumentMoniker": "Zadanie.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Zadanie.cs",
+              "RelativeToolTip": "Zadanie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T16:30:38.842Z"
+              "WhenOpened": "2025-03-30T16:29:45.251Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Zadanie.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Zadanie.cs",
-              "RelativeDocumentMoniker": "Zadanie.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Zadanie.cs",
-              "RelativeToolTip": "Zadanie.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T16:29:45.251Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Save-read.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Save-read.cs",
-              "RelativeDocumentMoniker": "Save-read.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Save-read.cs",
-              "RelativeToolTip": "Save-read.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAMwAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T16:26:21.04Z"
+              "WhenOpened": "2025-04-05T10:17:54.565Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Manage.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Manage.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Manage.cs",
               "RelativeDocumentMoniker": "Manage.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Projekty C# Kotecki\\Productivity Quest 1.0\\Manage.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Manage.cs",
               "RelativeToolTip": "Manage.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAswJ0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAmwMgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T16:31:51.928Z"
             }

@@ -31,27 +31,31 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_Edit_Name = new System.Windows.Forms.TextBox();
             this.btn_Save_Changes = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel_Main = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(23, 21);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(23, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 20);
+            this.label1.Size = new System.Drawing.Size(111, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nazwa Gracza:";
             // 
             // textBox_Edit_Name
             // 
+            this.textBox_Edit_Name.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_Edit_Name.Location = new System.Drawing.Point(27, 44);
             this.textBox_Edit_Name.Name = "textBox_Edit_Name";
-            this.textBox_Edit_Name.Size = new System.Drawing.Size(199, 20);
+            this.textBox_Edit_Name.Size = new System.Drawing.Size(199, 23);
             this.textBox_Edit_Name.TabIndex = 1;
             // 
             // btn_Save_Changes
             // 
+            this.btn_Save_Changes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_Save_Changes.Location = new System.Drawing.Point(262, 21);
             this.btn_Save_Changes.Name = "btn_Save_Changes";
             this.btn_Save_Changes.Size = new System.Drawing.Size(110, 34);
@@ -60,11 +64,31 @@
             this.btn_Save_Changes.UseVisualStyleBackColor = true;
             this.btn_Save_Changes.Click += new System.EventHandler(this.btn_Save_Changes_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(23, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 21);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Streak:";
+            // 
+            // panel_Main
+            // 
+            this.panel_Main.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_Main.Location = new System.Drawing.Point(27, 112);
+            this.panel_Main.Name = "panel_Main";
+            this.panel_Main.Size = new System.Drawing.Size(875, 525);
+            this.panel_Main.TabIndex = 4;
+            // 
             // EditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 83);
+            this.ClientSize = new System.Drawing.Size(930, 658);
+            this.Controls.Add(this.panel_Main);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Save_Changes);
             this.Controls.Add(this.textBox_Edit_Name);
             this.Controls.Add(this.label1);
@@ -80,5 +104,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_Edit_Name;
         private System.Windows.Forms.Button btn_Save_Changes;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel_Main;
     }
 }

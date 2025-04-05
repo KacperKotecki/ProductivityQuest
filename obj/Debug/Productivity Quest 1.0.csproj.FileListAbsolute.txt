@@ -37,3 +37,42 @@ C:\Users\kacko\Documents\Projekty C# Kotecki\Productivity Quest 1.0\bin\Debug\Pr
 C:\Users\kacko\Documents\Projekty C# Kotecki\Productivity Quest 1.0\bin\Debug\Productivity Quest 1.0.application
 C:\Users\kacko\Documents\Projekty C# Kotecki\Productivity Quest 1.0\obj\Debug\Productivity Quest 1.0.exe.manifest
 C:\Users\kacko\Documents\Projekty C# Kotecki\Productivity Quest 1.0\obj\Debug\Productivity Quest 1.0.application
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\data.json
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\player.json
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\Productivity Quest 1.0.exe.config
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\Productivity Quest 1.0.exe.manifest
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\Productivity Quest 1.0.application
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\Productivity Quest 1.0.exe
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\Productivity Quest 1.0.pdb
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Buffers.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.IO.Pipelines.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Memory.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Text.Json.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.ValueTuple.dll
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Buffers.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.IO.Pipelines.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Memory.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Text.Json.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\kacko\Documents\ProductivityQuest\bin\Debug\System.ValueTuple.xml
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity Quest 1.0.csproj.AssemblyReference.cache
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity_Quest_1._0.DodajZadanieForm.resources
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity_Quest_1._0.EditProfile.resources
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity_Quest_1._0.Form1.resources
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity_Quest_1._0.Properties.Resources.resources
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity Quest 1.0.csproj.GenerateResource.cache
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity Quest 1.0.csproj.CoreCompileInputs.cache
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity Quest 1.0.exe.manifest
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity Quest 1.0.application
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Producti.265124B0.Up2Date
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity Quest 1.0.exe
+C:\Users\kacko\Documents\ProductivityQuest\obj\Debug\Productivity Quest 1.0.pdb

@@ -18,33 +18,57 @@ namespace Productivity_Quest_1._0
         public DodajZadanieForm()
         {
             InitializeComponent();
+            comboBox1_Priority.Items.Add("Niski");
+            comboBox1_Priority.Items.Add("Średni");
+            comboBox1_Priority.Items.Add("Wysoki");
+            comboBox1_Priority.SelectedIndex = 0;
+            comboBox_Time.Items.Add("min");
+            comboBox_Time.Items.Add("h");
+            
+            comboBox_Time.SelectedIndex = 0;
+
+
         }
         public DodajZadanieForm(Zadanie zadanieDoEdycji)
         {
             InitializeComponent();
+            int timetodo = Oblicz_minuty();
             textBox_Zadanie.Text = zadanieDoEdycji.NameTask;
             textBox_Kategoria.Text = zadanieDoEdycji.Category;
-            numericUpDown_Priorytet.Value = zadanieDoEdycji.Prioryty;
+            comboBox1_Priority.SelectedItem = zadanieDoEdycji;
             numericUpDown_CzasNaZadanie.Value = zadanieDoEdycji.TimeToDo;
-            dateTimePicker_Deadline.Value = zadanieDoEdycji.Deadline ?? DateTime.Now;
+            
+            monthCalendar1.SetDate(zadanieDoEdycji.Deadline ?? DateTime.Now);
+            numericUpDown_Hour.Value = zadanieDoEdycji.Deadline.Value.Hour;
+            numericUpDown_Minutes.Value = zadanieDoEdycji.Deadline.Value.Minute;
         }
 
         private void buttonZapisz_Click(object sender, EventArgs e)
         {
-            
+
             if (string.IsNullOrWhiteSpace(textBox_Zadanie.Text) || string.IsNullOrWhiteSpace(textBox_Kategoria.Text))
             {
                 MessageBox.Show("Uzupełnij wszystkie pola!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
+
+            DateTime wybranadata = monthCalendar1.SelectionStart;
+            int hour = (int)numericUpDown_Hour.Value;
+            int minutes = (int)numericUpDown_Minutes.Value;
+            wybranadata = new DateTime(wybranadata.Year, wybranadata.Month, wybranadata.Day, hour, minutes, 0);
+            if (wybranadata < DateTime.Now)
+            {
+                MessageBox.Show("Czy na pewno podałeś dobrą datę !", "Błąd", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            }
+
 
             NoweZadanie = new Zadanie
             {
                 NameTask = textBox_Zadanie.Text,
                 Category = textBox_Kategoria.Text,
-                Prioryty = (int)numericUpDown_Priorytet.Value,
-                TimeToDo = (int)numericUpDown_CzasNaZadanie.Value,
-                Deadline = dateTimePicker_Deadline.Value,
+                Prioryty = comboBox1_Priority.SelectedItem.ToString(),
+                TimeToDo = Oblicz_minuty(),
+                Deadline = wybranadata,
                 Done = false
             };
 
@@ -56,6 +80,22 @@ namespace Productivity_Quest_1._0
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+        private int Oblicz_minuty()
+        {
+            int min = 0;
+            if (comboBox_Time.Text == "h")
+            {
+                min *= 60;
+                
+            }
+            else
+            {
+                min *= 1;
+            }
+            return min;
+
+
         }
     }
 }

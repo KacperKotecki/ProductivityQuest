@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Productivity_Quest_1._0
 {
-    internal class Player
+    public class Player
     {
         public string Imie { get; set; }
         public int Poziom { get; set; }
@@ -38,7 +38,7 @@ namespace Productivity_Quest_1._0
 
         public void ZarejestrujDzienZadania()
         {
-            Streak.Add(DateTime.Now.Date);
+            Streak.Add(DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Unspecified));
         }
 
         public int ObliczStreak()
@@ -46,7 +46,7 @@ namespace Productivity_Quest_1._0
             int streak = 0;
             DateTime dzien = DateTime.Now.Date;
 
-            while (Streak.Contains(dzien))
+            while (Streak.Contains(dzien.Date))
             {
                 streak++;
                 dzien = dzien.AddDays(-1);

@@ -1,18 +1,24 @@
 ﻿using Productivity_Quest_1._0;
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Productivity_Quest_1._0
 {
+
     internal class Manage
     {
         public List<Zadanie> ListaZadan = new List<Zadanie>();
+        public List<Zadanie> ListaZadanCopy;
+
         public void AddTask()
         {
             Zadanie zadanie = new Zadanie();
@@ -22,7 +28,7 @@ namespace Productivity_Quest_1._0
             Console.Write("Podaj kategorie zadania : ");
             zadanie.Category = Console.ReadLine();
             Console.Write("Podaj priorytet zadania : ");
-            zadanie.Prioryty = int.Parse(Console.ReadLine());
+            zadanie.Prioryty = Console.ReadLine();
             Console.Write("Podaj czas na wykonanie zadania (min): ");
             zadanie.TimeToDo = int.Parse(Console.ReadLine());
 
@@ -126,10 +132,32 @@ namespace Productivity_Quest_1._0
                     if (confirm == "y" || confirm == "yes")
                     {
                         ListaZadan[number].Done = true;
+                        int points = 0;
+                        int multiplier = 0;
+                        switch (ListaZadan[number].Prioryty)
+                        {
+                            case "Niski":
+                                points = 100;
+                                multiplier = 3;
 
-                        int xp = ListaZadan[number].Prioryty * 20 + (int)(ListaZadan[number].TimeToDo * 1.5);
+                                break;
+                            case "Średni":
+                                points = 80;
+                                multiplier = 2;
+                                break;
+                            case "Wysoki":
+                                points = 50;
+                                multiplier = 1;
+                                break;
+                            default:
+                                points = 10;
+                                multiplier = 1;
+                                break;
+                        }
+                        int xp = points * multiplier + (int)ListaZadan[number].TimeToDo;
                         player.DodajXP(xp);
                         player.ZarejestrujDzienZadania();
+                        MessageBox.Show($"Zadanie wykonane! Zdobyto {xp} XP.", "Brawo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -150,13 +178,36 @@ namespace Productivity_Quest_1._0
             if (index >= 0 && index < ListaZadan.Count && ListaZadan[index].Done == false)
             {
                 ListaZadan[index].Done = true;
-
-                int xp = ListaZadan[index].Prioryty * 20 + (int)(ListaZadan[index].TimeToDo * 1.5);
+                int points = 0;
+                int multiplier = 0;
+                switch (ListaZadan[index].Prioryty)
+                {
+                    case "Niski":
+                        points = 100;
+                        multiplier = 3;
+                        
+                        break;
+                    case "Średni":
+                        points = 80;
+                        multiplier = 2;
+                        break;
+                    case "Wysoki":
+                        points = 50;
+                        multiplier = 1;
+                        break;
+                    default:
+                        points = 10;
+                        multiplier = 1;
+                        break;
+                }
+                int xp = points * multiplier + (int)ListaZadan[index].TimeToDo;
                 player.DodajXP(xp);
                 player.ZarejestrujDzienZadania();
+                MessageBox.Show($"Zadanie wykonane! Zdobyto {xp} XP.", "Brawo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
+    
 }
 
 
