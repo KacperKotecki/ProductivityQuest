@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|c:\\users\\kacko\\documents\\productivityquest\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,7 +31,7 @@
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:save-read.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|c:\\users\\kacko\\documents\\productivityquest\\zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\ProductivityQuest\\zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -50,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -66,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EditProfile.cs",
               "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\EditProfile.cs",
               "RelativeDocumentMoniker": "EditProfile.cs",
@@ -86,18 +86,17 @@
               "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\DodajZadanieForm.cs [Design]",
               "RelativeToolTip": "DodajZadanieForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T16:12:26.215Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-03T16:12:26.215Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\kacko\\Documents\\ProductivityQuest\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAqwDEAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-29T19:34:45.216Z",
               "EditorCaption": ""
@@ -112,8 +111,7 @@
               "RelativeToolTip": "DodajZadanieForm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T17:14:00.217Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T17:14:00.217Z"
             },
             {
               "$type": "Document",
@@ -125,8 +123,7 @@
               "RelativeToolTip": "Player.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAIwCgAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T16:30:38.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T16:30:38.842Z"
             },
             {
               "$type": "Document",
@@ -138,8 +135,7 @@
               "RelativeToolTip": "Save-read.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T16:26:21.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T16:26:21.04Z"
             },
             {
               "$type": "Document",
@@ -151,8 +147,7 @@
               "RelativeToolTip": "Zadanie.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T16:29:45.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T16:29:45.251Z"
             },
             {
               "$type": "Document",

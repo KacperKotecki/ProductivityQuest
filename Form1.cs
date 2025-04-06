@@ -38,16 +38,16 @@ namespace Productivity_Quest_1._0
         {
             checkedListBoxTasks.Items.Clear();
 
-            foreach (var z in manage.ListaZadan)
+            foreach (var z in manage.ListaZadanCopy)
             {
                 if (z.Deadline != null)
-                { // tutaj dać opcje z tablica 
-
-                    monthCalendar_Form.AddAnnuallyBoldedDate(z.Deadline.Value.Date);
+                { 
+                    monthCalendar_Form.AddBoldedDate(z.Deadline.Value.Date);
+                    
                 }
+                monthCalendar_Form.UpdateBoldedDates();
 
-
-                if (datafiltra == null || datafiltra.Value.Date == z.Deadline?.Date)
+                if (datafiltra == null || datafiltra.Value.Date == z.Deadline.Value)
                 {
 
                     checkedListBoxTasks.Items.Add($" {z.NameTask} | {z.Category}  | {z.Prioryty} | {(z.Done ? "Done" : "To do")}    {z.Deadline?.ToString("HH:mm")}  {z.Deadline?.ToString("dd.MM.yyyy")}");
@@ -255,7 +255,6 @@ namespace Productivity_Quest_1._0
                     break;
                 case "Time":
                     ListaZadanCopy = ListaZadanCopy.OrderBy(z => z.Done).ThenBy(z => z.Deadline).ToList();
-                    MessageBox.Show("Time");
                     break;
                 case "Default":
                     ListaZadanCopy = new List<Zadanie>(manage.ListaZadan) ;
