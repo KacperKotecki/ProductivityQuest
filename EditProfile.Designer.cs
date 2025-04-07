@@ -33,6 +33,7 @@
             this.btn_Save_Changes = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel_Main = new System.Windows.Forms.Panel();
+            this.lb_Streak = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -82,11 +83,22 @@
             this.panel_Main.Size = new System.Drawing.Size(875, 525);
             this.panel_Main.TabIndex = 4;
             // 
+            // lb_Streak
+            // 
+            this.lb_Streak.AutoSize = true;
+            this.lb_Streak.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_Streak.Location = new System.Drawing.Point(664, 44);
+            this.lb_Streak.Name = "lb_Streak";
+            this.lb_Streak.Size = new System.Drawing.Size(193, 25);
+            this.lb_Streak.TabIndex = 23;
+            this.lb_Streak.Text = "Zacznij nowy streak!";
+            // 
             // EditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 658);
+            this.Controls.Add(this.lb_Streak);
             this.Controls.Add(this.panel_Main);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Save_Changes);
@@ -106,5 +118,6 @@
         private System.Windows.Forms.Button btn_Save_Changes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel_Main;
+        private System.Windows.Forms.Label lb_Streak;
     }
 }

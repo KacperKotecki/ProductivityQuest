@@ -8,62 +8,54 @@ namespace Productivity_Quest_1._0
 {
     public class Player
     {
-        public string Imie { get; set; }
-        public int Poziom { get; set; }
-        public int XP { get; set; }
-        public int XPNaPoziom { get; set; } = 100;
+        public string Name { get; set; }
+        public int Level { get; set; }
+        public int Experience { get; set; }
+        public int ExperienceToLevelUp { get; set; } = 100;
 
-        public HashSet<DateTime> Streak { get; set; } = new HashSet<DateTime>();
+        public HashSet<DateTime> StreakDays { get; set; } = new HashSet<DateTime>();
         
 
 
-        public void DodajXP(int xp)
+        public void AddExperience(int xpToAdd)
         {
-            XP += xp;
-            SprawdzPoziom();
+            Experience += xpToAdd;
+            CheckLevelUp();
 
         }
 
-        private void SprawdzPoziom()
+        private void CheckLevelUp()
         {
-            while (XP >= XPNaPoziom)
+            while (Experience >= ExperienceToLevelUp)
             {
-                XP -= XPNaPoziom;
-                Poziom++;
-                XPNaPoziom += 50;
+                Experience -= ExperienceToLevelUp;
+                Level++;
+                ExperienceToLevelUp += 50;
                
                 
             }
         }
 
-        public void ZarejestrujDzienZadania()
+        public void RegisterTaskDay()
         {
-            Streak.Add(DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Unspecified));
+            StreakDays.Add(DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc));
         }
 
-        public int ObliczStreak()
+        public int CalculateStreak()
         {
             int streak = 0;
-            DateTime dzien = DateTime.Now.Date;
+            DateTime todayDate = DateTime.UtcNow.Date;
 
-            while (Streak.Contains(dzien.Date))
+            while (StreakDays.Contains(todayDate.Date))
             {
                 streak++;
-                dzien = dzien.AddDays(-1);
+                todayDate = todayDate.AddDays(-1);
             }
 
             return streak;
         }
 
-        public void PokazStatystyki()
-        {
-            Console.WriteLine($"Statystyki gracza: {Imie}");
-            Console.WriteLine($"• Poziom: {Poziom}");
-            Console.WriteLine($"• XP: {XP}/{XPNaPoziom}");
-            Console.WriteLine($"• Streak: {ObliczStreak()} dni z rzędu");
-
-            
-        }
+       
     }
 }
 

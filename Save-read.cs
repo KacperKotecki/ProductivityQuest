@@ -7,29 +7,26 @@ using System.Text.Json;
 using System.Threading.Tasks;
 namespace Productivity_Quest_1._0
 {
-    internal class Save_read
+    public class JsonStorageService
     {
-        public void SaveFileJSON<T>(T dane, string nazwaPliku)
+        public void SaveToFile<T>(T data, string fileName)
         {
-            string savetojson = JsonSerializer.Serialize(dane);
-            File.WriteAllText(nazwaPliku, savetojson);
-            Console.WriteLine($"Zapisano dane do pliku {nazwaPliku}");
+            string json = JsonSerializer.Serialize(data);
+            File.WriteAllText(fileName, json);
         }
-        public T ReadFileJSON<T>(string nazwaPliku)
+
+        public T LoadFromFile<T>(string fileName)
         {
-            if (File.Exists(nazwaPliku))
+            if (File.Exists(fileName))
             {
-                string readfromjson = File.ReadAllText(nazwaPliku);
-                T daneZPliku = JsonSerializer.Deserialize<T>(readfromjson);
-                Console.WriteLine("Wczytano dane z pliku");
-                return daneZPliku;
+                string json = File.ReadAllText(fileName);
+                T result = JsonSerializer.Deserialize<T>(json);
+                return result;
             }
             else
             {
-                Console.WriteLine("Brak pliku...");
-                return default(T);
+                return default;
             }
-
         }
     }
 }

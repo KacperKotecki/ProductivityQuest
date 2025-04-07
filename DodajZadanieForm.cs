@@ -24,23 +24,29 @@ namespace Productivity_Quest_1._0
             comboBox1_Priority.SelectedIndex = 0;
             comboBox_Time.Items.Add("min");
             comboBox_Time.Items.Add("h");
-            
             comboBox_Time.SelectedIndex = 0;
 
 
         }
-        public DodajZadanieForm(Zadanie zadanieDoEdycji)
+        public DodajZadanieForm(Zadanie taskToEdit)
         {
             InitializeComponent();
-            int timetodo = Oblicz_minuty();
-            textBox_Zadanie.Text = zadanieDoEdycji.NameTask;
-            textBox_Kategoria.Text = zadanieDoEdycji.Category;
-            comboBox1_Priority.SelectedItem = zadanieDoEdycji;
-            numericUpDown_CzasNaZadanie.Value = zadanieDoEdycji.TimeToDo;
-            
-            monthCalendar1.SetDate(zadanieDoEdycji.Deadline ?? DateTime.Now);
-            numericUpDown_Hour.Value = zadanieDoEdycji.Deadline.Value.Hour;
-            numericUpDown_Minutes.Value = zadanieDoEdycji.Deadline.Value.Minute;
+            comboBox1_Priority.Items.Add("Niski");
+            comboBox1_Priority.Items.Add("Średni");
+            comboBox1_Priority.Items.Add("Wysoki");
+            comboBox1_Priority.SelectedIndex = 0;
+            comboBox_Time.Items.Add("min");
+            comboBox_Time.Items.Add("h");
+            comboBox_Time.SelectedIndex = 0;
+
+
+            textBox_Zadanie.Text = taskToEdit.Title;
+            textBox_Kategoria.Text = taskToEdit.Category;
+            comboBox1_Priority.SelectedItem = taskToEdit.Priority;
+            numericUpDown_CzasNaZadanie.Value = taskToEdit.DurationMinutes;
+            monthCalendar1.SetDate(taskToEdit.Deadline.Value.Date);
+            numericUpDown_Hour.Value = taskToEdit.Deadline.Value.Hour;
+            numericUpDown_Minutes.Value = taskToEdit.Deadline.Value.Minute;
         }
 
         private void buttonZapisz_Click(object sender, EventArgs e)
@@ -51,11 +57,11 @@ namespace Productivity_Quest_1._0
                 MessageBox.Show("Uzupełnij wszystkie pola!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            DateTime wybranadata = monthCalendar1.SelectionStart;
+            DateTime selectedDateTime = monthCalendar1.SelectionStart;
             int hour = (int)numericUpDown_Hour.Value;
             int minutes = (int)numericUpDown_Minutes.Value;
-            wybranadata = new DateTime(wybranadata.Year, wybranadata.Month, wybranadata.Day, hour, minutes, 0);
-            if (wybranadata < DateTime.Now)
+            selectedDateTime = new DateTime(selectedDateTime.Year, selectedDateTime.Month, selectedDateTime.Day, hour, minutes, 0);
+            if (selectedDateTime < DateTime.Now)
             {
                 MessageBox.Show("Czy na pewno podałeś dobrą datę !", "Błąd", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -64,12 +70,12 @@ namespace Productivity_Quest_1._0
 
             NoweZadanie = new Zadanie
             {
-                NameTask = textBox_Zadanie.Text,
+                Title = textBox_Zadanie.Text,
                 Category = textBox_Kategoria.Text,
-                Prioryty = comboBox1_Priority.SelectedItem.ToString(),
-                TimeToDo = Oblicz_minuty(),
-                Deadline = wybranadata,
-                Done = false
+                Priority = comboBox1_Priority.SelectedItem.ToString(),
+                DurationMinutes = CalculateMinutes(((int)numericUpDown_CzasNaZadanie.Value)),
+                Deadline = selectedDateTime,
+                IsCompleted = false
             };
 
             this.DialogResult = DialogResult.OK;
@@ -81,19 +87,18 @@ namespace Productivity_Quest_1._0
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-        private int Oblicz_minuty()
+        private int CalculateMinutes(int duration)
         {
-            int min = 0;
-            if (comboBox_Time.Text == "h")
+            
+            if (comboBox_Time.SelectedItem == "h")
             {
-                min *= 60;
-                
+                duration *= 60;
             }
             else
             {
-                min *= 1;
+                duration *= 1;
             }
-            return min;
+            return duration;
 
 
         }

@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-// tutaj dać opcje z tablica 
+
 
 
 
@@ -20,81 +20,81 @@ namespace Productivity_Quest_1._0
     {
         private Player player = new Player();
         private Manage manage = new Manage();
-        private Save_read saveRead = new Save_read();
+        private JsonStorageService saveRead = new JsonStorageService();
 
         public Form1()
         {
 
             InitializeComponent();
 
-            manage.ListaZadan = saveRead.ReadFileJSON<List<Zadanie>>("data.json") ?? new List<Zadanie>();
-            player = saveRead.ReadFileJSON<Player>("player.json") ?? new Player();
-            manage.ListaZadanCopy = new List<Zadanie>(manage.ListaZadan);
-            OdswiezListeZadan();
-            OdswiezStatystyki();
+            manage.Tasks = saveRead.LoadFromFile<List<Zadanie>>("data.json") ?? new List<Zadanie>();
+            player = saveRead.LoadFromFile<Player>("player.json") ?? new Player();
+            RefreshTaskList();
+            RefreshStats();
 
         }
-        private void OdswiezListeZadan(DateTime? datafiltra = null)
+        private void RefreshTaskList(DateTime? filterDate = null)
         {
             checkedListBoxTasks.Items.Clear();
-
-            foreach (var z in manage.ListaZadanCopy)
+            monthCalendar_Form.RemoveAllBoldedDates();
+            foreach (var task in manage.Tasks)
             {
-                if (z.Deadline != null)
+                
+                if (task.Deadline != null)
                 { 
-                    monthCalendar_Form.AddBoldedDate(z.Deadline.Value.Date);
+                    monthCalendar_Form.AddBoldedDate(task.Deadline.Value.Date);
                     
                 }
                 monthCalendar_Form.UpdateBoldedDates();
 
-                if (datafiltra == null || datafiltra.Value.Date == z.Deadline.Value)
+                if (filterDate == null || filterDate.Value.Date == task.Deadline.Value.Date)
                 {
-
-                    checkedListBoxTasks.Items.Add($" {z.NameTask} | {z.Category}  | {z.Prioryty} | {(z.Done ? "Done" : "To do")}    {z.Deadline?.ToString("HH:mm")}  {z.Deadline?.ToString("dd.MM.yyyy")}");
+                   
+                    checkedListBoxTasks.Items.Add(task);
                 }
 
 
 
             }
         }
-        private void OdswiezListeZadan(List<Zadanie> ListaZadanCopy)
+        private void RefreshTaskList(List<Zadanie> ListaZadan)
         {
 
             checkedListBoxTasks.Items.Clear();
             
-            foreach (var z in ListaZadanCopy)
+            foreach (var task in ListaZadan)
             {
-                checkedListBoxTasks.Items.Add($" {z.NameTask} | {z.Category}  | {z.Prioryty} | {(z.Done ? "Done" : "To do")}    {z.Deadline?.ToString("HH:mm")}  {z.Deadline?.ToString("dd.MM.yyyy")}");
+                checkedListBoxTasks.Items.Add(task);
 
             }
         }
-        private void OdswiezStatystyki()
+        private void RefreshStats()
         {
-            lb_Name.Text = player.Imie ?? "Gracz";
-            lb_Poziom.Text = $"Poziom: {player.Poziom}";
-            lb_XP.Text = $"XP: {player.XP}/{player.XPNaPoziom}";
-            Progress_Level.Maximum = player.XPNaPoziom;
-            Progress_Level.Value = Math.Min(player.XP, Progress_Level.Maximum);
-            lb_Streak.Text = $"Streak: {player.ObliczStreak()} dni z rzędu!";
+            lb_Name.Text = player.Name ?? "Gracz";
+            lb_Poziom.Text = $"Poziom: {player.Level}";
+            lb_XP.Text = $"XP: {player.Experience}/{player.ExperienceToLevelUp}";
+            Progress_Level.Maximum = player.ExperienceToLevelUp;
+            Progress_Level.Value = Math.Min(player.Experience, Progress_Level.Maximum);
+            lb_Streak.Text = $"Streak: {player.CalculateStreak()} dni z rzędu!";
         }
 
 
         private void btn_AddTask_Click(object sender, EventArgs e)
         {
-            var okno = new DodajZadanieForm();
+            var editForm = new DodajZadanieForm();
 
-            var wynik = okno.ShowDialog();
+            var result = editForm.ShowDialog();
 
-            if (wynik == DialogResult.OK && okno.NoweZadanie != null)
+            if (result == DialogResult.OK && editForm.NoweZadanie != null)
             {
 
-                manage.ListaZadan.Add(okno.NoweZadanie);
+                manage.Tasks.Add(editForm.NoweZadanie);
 
 
-                saveRead.SaveFileJSON(manage.ListaZadan, "data.json");
+                saveRead.SaveToFile(manage.Tasks, "data.json");
 
 
-                OdswiezListeZadan();
+                RefreshTaskList();
             }
         }
 
@@ -104,23 +104,25 @@ namespace Productivity_Quest_1._0
             if (checkedListBoxTasks.SelectedIndex != -1 && checkedListBoxTasks.CheckedItems.Count == 1)
             {
                 var confirm = MessageBox.Show("Czy na pewno chcesz edytować te zadanie ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                int index = checkedListBoxTasks.SelectedIndex;
+                var task = (Zadanie)checkedListBoxTasks.SelectedItem;
+                
                 if (confirm == DialogResult.Yes)
                 {
-                    Zadanie oryginalneZadanie = manage.ListaZadan[index];
-
-                    var edycjaForm = new DodajZadanieForm(oryginalneZadanie);
+                    var edycjaForm = new DodajZadanieForm(task);
                     edycjaForm.Text = "Edycja zadania";
 
-                    var wynik = edycjaForm.ShowDialog();
-
-                    if (wynik == DialogResult.OK && edycjaForm.NoweZadanie != null)
+                    var result = edycjaForm.ShowDialog();
+                    if (result == DialogResult.OK && edycjaForm.NoweZadanie != null)
                     {
 
-                        manage.ListaZadan[index] = edycjaForm.NoweZadanie;
+                        task.Title = edycjaForm.NoweZadanie.Title;
+                        task.Category = edycjaForm.NoweZadanie.Category;
+                        task.Priority = edycjaForm.NoweZadanie.Priority;
+                        task.DurationMinutes = edycjaForm.NoweZadanie.DurationMinutes;
+                        task.Deadline = edycjaForm.NoweZadanie.Deadline;
 
-                        saveRead.SaveFileJSON(manage.ListaZadan, "data.json");
-                        OdswiezListeZadan();
+                        saveRead.SaveToFile(manage.Tasks, "data.json");
+                        RefreshTaskList();
                     }
                 }
             }
@@ -141,11 +143,11 @@ namespace Productivity_Quest_1._0
                 var confirm = MessageBox.Show("Czy na pewno chcesz usunąć te zadanie ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.Yes)
                 {
-                    int usun = checkedListBoxTasks.SelectedIndex;
-                    manage.ListaZadan.RemoveAt(usun);
+                    var taskToDelete = (Zadanie)checkedListBoxTasks.SelectedItem;
+                    manage.Tasks.Remove(taskToDelete);
 
-                    saveRead.SaveFileJSON(manage.ListaZadan, "data.json");
-                    OdswiezListeZadan();
+                    saveRead.SaveToFile(manage.Tasks, "data.json");
+                    RefreshTaskList();
                 }
             }
             else if (checkedListBoxTasks.CheckedItems.Count > 1)
@@ -165,22 +167,22 @@ namespace Productivity_Quest_1._0
                 var confirm = MessageBox.Show("Czy na pewno wykonałeś to zadanie ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.Yes)
                 {
-                    int zrobione = checkedListBoxTasks.SelectedIndex;
+                    var completedTask = (Zadanie)checkedListBoxTasks.SelectedItem;
 
-                    if (manage.ListaZadan[zrobione].Done == true)
+                    if (completedTask.IsCompleted == true)
                     {
                         MessageBox.Show("To zadanie jest już wykonane !", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
 
-                    manage.TaskCompleted(zrobione, player);
+                    manage.TaskCompleted(completedTask, player);
 
-                    saveRead.SaveFileJSON(manage.ListaZadan, "data.json");
-                    saveRead.SaveFileJSON(player, "player.json");
+                    saveRead.SaveToFile(manage.Tasks, "data.json");
+                    saveRead.SaveToFile(player, "player.json");
 
-                    OdswiezListeZadan();
-                    OdswiezStatystyki();
+                    RefreshTaskList();
+                    RefreshStats();
                 }
             }
             else if (checkedListBoxTasks.CheckedItems.Count > 1)
@@ -195,75 +197,76 @@ namespace Productivity_Quest_1._0
 
         private void btn_Edit_Player_Click(object sender, EventArgs e)
         {
-            var okno = new EditProfile(player);
+            var editForm = new EditProfile(player);
 
-            var wynik = okno.ShowDialog();
+            var result = editForm.ShowDialog();
 
-            if (wynik == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
 
-                player.Imie = okno.NoweImie;
-                MessageBox.Show("Nowa nazwa gracza : " + player.Imie);
-                MessageBox.Show("Nowa nazwa gracza : " + player.Imie, "Zmiana nazwy", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                player.Name = editForm.NewPlayerName;
+                MessageBox.Show("Nowa nazwa gracza : " + player.Name);
+                MessageBox.Show("Nowa nazwa gracza : " + player.Name, "Zmiana nazwy", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                saveRead.SaveFileJSON(player, "player.json");
-                OdswiezStatystyki();
+                saveRead.SaveToFile(player, "player.json");
+                RefreshStats();
             }
 
         }
         
         private void monthCalendar_Form_DateChanged(object sender, DateRangeEventArgs e)
         {
-            OdswiezListeZadan(monthCalendar_Form.SelectionStart.Date);
+            RefreshTaskList(monthCalendar_Form.SelectionStart.Date);
         }
 
         private void lb_SortedByCategory_Click(object sender, EventArgs e)
         {
-            SortedBy(manage.ListaZadanCopy, lb_SortedByCategory.Tag.ToString());
+            SortedBy(manage.Tasks, lb_SortedByCategory.Tag.ToString());
 
 
         }
 
         private void lb_SortedByPriority_Click(object sender, EventArgs e)
         {
-            SortedBy(manage.ListaZadanCopy, lb_SortedByPriority.Tag.ToString());
+            SortedBy(manage.Tasks, lb_SortedByPriority.Tag.ToString());
         }
 
         private void lb_SortedByTime_Click(object sender, EventArgs e)
         {
-            SortedBy(manage.ListaZadanCopy, lb_SortedByTime.Tag.ToString());
+            SortedBy(manage.Tasks, lb_SortedByTime.Tag.ToString());
         }
         private void lb_SortedByDefault_Click(object sender, EventArgs e)
         {
-            SortedBy(manage.ListaZadan, lb_SortedByDefault.Tag.ToString());
+            SortedBy(manage.Tasks, lb_SortedByDefault.Tag.ToString());
             
         }
-        public void SortedBy(List<Zadanie> ListaZadanCopy, string option)
+        public void SortedBy(List<Zadanie> taskList, string sortOption)
         {
 
             
-            switch (option)
+            switch (sortOption)
             {
                 case "Category":
 
-                    ListaZadanCopy = ListaZadanCopy.OrderBy(z => z.Category).ThenBy(z => z.Done).ToList();
+                    taskList = taskList.OrderBy(z => z.Category).ThenBy(z => z.IsCompleted).ToList();
                     
                     break;
                 case "Priority":
-                    ListaZadanCopy = ListaZadanCopy.OrderBy(z => z.Done).ThenBy(z => z.Prioryty).ToList();
+                    taskList = taskList.OrderBy(z => z.IsCompleted).ThenBy(z => z.Priority).ToList();
                     
                     break;
                 case "Time":
-                    ListaZadanCopy = ListaZadanCopy.OrderBy(z => z.Done).ThenBy(z => z.Deadline).ToList();
+                    taskList = taskList.OrderBy(z => z.IsCompleted).ThenBy(z => z.Deadline).ToList();
                     break;
                 case "Default":
-                    ListaZadanCopy = new List<Zadanie>(manage.ListaZadan) ;
+                    taskList = taskList.OrderBy(z => z.CreatedAt).ToList();
+                    
                     break;
                 default: 
                     break; 
             }
             
-                OdswiezListeZadan(ListaZadanCopy);
+                RefreshTaskList(taskList);
 
             
 
