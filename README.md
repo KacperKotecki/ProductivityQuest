@@ -8,6 +8,8 @@ Created with: C# (.NET 6), Windows Forms, JSON
 Overview:
 ---------
 Productivity Quest is a gamified task management desktop app designed to help users complete daily tasks while earning XP, leveling up, and building streaks.
+![Preview](Productivity-Quest.gif)
+
 
 Features:
 ---------

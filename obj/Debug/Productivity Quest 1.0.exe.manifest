@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Productivity Quest 1.0.exe" size="34192">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Productivity Quest 1.0.exe" size="34504592">
       <assemblyIdentity name="Productivity Quest 1.0" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Fuum1fYZmW/efyTpqoHpfEgwzIsFcUzbkEGRxVHXQv0=</dsig:DigestValue>
+        <dsig:DigestValue>urB01mcQh+pjtE/sYmvkZwWgiL+lF2T6mo5sAqqVgv4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

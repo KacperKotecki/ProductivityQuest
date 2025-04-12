@@ -13,6 +13,12 @@ namespace Productivity_Quest_1._0
 {
     public partial class DodajZadanieForm : Form
     {
+        // Zadanjie powtarzalne co jakiś czas 
+        //Dodać check boxy 
+        // 1 check box pon 7 check box niedziela 
+        // Użytkownik zaznaczy 1 , 3 7 checkbox 
+        //Zadanie powtarza się w poniedziałek środę i niedielę 
+        // można dać form w którym będzie można zmienić godzinę na każdy dzień
         public Zadanie NoweZadanie { get; private set; }
 
         public DodajZadanieForm()
@@ -101,6 +107,9 @@ namespace Productivity_Quest_1._0
             return duration;
 
 
+        }
+        private void RecurringTask()
+        { 
         }
     }
 }

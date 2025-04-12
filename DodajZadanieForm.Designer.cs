@@ -47,15 +47,24 @@
             this.numericUpDown_Minutes = new System.Windows.Forms.NumericUpDown();
             this.comboBox1_Priority = new System.Windows.Forms.ComboBox();
             this.comboBox_Time = new System.Windows.Forms.ComboBox();
+            this.checkBox_Pn = new System.Windows.Forms.CheckBox();
+            this.checkBox_Wt = new System.Windows.Forms.CheckBox();
+            this.checkBox_Sr = new System.Windows.Forms.CheckBox();
+            this.checkBox_Czw = new System.Windows.Forms.CheckBox();
+            this.checkBox_Pt = new System.Windows.Forms.CheckBox();
+            this.checkBox_Sob = new System.Windows.Forms.CheckBox();
+            this.checkBox_Ndz = new System.Windows.Forms.CheckBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CzasNaZadanie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Hour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Minutes)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Dodaj_Zadanie
             // 
             this.btn_Dodaj_Zadanie.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Dodaj_Zadanie.Location = new System.Drawing.Point(21, 265);
+            this.btn_Dodaj_Zadanie.Location = new System.Drawing.Point(22, 324);
             this.btn_Dodaj_Zadanie.Name = "btn_Dodaj_Zadanie";
             this.btn_Dodaj_Zadanie.Size = new System.Drawing.Size(238, 48);
             this.btn_Dodaj_Zadanie.TabIndex = 0;
@@ -146,7 +155,7 @@
             // 
             this.btn_Anuluj_Operacje.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Anuluj_Operacje.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Anuluj_Operacje.Location = new System.Drawing.Point(296, 265);
+            this.btn_Anuluj_Operacje.Location = new System.Drawing.Point(297, 324);
             this.btn_Anuluj_Operacje.Name = "btn_Anuluj_Operacje";
             this.btn_Anuluj_Operacje.Size = new System.Drawing.Size(238, 48);
             this.btn_Anuluj_Operacje.TabIndex = 12;
@@ -168,7 +177,7 @@
             this.monthCalendar1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.monthCalendar1.ForeColor = System.Drawing.Color.Red;
             this.monthCalendar1.Location = new System.Drawing.Point(297, 33);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(7);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 13;
             this.monthCalendar1.TitleBackColor = System.Drawing.Color.LawnGreen;
@@ -215,7 +224,7 @@
             this.comboBox1_Priority.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBox1_Priority.FormattingEnabled = true;
             this.comboBox1_Priority.Location = new System.Drawing.Point(22, 150);
-            this.comboBox1_Priority.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1_Priority.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1_Priority.Name = "comboBox1_Priority";
             this.comboBox1_Priority.Size = new System.Drawing.Size(92, 23);
             this.comboBox1_Priority.TabIndex = 19;
@@ -225,16 +234,115 @@
             this.comboBox_Time.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBox_Time.FormattingEnabled = true;
             this.comboBox_Time.Location = new System.Drawing.Point(118, 210);
-            this.comboBox_Time.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox_Time.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox_Time.Name = "comboBox_Time";
             this.comboBox_Time.Size = new System.Drawing.Size(92, 23);
             this.comboBox_Time.TabIndex = 20;
+            // 
+            // checkBox_Pn
+            // 
+            this.checkBox_Pn.AutoSize = true;
+            this.checkBox_Pn.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.checkBox_Pn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBox_Pn.Location = new System.Drawing.Point(3, 3);
+            this.checkBox_Pn.Name = "checkBox_Pn";
+            this.checkBox_Pn.Size = new System.Drawing.Size(27, 31);
+            this.checkBox_Pn.TabIndex = 21;
+            this.checkBox_Pn.Text = "Pn ";
+            this.checkBox_Pn.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Wt
+            // 
+            this.checkBox_Wt.AutoSize = true;
+            this.checkBox_Wt.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.checkBox_Wt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBox_Wt.Location = new System.Drawing.Point(36, 3);
+            this.checkBox_Wt.Name = "checkBox_Wt";
+            this.checkBox_Wt.Size = new System.Drawing.Size(28, 31);
+            this.checkBox_Wt.TabIndex = 22;
+            this.checkBox_Wt.Text = "Wt ";
+            this.checkBox_Wt.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Sr
+            // 
+            this.checkBox_Sr.AutoSize = true;
+            this.checkBox_Sr.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.checkBox_Sr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBox_Sr.Location = new System.Drawing.Point(70, 3);
+            this.checkBox_Sr.Name = "checkBox_Sr";
+            this.checkBox_Sr.Size = new System.Drawing.Size(24, 31);
+            this.checkBox_Sr.TabIndex = 23;
+            this.checkBox_Sr.Text = "Śr ";
+            this.checkBox_Sr.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Czw
+            // 
+            this.checkBox_Czw.AutoSize = true;
+            this.checkBox_Czw.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.checkBox_Czw.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBox_Czw.Location = new System.Drawing.Point(100, 3);
+            this.checkBox_Czw.Name = "checkBox_Czw";
+            this.checkBox_Czw.Size = new System.Drawing.Size(31, 31);
+            this.checkBox_Czw.TabIndex = 24;
+            this.checkBox_Czw.Text = "Czw";
+            this.checkBox_Czw.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Pt
+            // 
+            this.checkBox_Pt.AutoSize = true;
+            this.checkBox_Pt.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.checkBox_Pt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBox_Pt.Location = new System.Drawing.Point(137, 3);
+            this.checkBox_Pt.Name = "checkBox_Pt";
+            this.checkBox_Pt.Size = new System.Drawing.Size(24, 31);
+            this.checkBox_Pt.TabIndex = 25;
+            this.checkBox_Pt.Text = "Pt ";
+            this.checkBox_Pt.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Sob
+            // 
+            this.checkBox_Sob.AutoSize = true;
+            this.checkBox_Sob.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.checkBox_Sob.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBox_Sob.Location = new System.Drawing.Point(167, 3);
+            this.checkBox_Sob.Name = "checkBox_Sob";
+            this.checkBox_Sob.Size = new System.Drawing.Size(30, 31);
+            this.checkBox_Sob.TabIndex = 26;
+            this.checkBox_Sob.Text = "Sob";
+            this.checkBox_Sob.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Ndz
+            // 
+            this.checkBox_Ndz.AutoSize = true;
+            this.checkBox_Ndz.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.checkBox_Ndz.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.checkBox_Ndz.Location = new System.Drawing.Point(203, 3);
+            this.checkBox_Ndz.Name = "checkBox_Ndz";
+            this.checkBox_Ndz.Size = new System.Drawing.Size(30, 31);
+            this.checkBox_Ndz.TabIndex = 27;
+            this.checkBox_Ndz.Text = "Ndz";
+            this.checkBox_Ndz.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.checkBox_Pn);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox_Wt);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox_Sr);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox_Czw);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox_Pt);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox_Sob);
+            this.flowLayoutPanel1.Controls.Add(this.checkBox_Ndz);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(22, 251);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(238, 43);
+            this.flowLayoutPanel1.TabIndex = 29;
             // 
             // DodajZadanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 343);
+            this.ClientSize = new System.Drawing.Size(560, 384);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.comboBox_Time);
             this.Controls.Add(this.comboBox1_Priority);
             this.Controls.Add(this.label8);
@@ -257,6 +365,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CzasNaZadanie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Hour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Minutes)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +392,13 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_Minutes;
         private System.Windows.Forms.ComboBox comboBox1_Priority;
         private System.Windows.Forms.ComboBox comboBox_Time;
+        private System.Windows.Forms.CheckBox checkBox_Pn;
+        private System.Windows.Forms.CheckBox checkBox_Wt;
+        private System.Windows.Forms.CheckBox checkBox_Sr;
+        private System.Windows.Forms.CheckBox checkBox_Czw;
+        private System.Windows.Forms.CheckBox checkBox_Pt;
+        private System.Windows.Forms.CheckBox checkBox_Sob;
+        private System.Windows.Forms.CheckBox checkBox_Ndz;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

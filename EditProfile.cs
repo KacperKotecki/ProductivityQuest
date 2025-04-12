@@ -12,7 +12,7 @@ namespace Productivity_Quest_1._0
             InitializeComponent();
             this.currentPlayer = player;
             GenerateStreakGrid();
-            lb_Streak.Text = $"Streak: {player.CalculateStreak()} days in a row!";
+            lb_Streak.Text = $"Streak: {player.CalculateStreak()} dni z rzędu!";
         }
         public string NewPlayerName { get; set; }
         private void btn_Save_Changes_Click(object sender, EventArgs e)
@@ -25,7 +25,7 @@ namespace Productivity_Quest_1._0
             }
             else
             {
-                MessageBox.Show("Name cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nazwa nie może być pusta", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

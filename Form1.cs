@@ -70,12 +70,28 @@ namespace Productivity_Quest_1._0
         }
         private void RefreshStats()
         {
+            string streakmessage;
             lb_Name.Text = player.Name ?? "Gracz";
             lb_Poziom.Text = $"Poziom: {player.Level}";
             lb_XP.Text = $"XP: {player.Experience}/{player.ExperienceToLevelUp}";
             Progress_Level.Maximum = player.ExperienceToLevelUp;
             Progress_Level.Value = Math.Min(player.Experience, Progress_Level.Maximum);
-            lb_Streak.Text = $"Streak: {player.CalculateStreak()} dni z rzędu!";
+
+            if (player.CalculateStreak() >= 0)
+                streakmessage = $"Streak: {player.CalculateStreak()} dni z rzędu!";
+            else
+                streakmessage = "Przedłuż streak dzisiaj !!!";
+            
+            lb_Streak.Text = streakmessage;
+
+            
+
+
+
+            pictureBox_Streak.Image = player.ChangeImg(player.CalculateStreak());
+            
+            pictureBox_Streak.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox_Streak.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
 

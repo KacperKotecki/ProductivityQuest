@@ -48,7 +48,9 @@
             this.lb_SortedByPriority = new System.Windows.Forms.Label();
             this.lb_SortedByTime = new System.Windows.Forms.Label();
             this.lb_SortedByDefault = new System.Windows.Forms.Label();
+            this.pictureBox_Streak = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Streak)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +66,7 @@
             // monthCalendar_Form
             // 
             this.monthCalendar_Form.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.monthCalendar_Form.Location = new System.Drawing.Point(585, 169);
+            this.monthCalendar_Form.Location = new System.Drawing.Point(596, 327);
             this.monthCalendar_Form.Margin = new System.Windows.Forms.Padding(7);
             this.monthCalendar_Form.Name = "monthCalendar_Form";
             this.monthCalendar_Form.TabIndex = 3;
@@ -89,15 +91,15 @@
             this.checkedListBoxTasks.FormattingEnabled = true;
             this.checkedListBoxTasks.Location = new System.Drawing.Point(30, 197);
             this.checkedListBoxTasks.Name = "checkedListBoxTasks";
-            this.checkedListBoxTasks.Size = new System.Drawing.Size(533, 220);
+            this.checkedListBoxTasks.Size = new System.Drawing.Size(537, 292);
             this.checkedListBoxTasks.TabIndex = 6;
             // 
             // btn_AddTask
             // 
             this.btn_AddTask.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_AddTask.Location = new System.Drawing.Point(585, 342);
+            this.btn_AddTask.Location = new System.Drawing.Point(29, 495);
             this.btn_AddTask.Name = "btn_AddTask";
-            this.btn_AddTask.Size = new System.Drawing.Size(110, 34);
+            this.btn_AddTask.Size = new System.Drawing.Size(130, 34);
             this.btn_AddTask.TabIndex = 7;
             this.btn_AddTask.Text = "Dodaj";
             this.btn_AddTask.UseVisualStyleBackColor = true;
@@ -106,9 +108,9 @@
             // btn_TaskComplited
             // 
             this.btn_TaskComplited.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_TaskComplited.Location = new System.Drawing.Point(702, 342);
+            this.btn_TaskComplited.Location = new System.Drawing.Point(301, 495);
             this.btn_TaskComplited.Name = "btn_TaskComplited";
-            this.btn_TaskComplited.Size = new System.Drawing.Size(110, 34);
+            this.btn_TaskComplited.Size = new System.Drawing.Size(130, 34);
             this.btn_TaskComplited.TabIndex = 8;
             this.btn_TaskComplited.Text = "Wykonane";
             this.btn_TaskComplited.UseVisualStyleBackColor = true;
@@ -117,9 +119,9 @@
             // btn_RemoveTask
             // 
             this.btn_RemoveTask.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_RemoveTask.Location = new System.Drawing.Point(702, 383);
+            this.btn_RemoveTask.Location = new System.Drawing.Point(437, 495);
             this.btn_RemoveTask.Name = "btn_RemoveTask";
-            this.btn_RemoveTask.Size = new System.Drawing.Size(110, 34);
+            this.btn_RemoveTask.Size = new System.Drawing.Size(130, 34);
             this.btn_RemoveTask.TabIndex = 9;
             this.btn_RemoveTask.Text = "Usuń";
             this.btn_RemoveTask.UseVisualStyleBackColor = true;
@@ -176,9 +178,9 @@
             // btn_EditTask
             // 
             this.btn_EditTask.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_EditTask.Location = new System.Drawing.Point(585, 383);
+            this.btn_EditTask.Location = new System.Drawing.Point(165, 495);
             this.btn_EditTask.Name = "btn_EditTask";
-            this.btn_EditTask.Size = new System.Drawing.Size(110, 34);
+            this.btn_EditTask.Size = new System.Drawing.Size(130, 34);
             this.btn_EditTask.TabIndex = 20;
             this.btn_EditTask.Text = "Edytuj";
             this.btn_EditTask.UseVisualStyleBackColor = true;
@@ -188,7 +190,7 @@
             // 
             this.lb_Streak.AutoSize = true;
             this.lb_Streak.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lb_Streak.Location = new System.Drawing.Point(593, 77);
+            this.lb_Streak.Location = new System.Drawing.Point(620, 285);
             this.lb_Streak.Name = "lb_Streak";
             this.lb_Streak.Size = new System.Drawing.Size(193, 25);
             this.lb_Streak.TabIndex = 22;
@@ -205,7 +207,7 @@
             // btn_Edit_Player
             // 
             this.btn_Edit_Player.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Edit_Player.Location = new System.Drawing.Point(585, 123);
+            this.btn_Edit_Player.Location = new System.Drawing.Point(336, 17);
             this.btn_Edit_Player.Name = "btn_Edit_Player";
             this.btn_Edit_Player.Size = new System.Drawing.Size(227, 34);
             this.btn_Edit_Player.TabIndex = 24;
@@ -269,11 +271,22 @@
             this.lb_SortedByDefault.Text = "Default  |";
             this.lb_SortedByDefault.Click += new System.EventHandler(this.lb_SortedByDefault_Click);
             // 
+            // pictureBox_Streak
+            // 
+            this.pictureBox_Streak.Location = new System.Drawing.Point(586, 12);
+            this.pictureBox_Streak.MaximumSize = new System.Drawing.Size(252, 252);
+            this.pictureBox_Streak.MinimumSize = new System.Drawing.Size(252, 252);
+            this.pictureBox_Streak.Name = "pictureBox_Streak";
+            this.pictureBox_Streak.Size = new System.Drawing.Size(252, 252);
+            this.pictureBox_Streak.TabIndex = 29;
+            this.pictureBox_Streak.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 495);
+            this.ClientSize = new System.Drawing.Size(891, 549);
+            this.Controls.Add(this.pictureBox_Streak);
             this.Controls.Add(this.lb_SortedByDefault);
             this.Controls.Add(this.lb_SortedByTime);
             this.Controls.Add(this.lb_SortedByPriority);
@@ -297,6 +310,7 @@
             this.Name = "Form1";
             this.Text = "Productivity Quest";
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Streak)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,6 +338,7 @@
         private System.Windows.Forms.Label lb_SortedByCategory;
         private System.Windows.Forms.Label lb_SortedByTime;
         private System.Windows.Forms.Label lb_SortedByDefault;
+        private System.Windows.Forms.PictureBox pictureBox_Streak;
     }
 }
 

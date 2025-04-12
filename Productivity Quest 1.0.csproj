@@ -146,6 +146,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="data.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -179,6 +180,57 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_1.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funny_flower_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_flower_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_flower_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_flower_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_flower_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_flower_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_flower_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_flower_6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
