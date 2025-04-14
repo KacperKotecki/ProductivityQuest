@@ -127,6 +127,11 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Save-read.cs" />
     <Compile Include="Zadanie.cs" />
     <EmbeddedResource Include="DodajZadanieForm.resx">
@@ -140,14 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="data.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -231,6 +231,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sad_flower_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
