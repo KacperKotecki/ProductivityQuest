@@ -117,7 +117,7 @@
         private System.Windows.Forms.TextBox textBox_Edit_Name;
         private System.Windows.Forms.Button btn_Save_Changes;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel_Main;
+        public System.Windows.Forms.Panel panel_Main;
         private System.Windows.Forms.Label lb_Streak;
     }
 }
