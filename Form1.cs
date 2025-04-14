@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.Globalization;
 using System.Linq;
-using System.Reflection.Emit;
+
+using System.Runtime.InteropServices.ComTypes;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
@@ -26,47 +30,196 @@ namespace Productivity_Quest_1._0
         {
 
             InitializeComponent();
-
             manage.Tasks = saveRead.LoadFromFile<List<Zadanie>>("data.json") ?? new List<Zadanie>();
             player = saveRead.LoadFromFile<Player>("player.json") ?? new Player();
-            RefreshTaskList();
             RefreshStats();
+            GenerateWeekView();
 
         }
-        private void RefreshTaskList(DateTime? filterDate = null)
+        private void GenerateWeekView()
         {
-            checkedListBoxTasks.Items.Clear();
-            monthCalendar_Form.RemoveAllBoldedDates();
-            foreach (var task in manage.Tasks)
-            {
-                
-                if (task.Deadline != null)
-                { 
-                    monthCalendar_Form.AddBoldedDate(task.Deadline.Value.Date);
-                    
-                }
-                monthCalendar_Form.UpdateBoldedDates();
+            flowLayoutPanel_Calendar.Controls.Clear();///
+            flowLayoutPanel_Calendar.BackColor = Color.FromArgb(240, 240, 245);
+            List<DateTime> dnitygodnia = new List<DateTime>();
+            DateTime today = DateTime.UtcNow;
+            var culture = new CultureInfo("pl-PL");
+            int sunday = (int)today.DayOfWeek;
 
-                if (filterDate == null || filterDate.Value.Date == task.Deadline.Value.Date)
+            if (sunday == 0)
+            {
+                sunday = 7;
+                while ((int)DayOfWeek.Monday < sunday)
                 {
-                   
-                    checkedListBoxTasks.Items.Add(task);
+                    today = today.AddDays(-1);
+                    sunday--;
+
                 }
 
 
-
             }
-        }
-        private void RefreshTaskList(List<Zadanie> ListaZadan)
-        {
-
-            checkedListBoxTasks.Items.Clear();
-            
-            foreach (var task in ListaZadan)
+            else
             {
-                checkedListBoxTasks.Items.Add(task);
+                while (DayOfWeek.Monday < today.DayOfWeek)
+                {
+                    today = today.AddDays(-1);
 
+                }
             }
+
+            DateTime Monday = today;
+
+
+
+
+            int locationX = 100;
+            int locationY = 100;
+            int height = flowLayoutPanel_Calendar.Height;
+            int width = (flowLayoutPanel_Calendar.Width - 4 * 7) / 7;
+            string[] dayInWeek = { "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela" };
+
+
+
+
+            for (int i = 0; i < 7; i++)
+            {
+
+                Panel dayPanelForm = new Panel();
+
+                dayPanelForm.Controls.Clear();
+
+                dayPanelForm.Location = new Point(locationX, locationY);
+                dayPanelForm.Size = new Size(width, height);
+                dayPanelForm.BackColor = Color.FromArgb(220, 230, 240);
+                dayPanelForm.Padding = Padding.Empty;
+                dayPanelForm.Margin = new Padding(2, 0, 2, 0);
+                locationX += width;
+                flowLayoutPanel_Calendar.Controls.Add(dayPanelForm);
+
+                string formattedDate = Monday.ToString("dd MMMM", culture);
+                var labelday = CreateMyLabel(dayInWeek[i]);
+                var labeldate = CreateMyLabel(formattedDate);
+                foreach (var task in manage.Tasks)
+                {
+                    if (task.Deadline.Value.Date == Monday.Date)
+                    {
+                        var labeltask = CreateMyPanel(task);
+                        dayPanelForm.Controls.Add(labeltask);
+
+
+
+                    }
+                }
+                Monday = Monday.AddDays(1);
+
+
+
+                labelday.ForeColor = Color.FromArgb(30, 30, 40);
+                labeldate.ForeColor = Color.FromArgb(30, 30, 40);
+
+
+                dayPanelForm.Controls.Add(labeldate);
+                dayPanelForm.Controls.Add(labelday);
+
+                dayPanelForm.DoubleClick += DayPanel_DoubleClick;
+            }
+
+
+
+
+        }
+
+        private Label CreateMyLabel(string text, bool allowClick = false)
+        {
+            var label = new Label();
+            label.Text = text;
+            label.Font = new Font("Arial", 10, FontStyle.Bold);
+            label.ForeColor = Color.Black;
+            label.AutoSize = true;
+            label.Margin = new Padding(2);
+            label.Dock = DockStyle.Top;
+            
+
+            if (allowClick)
+                label.DoubleClick += MyPanel_DoubleClick;
+
+            return label;
+        }
+        private Panel CreateMyPanel(Zadanie Tasks)
+        {
+            var panelTask = new Panel();
+
+            if (Tasks.Deadline.Value.Hour == 0) panelTask.Location = new Point(0, 40);
+            else if (Tasks.Deadline.Value.Hour == 23) panelTask.Location = new Point(0, 860);
+            else panelTask.Location = new Point(0, 40 * Tasks.Deadline.Value.Hour);
+
+            if (Tasks.Priority == "Niski")
+            {
+
+                panelTask.BackColor = Color.FromArgb(80, 220, 120);
+                if (Tasks.IsCompleted)
+                    panelTask.BackColor = Color.FromArgb(120, 200, 120);
+            }
+            else if (Tasks.Priority == "Średni")
+            {
+
+                panelTask.BackColor = Color.FromArgb(255, 160, 0);
+                if (Tasks.IsCompleted)
+                    panelTask.BackColor = Color.FromArgb(255, 210, 100);
+            }
+            else if (Tasks.Priority == "Wysoki")
+            {
+
+                panelTask.BackColor = Color.FromArgb(255, 70, 70);
+                if (Tasks.IsCompleted)
+                    panelTask.BackColor = Color.FromArgb(255, 100, 100);
+            }
+
+            panelTask.Padding = new Padding(5, 5, 5, 5);
+            panelTask.Margin = new Padding(5, 50, 5, 50);
+
+            PictureBox doneIcon;
+            doneIcon = new PictureBox();
+
+            doneIcon.Size = new Size(12, 12);
+            doneIcon.SizeMode = PictureBoxSizeMode.Zoom;
+
+            doneIcon.BackColor = Color.Transparent;
+            doneIcon.Dock = DockStyle.Left;
+
+
+
+            if (Tasks.IsCompleted)
+            {
+                doneIcon.Image = Properties.Resources.check_circle_1;
+                panelTask.Controls.Add(doneIcon);
+            }
+            else
+            {
+                doneIcon.Image = Properties.Resources.check_circle_0;
+                panelTask.Controls.Add(doneIcon);
+            }
+            if (Tasks.DurationMinutes >= 0 && Tasks.DurationMinutes < 25)
+            {
+                panelTask.Size = new Size(140, 40);
+            }
+            else
+            {
+                panelTask.Size = new Size(140, Tasks.DurationMinutes);
+                panelTask.Controls.Add(CreateMyLabel(Tasks.Category, true));
+            }
+
+
+            panelTask.Tag = Tasks;
+
+
+            panelTask.Controls.Add(CreateMyLabel(Tasks.Deadline.Value.ToShortTimeString(), true));
+            
+            panelTask.Controls.Add(CreateMyLabel(Tasks.Title, true));
+
+            doneIcon.DoubleClick += MyPanel_DoubleClick;
+            panelTask.DoubleClick += MyPanel_DoubleClick;
+
+            return panelTask;
         }
         private void RefreshStats()
         {
@@ -81,134 +234,63 @@ namespace Productivity_Quest_1._0
                 streakmessage = $"Streak: {player.CalculateStreak()} dni z rzędu!";
             else
                 streakmessage = "Przedłuż streak dzisiaj !!!";
-            
+
             lb_Streak.Text = streakmessage;
 
-            
-
-
-
             pictureBox_Streak.Image = player.ChangeImg(player.CalculateStreak());
-            
+
             pictureBox_Streak.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox_Streak.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
 
-        private void btn_AddTask_Click(object sender, EventArgs e)
+        private void DayPanel_DoubleClick(object sender, EventArgs e)
         {
-            var editForm = new DodajZadanieForm();
-
+            var newTask = new Zadanie();
+            var editForm = new DodajZadanieForm(newTask, manage);
             var result = editForm.ShowDialog();
 
-            if (result == DialogResult.OK && editForm.NoweZadanie != null)
+            if (result == DialogResult.OK && editForm != null)
             {
 
-                manage.Tasks.Add(editForm.NoweZadanie);
-
-
+                manage.Tasks.Add(newTask);
                 saveRead.SaveToFile(manage.Tasks, "data.json");
 
-
-                RefreshTaskList();
+                CreateMyPanel(newTask);
+                GenerateWeekView();
             }
         }
 
-        private void btn_EditTask_Click(object sender, EventArgs e)
+
+        private void MyPanel_DoubleClick(object sender, EventArgs e)
         {
-
-            if (checkedListBoxTasks.SelectedIndex != -1 && checkedListBoxTasks.CheckedItems.Count == 1)
+            Control source = sender as Control;
+            while (source != null && !(source is Panel))
             {
-                var confirm = MessageBox.Show("Czy na pewno chcesz edytować te zadanie ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                var task = (Zadanie)checkedListBoxTasks.SelectedItem;
-                
-                if (confirm == DialogResult.Yes)
+                source = source.Parent;
+            }
+            Panel clickedPanel = source as Panel;
+
+            if (clickedPanel != null && clickedPanel?.Tag is Zadanie task)
+            {
+                var editForm = new DodajZadanieForm(task, manage);
+
+                bool zadanie_zrobione = task.IsCompleted; //false
+                editForm.Text = "Edycja zadania";
+                var result = editForm.ShowDialog();
+
+                // Jeśli zadanie zostało właśnie wykonane (zmiana z false na true)
+                if (task.IsCompleted && !zadanie_zrobione)
                 {
-                    var edycjaForm = new DodajZadanieForm(task);
-                    edycjaForm.Text = "Edycja zadania";
-
-                    var result = edycjaForm.ShowDialog();
-                    if (result == DialogResult.OK && edycjaForm.NoweZadanie != null)
-                    {
-
-                        task.Title = edycjaForm.NoweZadanie.Title;
-                        task.Category = edycjaForm.NoweZadanie.Category;
-                        task.Priority = edycjaForm.NoweZadanie.Priority;
-                        task.DurationMinutes = edycjaForm.NoweZadanie.DurationMinutes;
-                        task.Deadline = edycjaForm.NoweZadanie.Deadline;
-
-                        saveRead.SaveToFile(manage.Tasks, "data.json");
-                        RefreshTaskList();
-                    }
+                    manage.TaskCompleted(task, player);
+                    
                 }
+                saveRead.SaveToFile(manage.Tasks, "data.json");
+                saveRead.SaveToFile(player, "player.json");
+                RefreshStats();
+                GenerateWeekView();
             }
-            else if (checkedListBoxTasks.CheckedItems.Count > 1)
-            {
-                MessageBox.Show("Możesz wybrać tylko jedno zadanie", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                MessageBox.Show("Zaznacz zadanie które chcesz edytować", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
 
-        private void btn_RemoveTask_Click(object sender, EventArgs e)
-        {
-            if (checkedListBoxTasks.SelectedIndex != -1 && checkedListBoxTasks.CheckedItems.Count == 1)
-            {
-                var confirm = MessageBox.Show("Czy na pewno chcesz usunąć te zadanie ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirm == DialogResult.Yes)
-                {
-                    var taskToDelete = (Zadanie)checkedListBoxTasks.SelectedItem;
-                    manage.Tasks.Remove(taskToDelete);
-
-                    saveRead.SaveToFile(manage.Tasks, "data.json");
-                    RefreshTaskList();
-                }
-            }
-            else if (checkedListBoxTasks.CheckedItems.Count > 1)
-            {
-                MessageBox.Show("Możesz wybrać tylko jedno zadanie", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                MessageBox.Show("Zaznacz zadanie które chcesz usunąć", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btn_TaskComplited_Click(object sender, EventArgs e)
-        {
-            if (checkedListBoxTasks.SelectedIndex != -1 && checkedListBoxTasks.CheckedItems.Count == 1)
-            {
-                var confirm = MessageBox.Show("Czy na pewno wykonałeś to zadanie ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirm == DialogResult.Yes)
-                {
-                    var completedTask = (Zadanie)checkedListBoxTasks.SelectedItem;
-
-                    if (completedTask.IsCompleted == true)
-                    {
-                        MessageBox.Show("To zadanie jest już wykonane !", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-
-                    manage.TaskCompleted(completedTask, player);
-
-                    saveRead.SaveToFile(manage.Tasks, "data.json");
-                    saveRead.SaveToFile(player, "player.json");
-
-                    RefreshTaskList();
-                    RefreshStats();
-                }
-            }
-            else if (checkedListBoxTasks.CheckedItems.Count > 1)
-            {
-                MessageBox.Show("Możesz wybrać tylko jedno zadanie", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                MessageBox.Show("Zaznacz zadanie które wykonałęś", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
         private void btn_Edit_Player_Click(object sender, EventArgs e)
@@ -229,65 +311,13 @@ namespace Productivity_Quest_1._0
             }
 
         }
-        
+
         private void monthCalendar_Form_DateChanged(object sender, DateRangeEventArgs e)
         {
-            RefreshTaskList(monthCalendar_Form.SelectionStart.Date);
-        }
-
-        private void lb_SortedByCategory_Click(object sender, EventArgs e)
-        {
-            SortedBy(manage.Tasks, lb_SortedByCategory.Tag.ToString());
-
-
-        }
-
-        private void lb_SortedByPriority_Click(object sender, EventArgs e)
-        {
-            SortedBy(manage.Tasks, lb_SortedByPriority.Tag.ToString());
-        }
-
-        private void lb_SortedByTime_Click(object sender, EventArgs e)
-        {
-            SortedBy(manage.Tasks, lb_SortedByTime.Tag.ToString());
-        }
-        private void lb_SortedByDefault_Click(object sender, EventArgs e)
-        {
-            SortedBy(manage.Tasks, lb_SortedByDefault.Tag.ToString());
             
-        }
-        public void SortedBy(List<Zadanie> taskList, string sortOption)
-        {
-
-            
-            switch (sortOption)
-            {
-                case "Category":
-
-                    taskList = taskList.OrderBy(z => z.Category).ThenBy(z => z.IsCompleted).ToList();
-                    
-                    break;
-                case "Priority":
-                    taskList = taskList.OrderBy(z => z.IsCompleted).ThenBy(z => z.Priority).ToList();
-                    
-                    break;
-                case "Time":
-                    taskList = taskList.OrderBy(z => z.IsCompleted).ThenBy(z => z.Deadline).ToList();
-                    break;
-                case "Default":
-                    taskList = taskList.OrderBy(z => z.CreatedAt).ToList();
-                    
-                    break;
-                default: 
-                    break; 
-            }
-            
-                RefreshTaskList(taskList);
-
-            
-
         }
 
         
+
     }
 }

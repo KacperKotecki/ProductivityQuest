@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace Productivity_Quest_1._0
 {
 
-    internal class Manage
+    public class Manage
     {
         public List<Zadanie> Tasks = new List<Zadanie>();
 

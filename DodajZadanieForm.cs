@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Productivity_Quest_1._0;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +15,16 @@ namespace Productivity_Quest_1._0
 {
     public partial class DodajZadanieForm : Form
     {
-        // Zadanjie powtarzalne co jakiś czas 
-        //Dodać check boxy 
-        // 1 check box pon 7 check box niedziela 
-        // Użytkownik zaznaczy 1 , 3 7 checkbox 
-        //Zadanie powtarza się w poniedziałek środę i niedielę 
-        // można dać form w którym będzie można zmienić godzinę na każdy dzień
-        public Zadanie NoweZadanie { get; private set; }
+
+        private Zadanie EditingTask;
+        private Manage manage;
+        public Zadanie Task => EditingTask;
 
         public DodajZadanieForm()
         {
             InitializeComponent();
+            this.manage = manage;
+
             comboBox1_Priority.Items.Add("Niski");
             comboBox1_Priority.Items.Add("Średni");
             comboBox1_Priority.Items.Add("Wysoki");
@@ -31,12 +32,15 @@ namespace Productivity_Quest_1._0
             comboBox_Time.Items.Add("min");
             comboBox_Time.Items.Add("h");
             comboBox_Time.SelectedIndex = 0;
-
+            
 
         }
-        public DodajZadanieForm(Zadanie taskToEdit)
+        public DodajZadanieForm(Zadanie taskToEdit, Manage manage)
         {
             InitializeComponent();
+            EditingTask = taskToEdit;
+            this.manage = manage;
+
             comboBox1_Priority.Items.Add("Niski");
             comboBox1_Priority.Items.Add("Średni");
             comboBox1_Priority.Items.Add("Wysoki");
@@ -50,9 +54,18 @@ namespace Productivity_Quest_1._0
             textBox_Kategoria.Text = taskToEdit.Category;
             comboBox1_Priority.SelectedItem = taskToEdit.Priority;
             numericUpDown_CzasNaZadanie.Value = taskToEdit.DurationMinutes;
-            monthCalendar1.SetDate(taskToEdit.Deadline.Value.Date);
-            numericUpDown_Hour.Value = taskToEdit.Deadline.Value.Hour;
-            numericUpDown_Minutes.Value = taskToEdit.Deadline.Value.Minute;
+
+            if (taskToEdit.Deadline.HasValue)
+            {
+                monthCalendar1.SetDate(taskToEdit.Deadline.Value.Date);
+                numericUpDown_Hour.Value = taskToEdit.Deadline.Value.Hour;
+                numericUpDown_Minutes.Value = taskToEdit.Deadline.Value.Minute;
+            }
+            else
+            {
+                monthCalendar1.SetDate(DateTime.Today);
+            }
+
         }
 
         private void buttonZapisz_Click(object sender, EventArgs e)
@@ -73,16 +86,12 @@ namespace Productivity_Quest_1._0
 
             }
 
+            EditingTask.Title = textBox_Zadanie.Text;
+            EditingTask.Category = textBox_Kategoria.Text;
+            EditingTask.Priority = comboBox1_Priority.SelectedItem.ToString();
+            EditingTask.DurationMinutes = CalculateMinutes((int)numericUpDown_CzasNaZadanie.Value);
+            EditingTask.Deadline = selectedDateTime;
 
-            NoweZadanie = new Zadanie
-            {
-                Title = textBox_Zadanie.Text,
-                Category = textBox_Kategoria.Text,
-                Priority = comboBox1_Priority.SelectedItem.ToString(),
-                DurationMinutes = CalculateMinutes(((int)numericUpDown_CzasNaZadanie.Value)),
-                Deadline = selectedDateTime,
-                IsCompleted = false
-            };
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -95,21 +104,59 @@ namespace Productivity_Quest_1._0
         }
         private int CalculateMinutes(int duration)
         {
-            
+
             if (comboBox_Time.SelectedItem == "h")
             {
                 duration *= 60;
-            }
-            else
-            {
-                duration *= 1;
             }
             return duration;
 
 
         }
         private void RecurringTask()
-        { 
+        {
+        }
+
+        private void btn_TaskComplited_Click(object sender, EventArgs e)
+        {
+            if (EditingTask.IsCompleted)
+            {
+                MessageBox.Show("To zadanie jest już wykonane !", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                var confirm = MessageBox.Show("Czy na pewno wykonałeś to zadanie ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    EditingTask.IsCompleted = true;
+                }
+            }
+
+
+        }
+
+        private void btn_RemoveTask_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("Czy napewno chcesz usunąć to zadanie !", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (!EditingTask.IsCompleted)
+            {
+                confirm = MessageBox.Show("Zadanie nie jest wykonane czy na pewno ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            }
+            
+            if(confirm == DialogResult.Yes)
+            {
+                manage.Tasks.Remove(EditingTask); 
+
+                this.DialogResult = DialogResult.OK; 
+                this.Close();
+            }
+
+            
+
         }
     }
 }
+

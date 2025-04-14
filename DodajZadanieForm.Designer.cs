@@ -55,6 +55,8 @@
             this.checkBox_Sob = new System.Windows.Forms.CheckBox();
             this.checkBox_Ndz = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_TaskComplited = new System.Windows.Forms.Button();
+            this.btn_RemoveTask = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CzasNaZadanie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Hour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Minutes)).BeginInit();
@@ -68,7 +70,7 @@
             this.btn_Dodaj_Zadanie.Name = "btn_Dodaj_Zadanie";
             this.btn_Dodaj_Zadanie.Size = new System.Drawing.Size(238, 48);
             this.btn_Dodaj_Zadanie.TabIndex = 0;
-            this.btn_Dodaj_Zadanie.Text = "Dodaj Zadanie";
+            this.btn_Dodaj_Zadanie.Text = "Zapisz zmiany";
             this.btn_Dodaj_Zadanie.UseVisualStyleBackColor = true;
             this.btn_Dodaj_Zadanie.Click += new System.EventHandler(this.buttonZapisz_Click);
             // 
@@ -337,11 +339,35 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(238, 43);
             this.flowLayoutPanel1.TabIndex = 29;
             // 
+            // btn_TaskComplited
+            // 
+            this.btn_TaskComplited.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_TaskComplited.Location = new System.Drawing.Point(297, 270);
+            this.btn_TaskComplited.Name = "btn_TaskComplited";
+            this.btn_TaskComplited.Size = new System.Drawing.Size(116, 48);
+            this.btn_TaskComplited.TabIndex = 30;
+            this.btn_TaskComplited.Text = "Wykonane";
+            this.btn_TaskComplited.UseVisualStyleBackColor = true;
+            this.btn_TaskComplited.Click += new System.EventHandler(this.btn_TaskComplited_Click);
+            // 
+            // btn_RemoveTask
+            // 
+            this.btn_RemoveTask.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_RemoveTask.Location = new System.Drawing.Point(419, 270);
+            this.btn_RemoveTask.Name = "btn_RemoveTask";
+            this.btn_RemoveTask.Size = new System.Drawing.Size(116, 48);
+            this.btn_RemoveTask.TabIndex = 31;
+            this.btn_RemoveTask.Text = "Usuń Zadanie";
+            this.btn_RemoveTask.UseVisualStyleBackColor = true;
+            this.btn_RemoveTask.Click += new System.EventHandler(this.btn_RemoveTask_Click);
+            // 
             // DodajZadanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 384);
+            this.Controls.Add(this.btn_RemoveTask);
+            this.Controls.Add(this.btn_TaskComplited);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.comboBox_Time);
             this.Controls.Add(this.comboBox1_Priority);
@@ -400,5 +426,7 @@
         private System.Windows.Forms.CheckBox checkBox_Sob;
         private System.Windows.Forms.CheckBox checkBox_Ndz;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btn_TaskComplited;
+        private System.Windows.Forms.Button btn_RemoveTask;
     }
 }
