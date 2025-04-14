@@ -105,6 +105,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarControls.cs" />
     <Compile Include="DodajZadanieForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +134,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Save-read.cs" />
+    <Compile Include="StatsControls.cs" />
+    <Compile Include="StatsRefresher.cs" />
+    <Compile Include="StreakGridRenderer.cs" />
+    <Compile Include="TaskPanelBuilder.cs" />
+    <Compile Include="WeekViewRenderer.cs" />
     <Compile Include="Zadanie.cs" />
     <EmbeddedResource Include="DodajZadanieForm.resx">
       <DependentUpon>DodajZadanieForm.cs</DependentUpon>
