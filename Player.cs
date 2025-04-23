@@ -32,7 +32,7 @@ namespace Productivity_Quest_1._0
                 Experience -= ExperienceToLevelUp;
                 Level++;
                 ExperienceToLevelUp += 50;
-               
+                
                 
             }
         }

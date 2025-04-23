@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 namespace Productivity_Quest_1._0
 {
     public class JsonStorageService
@@ -12,21 +14,24 @@ namespace Productivity_Quest_1._0
         public void SaveToFile<T>(T data, string fileName)
         {
             string json = JsonSerializer.Serialize(data);
-            File.WriteAllText(fileName, json);
+            File.WriteAllText(GetPath(fileName), json);
         }
 
         public T LoadFromFile<T>(string fileName)
         {
-            if (File.Exists(fileName))
+            string fullPath = GetPath(fileName);
+
+            if (File.Exists(fullPath))
             {
-                string json = File.ReadAllText(fileName);
-                T result = JsonSerializer.Deserialize<T>(json);
-                return result;
+                string json = File.ReadAllText(fullPath);
+                return JsonSerializer.Deserialize<T>(json);
             }
-            else
-            {
-                return default;
-            }
+
+            return default;
+        }
+        private string GetPath(string fileName)
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,14 +33,14 @@ namespace Productivity_Quest_1._0
         }
 
 
-        public void GenerateWeekView()
+        public void GenerateWeekView(DateTime startDate)
         {
 
             calendarControls.FlowLayoutPanel.Controls.Clear();
             calendarControls.FlowLayoutPanel.BackColor = Color.FromArgb(240, 240, 245);
-            
+
             List<DateTime> dnitygodnia = new List<DateTime>();
-            DateTime today = DateTime.UtcNow;
+            DateTime today = startDate;
             var culture = new CultureInfo("pl-PL");
             int sunday = (int)today.DayOfWeek;
 
@@ -94,13 +95,15 @@ namespace Productivity_Quest_1._0
                 calendarControls.FlowLayoutPanel.Controls.Add(dayPanelForm);
 
                 string formattedDate = Monday.ToString("dd MMMM", culture);
-                var labelday = taskPanelBuilder.CreateMyLabel(dayInWeek[i]);
-                var labeldate = taskPanelBuilder.CreateMyLabel(formattedDate);
+                //var labelday = taskPanelBuilder.CreateUniversalLabel(dayInWeek[i], 18, true, 10, false);
+                var labelday = taskPanelBuilder.CreateUniversalLabel(dayInWeek[i],10,new Size(50,18), FontStyle.Bold, false, false);
+                //var labeldate = taskPanelBuilder.CreateUniversalLabel(formattedDate, 18, true, 9, false);
+                var labeldate = taskPanelBuilder.CreateUniversalLabel(formattedDate, 10, new Size(50,18), FontStyle.Bold, false, false);
                 foreach (var task in manage.Tasks)
                 {
                     if (task.Deadline.Value.Date == Monday.Date)
                     {
-                        var labeltask = taskPanelBuilder.CreateMyPanel(task);
+                        var labeltask = taskPanelBuilder.CreateMyPanel(task, width, height);
                         dayPanelForm.Controls.Add(labeltask);
 
 
@@ -125,5 +128,7 @@ namespace Productivity_Quest_1._0
 
 
         }
+
+
     }
 }

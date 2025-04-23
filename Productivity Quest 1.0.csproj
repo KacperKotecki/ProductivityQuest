@@ -105,6 +105,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AchievementManager.cs" />
+    <Compile Include="Achievements.cs" />
     <Compile Include="CalendarControls.cs" />
     <Compile Include="DodajZadanieForm.cs">
       <SubType>Form</SubType>
@@ -255,6 +257,81 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check-circle_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-circle_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sad_ghost_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_ghost_9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

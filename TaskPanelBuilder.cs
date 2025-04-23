@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Productivity_Quest_1._0
 {
-    internal class TaskPanelBuilder
+    public class TaskPanelBuilder
     {
         private Form1 form1;
         public TaskPanelBuilder(Form1 form1)
@@ -17,98 +18,211 @@ namespace Productivity_Quest_1._0
             this.form1 = form1;
         }
 
-        public Panel CreateMyPanel(Zadanie Tasks)
+        public Panel CreateMyPanel(Zadanie Tasks, int width, int height)
         {
-            var panelTask = new Panel();
+            int timeInMinutes = Tasks.Deadline.Value.Hour * 60 + Tasks.Deadline.Value.Minute + 60; // 0 do 1440    1,435
+            double y = (timeInMinutes / 1500d) * height;// skalowanie timeline może przyjąć wartości do 1440 a panel tylko 960 
 
-            if (Tasks.Deadline.Value.Hour == 0) panelTask.Location = new Point(0, 40);
-            else if (Tasks.Deadline.Value.Hour == 23) panelTask.Location = new Point(0, 860);
-            else panelTask.Location = new Point(0, 40 * Tasks.Deadline.Value.Hour);
+            var panelTask = CreatePanel(new Size(width, Tasks.DurationMinutes), Color.FromArgb(80, 220, 120), new Point(0, (int)y));
 
+            if (timeInMinutes > 1435)
+            {
+                panelTask.Location = new Point(0, 918);
+            }
+
+
+            // Colors
             if (Tasks.Priority == "Niski")
             {
-
-                panelTask.BackColor = Color.FromArgb(80, 220, 120);
+                panelTask.BackColor = Color.FromArgb(144, 238, 144);
                 if (Tasks.IsCompleted)
-                    panelTask.BackColor = Color.FromArgb(120, 200, 120);
+                    panelTask.BackColor = Color.FromArgb(80, 220, 120); 
             }
             else if (Tasks.Priority == "Średni")
             {
-
-                panelTask.BackColor = Color.FromArgb(255, 160, 0);
+                panelTask.BackColor = Color.FromArgb(255, 213, 100); 
                 if (Tasks.IsCompleted)
-                    panelTask.BackColor = Color.FromArgb(255, 210, 100);
+                    panelTask.BackColor = Color.FromArgb(255, 160, 0); 
             }
             else if (Tasks.Priority == "Wysoki")
             {
-
-                panelTask.BackColor = Color.FromArgb(255, 70, 70);
+                panelTask.BackColor = Color.FromArgb(239, 97, 93); 
                 if (Tasks.IsCompleted)
-                    panelTask.BackColor = Color.FromArgb(255, 100, 100);
+                    panelTask.BackColor = Color.FromArgb(210, 45, 40); 
             }
 
             panelTask.Padding = new Padding(5, 5, 5, 5);
-            panelTask.Margin = new Padding(5, 50, 5, 50);
 
-            PictureBox doneIcon;
-            doneIcon = new PictureBox();
-
-            doneIcon.Size = new Size(12, 12);
-            doneIcon.SizeMode = PictureBoxSizeMode.Zoom;
-
+            //Icons
+            var image = Properties.Resources.check_circle_0;
+            var doneIcon = CreateIconPictureBox(image, new Size(14, 14), new Point(49, 42));
             doneIcon.BackColor = Color.Transparent;
-            doneIcon.Dock = DockStyle.Left;
-
-
-
+            
+            // Task completed icons
             if (Tasks.IsCompleted)
             {
-                doneIcon.Image = Properties.Resources.check_circle_1;
-                panelTask.Controls.Add(doneIcon);
+                doneIcon.Image = Properties.Resources.check_circle_8;
             }
             else
             {
                 doneIcon.Image = Properties.Resources.check_circle_0;
-                panelTask.Controls.Add(doneIcon);
             }
-            if (Tasks.DurationMinutes >= 0 && Tasks.DurationMinutes < 25)
+
+
+
+
+
+            // Height Panel task
+            if (Tasks.DurationMinutes >= 0 && Tasks.DurationMinutes < 65)
             {
-                panelTask.Size = new Size(140, 40);
+                panelTask.Size = new Size(width, 65);
+            }
+            else if (Tasks.DurationMinutes >= 65 && Tasks.DurationMinutes < 80)
+            {
+                panelTask.Size = new Size(width, Tasks.DurationMinutes);
             }
             else
             {
-                panelTask.Size = new Size(140, Tasks.DurationMinutes);
-                panelTask.Controls.Add(CreateMyLabel(Tasks.Category, true));
+                panelTask.Size = new Size(width, Tasks.DurationMinutes);
+               
+                panelTask.Controls.Add(CreateUniversalLabel(Tasks.Category, 10, new Size(50, 18), FontStyle.Regular, true, false));
+
             }
 
 
             panelTask.Tag = Tasks;
 
+            // Controls ADD 
+            panelTask.Controls.Add(doneIcon);
+            panelTask.Controls.Add(CreateUniversalLabel(Tasks.Deadline.Value.ToShortTimeString(), 10, new Size(50, 18), FontStyle.Regular, true, true));
+            panelTask.Controls.Add(CreateUniversalLabel(Tasks.Title, 10, new Size(50, 36), FontStyle.Bold, true, false));
 
-            panelTask.Controls.Add(CreateMyLabel(Tasks.Deadline.Value.ToShortTimeString(), true));
 
-            panelTask.Controls.Add(CreateMyLabel(Tasks.Title, true));
 
             doneIcon.DoubleClick += form1.MyPanel_DoubleClick;
             panelTask.DoubleClick += form1.MyPanel_DoubleClick;
-            
+
+            panelTask.MouseDown += form1.Panel_MouseDown;
+            panelTask.MouseMove += form1.Panel_MouseMove;
+            panelTask.MouseUp += form1.Panel_MouseUp;
+
+
             return panelTask;
         }
-        public Label CreateMyLabel(string text, bool allowClick = false)
+        public Label CreateUniversalLabel(string text, int fontSize, Size size, FontStyle fontStyle, bool allowClick = false, bool time = false)
         {
-            var label = new Label();
-            label.Text = text;
-            label.Font = new Font("Arial", 10, FontStyle.Bold);
-            label.ForeColor = Color.Black;
-            label.AutoSize = true;
-            label.Margin = new Padding(2);
-            label.Dock = DockStyle.Top;
-
+            var label = new Label
+            {
+                Text = text,
+                Font = new Font("Arial", fontSize, fontStyle),
+                ForeColor = Color.Black,
+                AutoSize = false,
+                Size = size, // 50,18
+                Margin = new Padding(2),
+                Dock = DockStyle.Top
+            };
 
             if (allowClick)
+            {
                 label.DoubleClick += form1.MyPanel_DoubleClick;
-            
+            }
+            if (time)
+            {
+                label.Tag = "Time";
+            }
+
+
             return label;
+        }
+
+
+        public Label CreateLabel(string text, int fontSize, Size size, FontStyle fontStyle, DockStyle dock = DockStyle.None)
+        {
+            var label = new Label
+            {
+                Text = text,
+                Font = new Font("Arial", fontSize, fontStyle),
+                ForeColor = Color.Black,
+                AutoSize = false,
+                Size = size,
+                Margin = new Padding(2),
+                Dock = dock
+            };
+
+
+
+
+            return label;
+        }
+        public Label CreateLabel(string text, int fontSize, Size size, FontStyle fontStyle, Point location)
+        {
+            var label = new Label
+            {
+                Text = text,
+                Font = new Font("Arial", fontSize, fontStyle),
+                ForeColor = Color.Black,
+                AutoSize = false,
+                Size = size,
+                Margin = new Padding(2),
+                Location = location
+            };
+
+
+
+
+            return label;
+        }
+
+        public Panel CreatePanel(Size size, Color backColor, Point location)
+        {
+            var panel = new Panel
+            {
+                Size = size,
+                BackColor = backColor,
+                Location = location
+            };
+            return panel;
+        }
+        public Panel CreatePanel(Size size, Color backColor, DockStyle dock)
+        {
+            var panel = new Panel
+            {
+                Size = size,
+                BackColor = backColor,
+                Dock = dock
+            };
+            return panel;
+        }
+
+        public PictureBox CreateIconPictureBox(string iconPath, Size size, Point location)
+        {
+            var icon = new PictureBox
+            {
+                Size = size,
+                Location = location,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BorderStyle = BorderStyle.None,
+                BackColor = Color.Transparent,
+                Image = File.Exists(iconPath) ? Image.FromFile(iconPath) : Image.FromFile("Achievements_Icons/Level_3.png")
+
+            };
+
+            return icon;
+        }
+        public PictureBox CreateIconPictureBox(Image image, Size size, Point location)
+        {
+            var icon = new PictureBox
+            {
+                Size = size,
+                Location = location,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BorderStyle = BorderStyle.None,
+                BackColor = Color.Transparent,
+                Image = image
+
+            };
+
+            return icon;
         }
     }
 }

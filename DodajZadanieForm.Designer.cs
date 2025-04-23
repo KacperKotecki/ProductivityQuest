@@ -32,7 +32,6 @@
             this.btn_Dodaj_Zadanie = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_Zadanie = new System.Windows.Forms.TextBox();
-            this.textBox_Kategoria = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_TaskComplited = new System.Windows.Forms.Button();
             this.btn_RemoveTask = new System.Windows.Forms.Button();
+            this.comboBox_Category = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CzasNaZadanie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Hour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Minutes)).BeginInit();
@@ -91,14 +91,6 @@
             this.textBox_Zadanie.Name = "textBox_Zadanie";
             this.textBox_Zadanie.Size = new System.Drawing.Size(238, 27);
             this.textBox_Zadanie.TabIndex = 2;
-            // 
-            // textBox_Kategoria
-            // 
-            this.textBox_Kategoria.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Kategoria.Location = new System.Drawing.Point(22, 91);
-            this.textBox_Kategoria.Name = "textBox_Kategoria";
-            this.textBox_Kategoria.Size = new System.Drawing.Size(238, 27);
-            this.textBox_Kategoria.TabIndex = 4;
             // 
             // label2
             // 
@@ -361,11 +353,22 @@
             this.btn_RemoveTask.UseVisualStyleBackColor = true;
             this.btn_RemoveTask.Click += new System.EventHandler(this.btn_RemoveTask_Click);
             // 
+            // comboBox_Category
+            // 
+            this.comboBox_Category.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_Category.FormattingEnabled = true;
+            this.comboBox_Category.Location = new System.Drawing.Point(22, 89);
+            this.comboBox_Category.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox_Category.Name = "comboBox_Category";
+            this.comboBox_Category.Size = new System.Drawing.Size(238, 23);
+            this.comboBox_Category.TabIndex = 32;
+            // 
             // DodajZadanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 384);
+            this.Controls.Add(this.comboBox_Category);
             this.Controls.Add(this.btn_RemoveTask);
             this.Controls.Add(this.btn_TaskComplited);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -381,7 +384,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.numericUpDown_CzasNaZadanie);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox_Kategoria);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox_Zadanie);
             this.Controls.Add(this.label1);
@@ -403,7 +405,6 @@
         private System.Windows.Forms.Button btn_Dodaj_Zadanie;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_Zadanie;
-        private System.Windows.Forms.TextBox textBox_Kategoria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -428,5 +429,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btn_TaskComplited;
         private System.Windows.Forms.Button btn_RemoveTask;
+        private System.Windows.Forms.ComboBox comboBox_Category;
     }
 }

@@ -73,9 +73,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_1 {
+        internal static System.Drawing.Bitmap check_circle_7 {
             get {
-                object obj = ResourceManager.GetObject("check_circle_1", resourceCulture);
+                object obj = ResourceManager.GetObject("check_circle_7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_2 {
+        internal static System.Drawing.Bitmap check_circle_8 {
             get {
-                object obj = ResourceManager.GetObject("check_circle_2", resourceCulture);
+                object obj = ResourceManager.GetObject("check_circle_8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_3 {
+        internal static System.Drawing.Bitmap happy_ghost_0 {
             get {
-                object obj = ResourceManager.GetObject("check_circle_3", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_4 {
+        internal static System.Drawing.Bitmap happy_ghost_1 {
             get {
-                object obj = ResourceManager.GetObject("check_circle_4", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funny_flower_0 {
+        internal static System.Drawing.Bitmap happy_ghost_2 {
             get {
-                object obj = ResourceManager.GetObject("funny_flower_0", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funny_flower_1 {
+        internal static System.Drawing.Bitmap happy_ghost_3 {
             get {
-                object obj = ResourceManager.GetObject("funny_flower_1", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funny_flower_2 {
+        internal static System.Drawing.Bitmap happy_ghost_4 {
             get {
-                object obj = ResourceManager.GetObject("funny_flower_2", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funny_flower_3 {
+        internal static System.Drawing.Bitmap happy_ghost_5 {
             get {
-                object obj = ResourceManager.GetObject("funny_flower_3", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funny_flower_4 {
+        internal static System.Drawing.Bitmap happy_ghost_6 {
             get {
-                object obj = ResourceManager.GetObject("funny_flower_4", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funny_flower_5 {
+        internal static System.Drawing.Bitmap happy_ghost_7 {
             get {
-                object obj = ResourceManager.GetObject("funny_flower_5", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funny_flower_6 {
+        internal static System.Drawing.Bitmap happy_ghost_8 {
             get {
-                object obj = ResourceManager.GetObject("funny_flower_6", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap funny_flower_7 {
+        internal static System.Drawing.Bitmap happy_ghost_9 {
             get {
-                object obj = ResourceManager.GetObject("funny_flower_7", resourceCulture);
+                object obj = ResourceManager.GetObject("happy_ghost_9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sad_flower_0 {
+        internal static System.Drawing.Bitmap sad_ghost_0 {
             get {
-                object obj = ResourceManager.GetObject("sad_flower_0", resourceCulture);
+                object obj = ResourceManager.GetObject("sad_ghost_0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sad_flower_1 {
+        internal static System.Drawing.Bitmap sad_ghost_1 {
             get {
-                object obj = ResourceManager.GetObject("sad_flower_1", resourceCulture);
+                object obj = ResourceManager.GetObject("sad_ghost_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sad_flower_2 {
+        internal static System.Drawing.Bitmap sad_ghost_10 {
             get {
-                object obj = ResourceManager.GetObject("sad_flower_2", resourceCulture);
+                object obj = ResourceManager.GetObject("sad_ghost_10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sad_flower_3 {
+        internal static System.Drawing.Bitmap sad_ghost_2 {
             get {
-                object obj = ResourceManager.GetObject("sad_flower_3", resourceCulture);
+                object obj = ResourceManager.GetObject("sad_ghost_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sad_flower_4 {
+        internal static System.Drawing.Bitmap sad_ghost_3 {
             get {
-                object obj = ResourceManager.GetObject("sad_flower_4", resourceCulture);
+                object obj = ResourceManager.GetObject("sad_ghost_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sad_flower_5 {
+        internal static System.Drawing.Bitmap sad_ghost_4 {
             get {
-                object obj = ResourceManager.GetObject("sad_flower_5", resourceCulture);
+                object obj = ResourceManager.GetObject("sad_ghost_4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,49 @@ namespace Productivity_Quest_1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sad_flower_6 {
+        internal static System.Drawing.Bitmap sad_ghost_5 {
             get {
-                object obj = ResourceManager.GetObject("sad_flower_6", resourceCulture);
+                object obj = ResourceManager.GetObject("sad_ghost_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sad_ghost_6 {
+            get {
+                object obj = ResourceManager.GetObject("sad_ghost_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sad_ghost_7 {
+            get {
+                object obj = ResourceManager.GetObject("sad_ghost_7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sad_ghost_8 {
+            get {
+                object obj = ResourceManager.GetObject("sad_ghost_8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sad_ghost_9 {
+            get {
+                object obj = ResourceManager.GetObject("sad_ghost_9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

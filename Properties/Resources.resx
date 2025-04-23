@@ -121,61 +121,73 @@
   <data name="check_circle_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check-circle_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check_circle_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-circle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="check_circle_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\check-circle_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check_circle_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-circle_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="check_circle_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\check-circle_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check_circle_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-circle_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check_circle_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-circle_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="funny_flower_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\funny_flower_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="funny_flower_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\funny_flower_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="funny_flower_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\funny_flower_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="funny_flower_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\funny_flower_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="funny_flower_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\funny_flower_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="funny_flower_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\funny_flower_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="funny_flower_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\funny_flower_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="funny_flower_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\funny_flower_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happy_ghost_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_ghost_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sad_flower_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sad_flower_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sad_ghost_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sad_flower_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sad_flower_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sad_ghost_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sad_flower_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sad_flower_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sad_ghost_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sad_flower_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sad_flower_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sad_ghost_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sad_flower_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sad_flower_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sad_ghost_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sad_flower_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sad_flower_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sad_ghost_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sad_flower_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sad_flower_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sad_ghost_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sad_ghost_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sad_ghost_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sad_ghost_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sad_ghost_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sad_ghost_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

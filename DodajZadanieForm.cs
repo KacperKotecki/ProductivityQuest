@@ -25,14 +25,36 @@ namespace Productivity_Quest_1._0
             InitializeComponent();
             this.manage = manage;
 
-            comboBox1_Priority.Items.Add("Niski");
-            comboBox1_Priority.Items.Add("Średni");
-            comboBox1_Priority.Items.Add("Wysoki");
+            comboBox1_Priority.Items.AddRange(new string[]
+            {
+                "Niski",
+                "Średni",
+                "Wysoki"
+            });
             comboBox1_Priority.SelectedIndex = 0;
-            comboBox_Time.Items.Add("min");
-            comboBox_Time.Items.Add("h");
+
+            comboBox_Time.Items.AddRange(new string[]
+            {
+                "min",
+                "h"
+            });
             comboBox_Time.SelectedIndex = 0;
-            
+
+            comboBox_Category.Items.AddRange(new string[]
+            {
+                "Nauka",
+                "Praca",
+                "Dom",
+                "Zdrowie",
+                "Rozwój osobisty",
+                "Relacje",
+                "Hobby",
+                "Samopoczucie",
+                "Organizacja",
+                "Inne"
+            });
+            comboBox_Category.SelectedIndex = 0;
+            monthCalendar1.SetDate(DateTime.Now);
 
         }
         public DodajZadanieForm(Zadanie taskToEdit, Manage manage)
@@ -41,17 +63,38 @@ namespace Productivity_Quest_1._0
             EditingTask = taskToEdit;
             this.manage = manage;
 
-            comboBox1_Priority.Items.Add("Niski");
-            comboBox1_Priority.Items.Add("Średni");
-            comboBox1_Priority.Items.Add("Wysoki");
+            comboBox1_Priority.Items.AddRange(new string[]
+            {
+                "Niski",
+                "Średni",
+                "Wysoki"
+            });
             comboBox1_Priority.SelectedIndex = 0;
-            comboBox_Time.Items.Add("min");
-            comboBox_Time.Items.Add("h");
+
+            comboBox_Time.Items.AddRange(new string[]
+            {
+                "min",
+                "h"
+            });
             comboBox_Time.SelectedIndex = 0;
 
+            comboBox_Category.Items.AddRange(new string[]
+            {
+                "Nauka",
+                "Praca",
+                "Dom",
+                "Zdrowie",
+                "Rozwój osobisty",
+                "Relacje",
+                "Hobby",
+                "Samopoczucie",
+                "Organizacja",
+                "Inne"
+            });
+            comboBox_Category.SelectedIndex = 0;
 
             textBox_Zadanie.Text = taskToEdit.Title;
-            textBox_Kategoria.Text = taskToEdit.Category;
+            comboBox_Category.SelectedItem = taskToEdit.Category;
             comboBox1_Priority.SelectedItem = taskToEdit.Priority;
             numericUpDown_CzasNaZadanie.Value = taskToEdit.DurationMinutes;
 
@@ -71,7 +114,7 @@ namespace Productivity_Quest_1._0
         private void buttonZapisz_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(textBox_Zadanie.Text) || string.IsNullOrWhiteSpace(textBox_Kategoria.Text))
+            if (string.IsNullOrWhiteSpace(textBox_Zadanie.Text) )
             {
                 MessageBox.Show("Uzupełnij wszystkie pola!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -87,11 +130,11 @@ namespace Productivity_Quest_1._0
             }
 
             EditingTask.Title = textBox_Zadanie.Text;
-            EditingTask.Category = textBox_Kategoria.Text;
+            EditingTask.Category = comboBox_Category.SelectedItem.ToString();
             EditingTask.Priority = comboBox1_Priority.SelectedItem.ToString();
             EditingTask.DurationMinutes = CalculateMinutes((int)numericUpDown_CzasNaZadanie.Value);
             EditingTask.Deadline = selectedDateTime;
-
+            
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -132,31 +175,33 @@ namespace Productivity_Quest_1._0
                     EditingTask.IsCompleted = true;
                 }
             }
-
+            // wywołanie funkcji zliczającej ile zadańz jakiejś kategorii 
 
         }
 
         private void btn_RemoveTask_Click(object sender, EventArgs e)
         {
             var confirm = MessageBox.Show("Czy napewno chcesz usunąć to zadanie !", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            
+
             if (!EditingTask.IsCompleted)
             {
                 confirm = MessageBox.Show("Zadanie nie jest wykonane czy na pewno ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             }
-            
-            if(confirm == DialogResult.Yes)
-            {
-                manage.Tasks.Remove(EditingTask); 
 
-                this.DialogResult = DialogResult.OK; 
+            if (confirm == DialogResult.Yes)
+            {
+                manage.Tasks.Remove(EditingTask);
+
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
 
-            
+
 
         }
+
+
     }
 }
 

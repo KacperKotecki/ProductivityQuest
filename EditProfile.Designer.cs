@@ -34,6 +34,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel_Main = new System.Windows.Forms.Panel();
             this.lb_Streak = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.flowLayout_Achievments = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +83,7 @@
             this.panel_Main.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel_Main.Location = new System.Drawing.Point(27, 112);
             this.panel_Main.Name = "panel_Main";
-            this.panel_Main.Size = new System.Drawing.Size(875, 525);
+            this.panel_Main.Size = new System.Drawing.Size(1151, 650);
             this.panel_Main.TabIndex = 4;
             // 
             // lb_Streak
@@ -93,11 +96,39 @@
             this.lb_Streak.TabIndex = 23;
             this.lb_Streak.Text = "Zacznij nowy streak!";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(1188, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(124, 25);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Achievments";
+            // 
+            // flowLayout_Achievments
+            // 
+            this.flowLayout_Achievments.Location = new System.Drawing.Point(1193, 127);
+            this.flowLayout_Achievments.Name = "flowLayout_Achievments";
+            this.flowLayout_Achievments.Size = new System.Drawing.Size(618, 621);
+            this.flowLayout_Achievments.TabIndex = 25;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(1193, 112);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(600, 650);
+            this.panel1.TabIndex = 0;
+            // 
             // EditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 658);
+            this.ClientSize = new System.Drawing.Size(1884, 961);
+            this.Controls.Add(this.flowLayout_Achievments);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lb_Streak);
             this.Controls.Add(this.panel_Main);
             this.Controls.Add(this.label2);
@@ -119,5 +150,8 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Panel panel_Main;
         private System.Windows.Forms.Label lb_Streak;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayout_Achievments;
+        private System.Windows.Forms.Panel panel1;
     }
 }
