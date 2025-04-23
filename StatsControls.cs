@@ -11,11 +11,11 @@ namespace Productivity_Quest_1._0.UI
         public Label LabelStreak { get; set; }
         public ProgressBar ProgressLevel { get; set; }
         public PictureBox PictureStreak { get; set; }
+        public PictureBox PictureProfile { get; set; }
 
-        
         // Konstruktor opcjonalny – możesz przekazać wszystko od razu
         public StatsControls(Label labelName, Label labelLevel, Label labelXP, Label labelStreak,
-                             ProgressBar progressLevel, PictureBox pictureStreak)
+                             ProgressBar progressLevel, PictureBox pictureStreak, PictureBox pictureProfile)
         {
             LabelName = labelName;
             LabelLevel = labelLevel;
@@ -23,7 +23,7 @@ namespace Productivity_Quest_1._0.UI
             LabelStreak = labelStreak;
             ProgressLevel = progressLevel;
             PictureStreak = pictureStreak;
-            
+            PictureProfile = pictureProfile;
         }
 
         // Konstruktor pusty też może być, jeśli chcesz przypisywać później

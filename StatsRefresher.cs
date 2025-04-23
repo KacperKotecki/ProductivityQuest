@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -42,8 +43,19 @@ namespace Productivity_Quest_1._0
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.CenterImage;
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.StretchImage;
 
+
+
+            string iconPath = Path.Combine("Profile", "Profilowe.png");
+            controls.PictureProfile.Image = File.Exists("Profilowe.png")
+                ? Image.FromFile("Profilowe.png")
+                : Image.FromFile("Profile/Profilowe.png");
+
+            controls.PictureProfile.SizeMode = PictureBoxSizeMode.CenterImage;
+            controls.PictureProfile.SizeMode = PictureBoxSizeMode.Zoom;
+
         }
 
+        
         public System.Drawing.Bitmap ChangeImg(int streak)
         {
             if (streak < 0 && streak > -7)
@@ -51,48 +63,59 @@ namespace Productivity_Quest_1._0
             else
                 streak = streak / 7;
 
-            var flowersImgs = new List<Bitmap>
+            var happy_ghost = new List<Bitmap>
             {
-                Properties.Resources.funny_flower_0,
-                Properties.Resources.funny_flower_1,
-                Properties.Resources.funny_flower_2,
-                Properties.Resources.funny_flower_3,
-                Properties.Resources.funny_flower_4,
-                Properties.Resources.funny_flower_5,
-                Properties.Resources.funny_flower_6,
-                Properties.Resources.funny_flower_7,
-                Properties.Resources.sad_flower_0,
-                Properties.Resources.sad_flower_1,
-                Properties.Resources.sad_flower_2,
-                Properties.Resources.sad_flower_3,
-                Properties.Resources.sad_flower_4,
-                Properties.Resources.sad_flower_5,
-                Properties.Resources.sad_flower_6,
+                Properties.Resources.happy_ghost_0,
+                Properties.Resources.happy_ghost_1,
+                Properties.Resources.happy_ghost_2,
+                Properties.Resources.happy_ghost_3,
+                Properties.Resources.happy_ghost_4,
+                Properties.Resources.happy_ghost_5,
+                Properties.Resources.happy_ghost_6,
+                Properties.Resources.happy_ghost_7,
+                Properties.Resources.happy_ghost_8,
+                Properties.Resources.happy_ghost_9,
+            };
+            var sad_ghost = new List<Bitmap>
+            {
+                Properties.Resources.sad_ghost_0,
+                Properties.Resources.sad_ghost_1,
+                Properties.Resources.sad_ghost_2,
+                Properties.Resources.sad_ghost_3,
+                Properties.Resources.sad_ghost_4,
+                Properties.Resources.sad_ghost_5,
+                Properties.Resources.sad_ghost_6,
+                Properties.Resources.sad_ghost_7,
+                Properties.Resources.sad_ghost_8,
+                Properties.Resources.sad_ghost_9,
 
 
             };
-            System.Drawing.Bitmap img = Properties.Resources.funny_flower_4;
+            System.Drawing.Bitmap img = Properties.Resources.happy_ghost_0;
 
             switch (streak)
             {
 
-                case -8: img = flowersImgs[14]; break;
-                case -7: img = flowersImgs[14]; break;
-                case -6: img = flowersImgs[13]; break;
-                case -5: img = flowersImgs[12]; break;
-                case -4: img = flowersImgs[11]; break;
-                case -3: img = flowersImgs[10]; break;
-                case -2: img = flowersImgs[9]; break;
-                case -1: img = flowersImgs[8]; break;
-                case 0: img = flowersImgs[0]; break;
-                case 1: img = flowersImgs[1]; break;
-                case 2: img = flowersImgs[2]; break;
-                case 3: img = flowersImgs[3]; break;
-                case 4: img = flowersImgs[4]; break;
-                case 5: img = flowersImgs[5]; break;
-                case 6: img = flowersImgs[6]; break;
-                case 7: img = flowersImgs[7]; break;
-                case 8: img = flowersImgs[0]; break;
+                case -10: img = sad_ghost[9]; break;
+                case -9: img = sad_ghost[8]; break;
+                case -8: img = sad_ghost[7]; break;
+                case -7: img = sad_ghost[6]; break;
+                case -6: img = sad_ghost[5]; break;
+                case -5: img = sad_ghost[4]; break;
+                case -4: img = sad_ghost[3]; break;
+                case -3: img = sad_ghost[2]; break;
+                case -2: img = sad_ghost[1]; break;
+                case -1: img = sad_ghost[0]; break;
+                case 0: img = happy_ghost[0]; break;
+                case 1: img = happy_ghost[1]; break;
+                case 2: img = happy_ghost[2]; break;
+                case 3: img = happy_ghost[3]; break;
+                case 4: img = happy_ghost[4]; break;
+                case 5: img = happy_ghost[5]; break;
+                case 6: img = happy_ghost[6]; break;
+                case 7: img = happy_ghost[7]; break;
+                case 8: img = happy_ghost[8]; break;
+                case 9: img = happy_ghost[9]; break;
 
 
             }

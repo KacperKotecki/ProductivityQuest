@@ -15,35 +15,49 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Productivity_Quest_1._0
 {
+    //gif kwiatka , ikona aplikacji, powiadomienia, kalenardz streaka XXX, przesuwanie zadań, profilowe 
     public partial class Form1 : Form
     {
-        private Player player = new Player();
-        private Manage manage = new Manage();
-        private JsonStorageService saveRead = new JsonStorageService();
+        private Player player;
+        private JsonStorageService saveRead;
+        private Manage manage;
+        private AchievementManager achievementManager;
+        private StatsControls statsControls;
         private TaskPanelBuilder taskPanelBuilder;
         private StatsRefresher statsRefresher;
         private CalendarControls calendarControls;
         private WeekViewRenderer weekViewRenderer;
 
+        private DateTime currentWeekStart = DateTime.Today;
+        private bool isDragging = false;
+        private Point dragStartPoint;
+        protected int newLocationY;
         public Form1()
         {
             InitializeComponent();
-
-            manage.Tasks = saveRead.LoadFromFile<List<Zadanie>>("data.json") ?? new List<Zadanie>();
+            player = new Player();
+            saveRead = new JsonStorageService();
+            manage = new Manage();
+            manage.LoadTasks();
+            
             player = saveRead.LoadFromFile<Player>("player.json") ?? new Player();
 
-            // INICJALIZUJ KONTROLKI TUTAJ
-            StatsControls statsControls = new StatsControls
+            achievementManager = new AchievementManager(player, manage.Tasks, saveRead);
+            achievementManager.LoadAchievements("achievements.json");
+
+            statsControls = new StatsControls
             {
                 LabelName = lb_Name,
                 LabelLevel = lb_Poziom,
                 LabelXP = lb_XP,
                 LabelStreak = lb_Streak,
                 ProgressLevel = Progress_Level,
-                PictureStreak = pictureBox_Streak
+                PictureStreak = pictureBox_Streak,
+                PictureProfile = pictureBox_Profile
             };
 
             statsRefresher = new StatsRefresher(player, statsControls);
@@ -56,11 +70,12 @@ namespace Productivity_Quest_1._0
 
 
             taskPanelBuilder = new TaskPanelBuilder(this);
+
             statsRefresher = new StatsRefresher(player, statsControls);
             weekViewRenderer = new WeekViewRenderer(this, statsControls, taskPanelBuilder, manage, calendarControls);
 
             statsRefresher.RefreshStats();
-            weekViewRenderer.GenerateWeekView();
+            weekViewRenderer.GenerateWeekView(DateTime.Today);
         }
 
         public void DayPanel_DoubleClick(object sender, EventArgs e)
@@ -73,11 +88,12 @@ namespace Productivity_Quest_1._0
             {
 
                 manage.Tasks.Add(newTask);
-                saveRead.SaveToFile(manage.Tasks, "data.json");
-
-                taskPanelBuilder.CreateMyPanel(newTask);
-
-                weekViewRenderer.GenerateWeekView();
+                
+                manage.SaveTasks();
+                taskPanelBuilder.CreateMyPanel(newTask, calendarControls.FlowLayoutPanel.Width, calendarControls.FlowLayoutPanel.Height); // powina być dobra szerokośc 
+                currentWeekStart = newTask.Deadline.Value;
+                weekViewRenderer.GenerateWeekView(currentWeekStart);
+                
             }
         }
 
@@ -103,18 +119,25 @@ namespace Productivity_Quest_1._0
                 if (task.IsCompleted && !zadanie_zrobione)
                 {
                     manage.TaskCompleted(task, player);
-                    
+                    achievementManager.AddProgress(task.Category);
+                    achievementManager.EvaluateAchievements();
+                     
                 }
-                saveRead.SaveToFile(manage.Tasks, "data.json");
+                manage.SaveTasks();
                 saveRead.SaveToFile(player, "player.json");
+
                 statsRefresher.RefreshStats();
-                weekViewRenderer.GenerateWeekView();
+
+                currentWeekStart = task.Deadline.Value;
+                weekViewRenderer.GenerateWeekView(currentWeekStart);
+                
             }
         }
+        
 
         private void btn_Edit_Player_Click(object sender, EventArgs e)
         {
-            var editForm = new EditProfile(player, calendarControls);
+            var editForm = new EditProfile(player, calendarControls, achievementManager, taskPanelBuilder);
 
             var result = editForm.ShowDialog();
 
@@ -132,10 +155,81 @@ namespace Productivity_Quest_1._0
 
         private void monthCalendar_Form_DateChanged(object sender, DateRangeEventArgs e)
         {
-            
+            currentWeekStart = monthCalendar_Form.SelectionStart;
+            weekViewRenderer.GenerateWeekView(currentWeekStart);
         }
 
-        
+        private void btn_NextWeek_Click(object sender, EventArgs e)
+        {
+            currentWeekStart = currentWeekStart.AddDays(7);
+            weekViewRenderer.GenerateWeekView(currentWeekStart);
+        }
 
+        private void btn_PreviousWeek_Click(object sender, EventArgs e)
+        {
+            currentWeekStart = currentWeekStart.AddDays(-7);
+            weekViewRenderer.GenerateWeekView(currentWeekStart);
+        }
+        public void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                dragStartPoint = e.Location; // punkt w panelu, gdzie kliknięto
+            }
+        }
+
+        public void Panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Control source = sender as Control;
+                while (source != null && !(source is Panel))
+                {
+                    source = source.Parent;
+                }
+                Panel clickedPanel = source as Panel;
+
+                var zadanie = clickedPanel.Tag as Zadanie;
+
+                // Oblicz nową pozycję
+
+                Point newLocation = clickedPanel.Location;
+                newLocation.Y += e.Y - dragStartPoint.Y;
+                if (newLocation.Y < 40) 
+                { 
+                    newLocation.Y = 40; 
+                } 
+                else if (newLocation.Y > 920)
+                {
+                    newLocation.Y = 920;
+                }
+                    
+
+                clickedPanel.Location = newLocation;
+
+                int timelineToMinutes = ((newLocation.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
+
+                int hours = timelineToMinutes / 60;
+                int min = timelineToMinutes % 60;
+
+                zadanie.Deadline = new DateTime(zadanie.Deadline.Value.Year, zadanie.Deadline.Value.Month, zadanie.Deadline.Value.Day, hours, min, 00);
+                var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
+
+                if (timeLabel != null)
+                {
+                    timeLabel.Text = $"{hours}:{min}";
+                    if(min < 10) { timeLabel.Text = $"{hours}:0{min}";  }
+                }
+
+
+            }
+        }
+
+        public void Panel_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+            manage.SaveTasks();
+        }
     }
 }

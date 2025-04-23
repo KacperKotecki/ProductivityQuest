@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Numerics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Productivity_Quest_1._0
 {
@@ -15,7 +17,17 @@ namespace Productivity_Quest_1._0
     public class Manage
     {
         public List<Zadanie> Tasks = new List<Zadanie>();
+        private JsonStorageService saveRead = new JsonStorageService();
 
+        public void LoadTasks()
+        {
+            Tasks = saveRead.LoadFromFile<List<Zadanie>>("data.json") ?? new List<Zadanie>();
+        }
+
+        public void SaveTasks()
+        {
+            saveRead.SaveToFile(Tasks, "data.json");
+        }
         public void TaskCompleted(Zadanie done, Player player)
         {
             if (done != null)
@@ -49,6 +61,7 @@ namespace Productivity_Quest_1._0
                 MessageBox.Show($"Zadanie wykonane! Zdobyto {earnedXP} XP.", "Brawo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        
     }
     
 }

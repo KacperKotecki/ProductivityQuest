@@ -20,6 +20,7 @@ namespace Productivity_Quest_1._0
         {
             return $" {Title} | {Category}  | {Priority} | {(IsCompleted ? "Done" : "To do")}    {Deadline?.ToString("HH:mm")}  {Deadline?.ToString("dd.MM.yyyy")}";
         }
+        
     }
 
 }
