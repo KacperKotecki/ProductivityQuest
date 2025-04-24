@@ -1,92 +1,91 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\",
+  "WorkspaceRootPath": "C:\\Users\\kacko\\Documents\\3-29\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|c:\\users\\kacko\\documents\\ostateczny test godzina 2-44\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|c:\\users\\kacko\\documents\\3-29\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\statsrefresher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:statsrefresher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\achievements.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:achievements.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\achievements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:achievements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\achievementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:achievementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Productivity Quest 1.0||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|c:\\users\\kacko\\documents\\ostateczny test godzina 2-44\\resources\\chatgpt image 19 kwi 2025, 00_15_26.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\statsrefresher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:statsrefresher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\achievements.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:achievements.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\achievements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:achievements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\achievementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:achievementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\resources\\chatgpt image 19 kwi 2025, 00_15_26.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:resources\\chatgpt image 19 kwi 2025, 00_15_26.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:editprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\taskpanelbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\taskpanelbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:taskpanelbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\bin\\Debug\\achievements.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:bin\\Debug\\achievements.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\bin\\Debug\\achievements.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:zadanie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\weekviewrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\weekviewrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:weekviewrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\streakgridrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\streakgridrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:streakgridrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\statscontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\statscontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:statscontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\save-read.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\save-read.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:save-read.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:dodajzadanieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\calendarcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|C:\\Users\\kacko\\Documents\\3-29\\calendarcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:calendarcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|c:\\users\\kacko\\documents\\ostateczny test godzina 2-44\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "AbsoluteMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|c:\\users\\kacko\\documents\\3-29\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
       "RelativeMoniker": "D:0:0:{F6B0ECBA-E48D-4337-95C5-1F474C2D03A6}|Productivity Quest 1.0.csproj|solutionrelative:properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
@@ -103,11 +102,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Resources.resx",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Properties\\Resources.resx",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "Properties\\Resources.resx",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Properties\\Resources.resx",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Properties\\Resources.resx",
               "RelativeToolTip": "Properties\\Resources.resx",
-              "ViewState": "AgIAACoBAAAAAAAAAAAnwD0BAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAACoBAAAAAAAAAAAnwDsBAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
               "WhenOpened": "2025-04-24T01:18:51.882Z",
               "EditorCaption": ""
@@ -116,47 +115,45 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "ChatGPT Image 19 kwi 2025, 00_15_26.png -  [Angielski (Stany Zjednoczone)] - PNG [1024x1024, 32-bitowy, PNG]",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Resources\\ChatGPT Image 19 kwi 2025, 00_15_26.png",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Resources\\ChatGPT Image 19 kwi 2025, 00_15_26.png",
               "RelativeDocumentMoniker": "Resources\\ChatGPT Image 19 kwi 2025, 00_15_26.png",
               "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Resources\\ChatGPT Image 19 kwi 2025, 00_15_26.png -  [Angielski (Stany Zjednoczone)] - PNG [1024x1024, 32-bitowy, PNG]",
-              "RelativeToolTip": "Resources\\ChatGPT Image 19 kwi 2025, 00_15_26.png -  [Angielski (Stany Zjednoczone)] - PNG [1024x1024, 32-bitowy, PNG]",
+              "RelativeToolTip": "..\\Ostateczny test godzina 2-44\\Resources\\ChatGPT Image 19 kwi 2025, 00_15_26.png -  [Angielski (Stany Zjednoczone)] - PNG [1024x1024, 32-bitowy, PNG]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-04-24T01:12:35.064Z",
-              "EditorCaption": " -  [Angielski (Stany Zjednoczone)] - PNG [1024x1024, 32-bitowy, PNG]"
+              "WhenOpened": "2025-04-24T01:12:35.064Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "achievements.json",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\achievements.json",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\achievements.json",
               "RelativeDocumentMoniker": "achievements.json",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\achievements.json",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\achievements.json",
               "RelativeToolTip": "achievements.json",
               "ViewState": "AgIAACgFAAAAAAAAAAAAADQFAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-24T00:54:03.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T00:54:03.649Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "achievements.json",
               "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\bin\\Debug\\achievements.json",
-              "RelativeDocumentMoniker": "bin\\Debug\\achievements.json",
+              "RelativeDocumentMoniker": "..\\Ostateczny test godzina 2-44\\bin\\Debug\\achievements.json",
               "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\bin\\Debug\\achievements.json",
-              "RelativeToolTip": "bin\\Debug\\achievements.json",
+              "RelativeToolTip": "..\\Ostateczny test godzina 2-44\\bin\\Debug\\achievements.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-24T00:51:19.63Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Productivity Quest 1.0",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Productivity Quest 1.0.csproj",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Productivity Quest 1.0.csproj",
               "RelativeDocumentMoniker": "Productivity Quest 1.0.csproj",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Productivity Quest 1.0.csproj*",
-              "RelativeToolTip": "Productivity Quest 1.0.csproj*",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Productivity Quest 1.0.csproj",
+              "RelativeToolTip": "Productivity Quest 1.0.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-04-23T22:38:20.442Z",
               "EditorCaption": ""
@@ -165,9 +162,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "Zadanie.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Zadanie.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Zadanie.cs",
               "RelativeDocumentMoniker": "Zadanie.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Zadanie.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Zadanie.cs",
               "RelativeToolTip": "Zadanie.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -177,9 +174,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "WeekViewRenderer.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\WeekViewRenderer.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\WeekViewRenderer.cs",
               "RelativeDocumentMoniker": "WeekViewRenderer.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\WeekViewRenderer.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\WeekViewRenderer.cs",
               "RelativeToolTip": "WeekViewRenderer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -189,9 +186,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "TaskPanelBuilder.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\TaskPanelBuilder.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\TaskPanelBuilder.cs",
               "RelativeDocumentMoniker": "TaskPanelBuilder.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\TaskPanelBuilder.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\TaskPanelBuilder.cs",
               "RelativeToolTip": "TaskPanelBuilder.cs",
               "ViewState": "AgIAAN8AAAAAAAAAAAAkwNkAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -201,9 +198,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "StreakGridRenderer.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\StreakGridRenderer.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\StreakGridRenderer.cs",
               "RelativeDocumentMoniker": "StreakGridRenderer.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\StreakGridRenderer.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\StreakGridRenderer.cs",
               "RelativeToolTip": "StreakGridRenderer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -211,24 +208,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "StatsRefresher.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\StatsRefresher.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\StatsRefresher.cs",
               "RelativeDocumentMoniker": "StatsRefresher.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\StatsRefresher.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\StatsRefresher.cs",
               "RelativeToolTip": "StatsRefresher.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAnwDMAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T22:36:54.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T22:36:54.934Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "StatsControls.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\StatsControls.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\StatsControls.cs",
               "RelativeDocumentMoniker": "StatsControls.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\StatsControls.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\StatsControls.cs",
               "RelativeToolTip": "StatsControls.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -238,9 +234,9 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "Save-read.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Save-read.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Save-read.cs",
               "RelativeDocumentMoniker": "Save-read.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Save-read.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Save-read.cs",
               "RelativeToolTip": "Save-read.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -250,9 +246,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Program.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -262,9 +258,9 @@
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Player.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Player.cs",
               "RelativeDocumentMoniker": "Player.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Player.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Player.cs",
               "RelativeToolTip": "Player.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -274,9 +270,9 @@
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "Manage.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Manage.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Manage.cs",
               "RelativeDocumentMoniker": "Manage.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Manage.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Manage.cs",
               "RelativeToolTip": "Manage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -286,9 +282,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Form1.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAewFYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -298,9 +294,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "EditProfile.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\EditProfile.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\EditProfile.cs",
               "RelativeDocumentMoniker": "EditProfile.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\EditProfile.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\EditProfile.cs",
               "RelativeToolTip": "EditProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -310,9 +306,9 @@
               "$type": "Document",
               "DocumentIndex": 19,
               "Title": "DodajZadanieForm.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\DodajZadanieForm.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\DodajZadanieForm.cs",
               "RelativeDocumentMoniker": "DodajZadanieForm.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\DodajZadanieForm.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\DodajZadanieForm.cs",
               "RelativeToolTip": "DodajZadanieForm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -322,9 +318,9 @@
               "$type": "Document",
               "DocumentIndex": 20,
               "Title": "CalendarControls.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\CalendarControls.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\CalendarControls.cs",
               "RelativeDocumentMoniker": "CalendarControls.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\CalendarControls.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\CalendarControls.cs",
               "RelativeToolTip": "CalendarControls.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -332,29 +328,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Achievements.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Achievements.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\Achievements.cs",
               "RelativeDocumentMoniker": "Achievements.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\Achievements.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\Achievements.cs",
               "RelativeToolTip": "Achievements.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T22:36:48.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T22:36:48.764Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AchievementManager.cs",
-              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\AchievementManager.cs",
+              "DocumentMoniker": "C:\\Users\\kacko\\Documents\\3-29\\AchievementManager.cs",
               "RelativeDocumentMoniker": "AchievementManager.cs",
-              "ToolTip": "C:\\Users\\kacko\\Documents\\Ostateczny test godzina 2-44\\AchievementManager.cs",
+              "ToolTip": "C:\\Users\\kacko\\Documents\\3-29\\AchievementManager.cs",
               "RelativeToolTip": "AchievementManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T22:36:43.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T22:36:43.29Z"
             }
           ]
         }
