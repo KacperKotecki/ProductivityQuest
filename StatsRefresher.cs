@@ -49,7 +49,7 @@ namespace Productivity_Quest_1._0
             }
             else
             {
-                controls.PictureProfile.Image = Properties.Resources.Level_10;
+                controls.PictureProfile.Image = Properties.Resources.Level_70;
             }
 
             controls.PictureProfile.SizeMode = PictureBoxSizeMode.CenterImage;
