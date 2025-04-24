@@ -1,25 +1,14 @@
-﻿using Productivity_Quest_1._0.UI;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.Globalization;
 using System.Linq;
-
-using System.Runtime.InteropServices.ComTypes;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using Productivity_Quest_1._0.UI;
 
 namespace Productivity_Quest_1._0
 {
-    //gif kwiatka , ikona aplikacji, powiadomienia, kalenardz streaka XXX, przesuwanie zadań, profilowe 
+    // TODO: dodać gif kwiatka
+    // TODO: ikona aplikacji
+    // FIXME: ogarnąć system powiadomień
     public partial class Form1 : Form
     {
         private Player player;
@@ -39,15 +28,21 @@ namespace Productivity_Quest_1._0
         public Form1()
         {
             InitializeComponent();
+            ShowHelpDialog();
             player = new Player();
             saveRead = new JsonStorageService();
             manage = new Manage();
             manage.LoadTasks();
-            
+
             player = saveRead.LoadFromFile<Player>("player.json") ?? new Player();
 
             achievementManager = new AchievementManager(player, manage.Tasks, saveRead);
             achievementManager.LoadAchievements("achievements.json");
+
+            if (lb_Name == null || lb_Poziom == null || lb_XP == null || lb_Streak == null || Progress_Level == null || pictureBox_Streak == null || pictureBox_Profile == null)
+            {
+                MessageBox.Show("Błąd inicjalizacji kontrolek. Statystyki nie będą działać poprawnie.");
+            }
 
             statsControls = new StatsControls
             {
@@ -60,12 +55,10 @@ namespace Productivity_Quest_1._0
                 PictureProfile = pictureBox_Profile
             };
 
-            statsRefresher = new StatsRefresher(player, statsControls);
-
             calendarControls = new CalendarControls
             {
                 FlowLayoutPanel = flowLayoutPanel_Calendar,
-                
+
             };
 
 
@@ -81,21 +74,24 @@ namespace Productivity_Quest_1._0
         public void DayPanel_DoubleClick(object sender, EventArgs e)
         {
             var newTask = new Zadanie();
-            var editForm = new DodajZadanieForm(newTask, manage);
-            var result = editForm.ShowDialog();
-
-            if (result == DialogResult.OK && editForm != null)
+            using (var editForm = new DodajZadanieForm(newTask, manage))
             {
+                var result = editForm.ShowDialog();
 
-                manage.Tasks.Add(newTask);
-                
-                manage.SaveTasks();
-                taskPanelBuilder.CreateMyPanel(newTask, calendarControls.FlowLayoutPanel.Width, calendarControls.FlowLayoutPanel.Height); // powina być dobra szerokośc 
-                currentWeekStart = newTask.Deadline.Value;
-                weekViewRenderer.GenerateWeekView(currentWeekStart);
-                
+                if (result == DialogResult.OK && editForm != null)
+                {
+
+                    manage.Tasks.Add(newTask);
+
+                    manage.SaveTasks();
+                    taskPanelBuilder.CreateMyPanel(newTask, calendarControls.FlowLayoutPanel.Width, calendarControls.FlowLayoutPanel.Height); // powina być dobra szerokośc 
+                    currentWeekStart = newTask.Deadline.Value;
+                    weekViewRenderer.GenerateWeekView(currentWeekStart);
+
+                }
             }
         }
+
 
 
         public void MyPanel_DoubleClick(object sender, EventArgs e)
@@ -109,20 +105,35 @@ namespace Productivity_Quest_1._0
 
             if (clickedPanel != null && clickedPanel?.Tag is Zadanie task)
             {
-                var editForm = new DodajZadanieForm(task, manage);
 
-                bool zadanie_zrobione = task.IsCompleted; //false
-                editForm.Text = "Edycja zadania";
-                var result = editForm.ShowDialog();
+                bool wasCompletedBefore = task.IsCompleted;
 
-                // Jeśli zadanie zostało właśnie wykonane (zmiana z false na true)
-                if (task.IsCompleted && !zadanie_zrobione)
+                using (var editForm = new DodajZadanieForm(task, manage))
                 {
-                    manage.TaskCompleted(task, player);
-                    achievementManager.AddProgress(task.Category);
-                    achievementManager.EvaluateAchievements();
-                     
+                    editForm.Text = "Edycja zadania";
+                    
+
+                    var result = editForm.ShowDialog();
+
+                    // Po zamknięciu: czy użytkownik wykonał zadanie teraz?
+                    if (!wasCompletedBefore && task.IsCompleted)
+                    {
+                        string message = manage.TaskCompleted(task, player);
+
+                        if (!string.IsNullOrEmpty(message))
+                        {
+                            MessageBox.Show(message);
+                            achievementManager.AddProgress(task.Category);
+
+                            var unlocked = achievementManager.EvaluateAchievements();
+                            foreach (var name in unlocked)
+                            {
+                                MessageBox.Show($"Zdobywasz nowe osiągnięcie: {name}");
+                            }
+                        }
+                    }
                 }
+
                 manage.SaveTasks();
                 saveRead.SaveToFile(player, "player.json");
 
@@ -130,27 +141,26 @@ namespace Productivity_Quest_1._0
 
                 currentWeekStart = task.Deadline.Value;
                 weekViewRenderer.GenerateWeekView(currentWeekStart);
-                
             }
         }
-        
+
 
         private void btn_Edit_Player_Click(object sender, EventArgs e)
         {
-            var editForm = new EditProfile(player, calendarControls, achievementManager, taskPanelBuilder);
-
-            var result = editForm.ShowDialog();
-
-            if (result == DialogResult.OK)
+            using (var editForm = new EditProfile(player, calendarControls, achievementManager, taskPanelBuilder))
             {
-                player.Name = editForm.NewPlayerName;
-                MessageBox.Show("Nowa nazwa gracza : " + player.Name);
-                MessageBox.Show("Nowa nazwa gracza : " + player.Name, "Zmiana nazwy", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var result = editForm.ShowDialog();
 
-                saveRead.SaveToFile(player, "player.json");
-                statsRefresher.RefreshStats();
+                if (result == DialogResult.OK)
+                {
+                    player.Name = editForm.NewPlayerName;
+
+                    MessageBox.Show("Nowa nazwa gracza : " + player.Name, "Zmiana nazwy", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    saveRead.SaveToFile(player, "player.json");
+                    statsRefresher.RefreshStats();
+                }
             }
-
         }
 
         private void monthCalendar_Form_DateChanged(object sender, DateRangeEventArgs e)
@@ -163,12 +173,14 @@ namespace Productivity_Quest_1._0
         {
             currentWeekStart = currentWeekStart.AddDays(7);
             weekViewRenderer.GenerateWeekView(currentWeekStart);
+            monthCalendar_Form.SetDate(currentWeekStart);
         }
 
         private void btn_PreviousWeek_Click(object sender, EventArgs e)
         {
             currentWeekStart = currentWeekStart.AddDays(-7);
             weekViewRenderer.GenerateWeekView(currentWeekStart);
+            monthCalendar_Form.SetDate(currentWeekStart);
         }
         public void Panel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -196,15 +208,15 @@ namespace Productivity_Quest_1._0
 
                 Point newLocation = clickedPanel.Location;
                 newLocation.Y += e.Y - dragStartPoint.Y;
-                if (newLocation.Y < 40) 
-                { 
-                    newLocation.Y = 40; 
-                } 
+                if (newLocation.Y < 40)
+                {
+                    newLocation.Y = 40;
+                }
                 else if (newLocation.Y > 920)
                 {
                     newLocation.Y = 920;
                 }
-                    
+
 
                 clickedPanel.Location = newLocation;
 
@@ -213,13 +225,18 @@ namespace Productivity_Quest_1._0
                 int hours = timelineToMinutes / 60;
                 int min = timelineToMinutes % 60;
 
-                zadanie.Deadline = new DateTime(zadanie.Deadline.Value.Year, zadanie.Deadline.Value.Month, zadanie.Deadline.Value.Day, hours, min, 00);
+
+                if (zadanie.Deadline.HasValue)
+                {
+                    zadanie.Deadline = new DateTime(zadanie.Deadline.Value.Year, zadanie.Deadline.Value.Month, zadanie.Deadline.Value.Day, hours, min, 00);
+                }
+
                 var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
 
                 if (timeLabel != null)
                 {
-                    timeLabel.Text = $"{hours}:{min}";
-                    if(min < 10) { timeLabel.Text = $"{hours}:0{min}";  }
+                    timeLabel.Text = $"{hours}:{min:D2}";
+
                 }
 
 
@@ -230,6 +247,23 @@ namespace Productivity_Quest_1._0
         {
             isDragging = false;
             manage.SaveTasks();
+        }
+
+        private void ShowHelpDialog()
+        {
+            string message =
+                "Jak korzystać z Productivity Quest?\n\n" +
+                " Przesuń panel zadania – zmienisz jego godzinę.\n" +
+                " Podwójne kliknięcie na PUSTY panel – dodaje nowe zadanie.\n" +
+                " Podwójne kliknięcie na panel z zadaniem – edycja zadania.\n\n" +
+                " Kliknij ikonę  ? w prawym górnym rogu, by wrócić do tego okna.";
+
+            MessageBox.Show(message, "Pomoc", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btn_Help_Click(object sender, EventArgs e)
+        {
+            ShowHelpDialog();
         }
     }
 }

@@ -44,6 +44,7 @@
             this.pictureBox_Profile = new System.Windows.Forms.PictureBox();
             this.btn_PreviousWeek = new System.Windows.Forms.Button();
             this.btn_NextWeek = new System.Windows.Forms.Button();
+            this.btn_Help = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Streak)).BeginInit();
             this.panel1.SuspendLayout();
@@ -53,8 +54,8 @@
             // monthCalendar_Form
             // 
             this.monthCalendar_Form.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.monthCalendar_Form.Location = new System.Drawing.Point(1275, 394);
-            this.monthCalendar_Form.Margin = new System.Windows.Forms.Padding(7);
+            this.monthCalendar_Form.Location = new System.Drawing.Point(1250, 394);
+            this.monthCalendar_Form.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.monthCalendar_Form.Name = "monthCalendar_Form";
             this.monthCalendar_Form.TabIndex = 3;
             this.monthCalendar_Form.UseWaitCursor = true;
@@ -66,9 +67,9 @@
             this.Progress_Level.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.Progress_Level.BackColor = System.Drawing.SystemColors.Desktop;
             this.Progress_Level.ForeColor = System.Drawing.Color.Maroon;
-            this.Progress_Level.Location = new System.Drawing.Point(1275, 331);
+            this.Progress_Level.Location = new System.Drawing.Point(1250, 331);
             this.Progress_Level.Name = "Progress_Level";
-            this.Progress_Level.Size = new System.Drawing.Size(587, 39);
+            this.Progress_Level.Size = new System.Drawing.Size(612, 39);
             this.Progress_Level.Step = 1;
             this.Progress_Level.TabIndex = 5;
             // 
@@ -163,7 +164,7 @@
             // 
             this.flowLayoutPanel_Calendar.Location = new System.Drawing.Point(12, 17);
             this.flowLayoutPanel_Calendar.Name = "flowLayoutPanel_Calendar";
-            this.flowLayoutPanel_Calendar.Size = new System.Drawing.Size(1242, 960);
+            this.flowLayoutPanel_Calendar.Size = new System.Drawing.Size(1204, 960);
             this.flowLayoutPanel_Calendar.TabIndex = 30;
             // 
             // panel1
@@ -177,7 +178,7 @@
             // 
             // pictureBox_Profile
             // 
-            this.pictureBox_Profile.Location = new System.Drawing.Point(1275, 17);
+            this.pictureBox_Profile.Location = new System.Drawing.Point(1240, 17);
             this.pictureBox_Profile.MaximumSize = new System.Drawing.Size(296, 296);
             this.pictureBox_Profile.Name = "pictureBox_Profile";
             this.pictureBox_Profile.Size = new System.Drawing.Size(279, 256);
@@ -187,7 +188,7 @@
             // btn_PreviousWeek
             // 
             this.btn_PreviousWeek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_PreviousWeek.Location = new System.Drawing.Point(1275, 566);
+            this.btn_PreviousWeek.Location = new System.Drawing.Point(1250, 566);
             this.btn_PreviousWeek.Name = "btn_PreviousWeek";
             this.btn_PreviousWeek.Size = new System.Drawing.Size(82, 43);
             this.btn_PreviousWeek.TabIndex = 35;
@@ -198,7 +199,7 @@
             // btn_NextWeek
             // 
             this.btn_NextWeek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_NextWeek.Location = new System.Drawing.Point(1420, 566);
+            this.btn_NextWeek.Location = new System.Drawing.Point(1437, 566);
             this.btn_NextWeek.Name = "btn_NextWeek";
             this.btn_NextWeek.Size = new System.Drawing.Size(82, 43);
             this.btn_NextWeek.TabIndex = 36;
@@ -206,11 +207,23 @@
             this.btn_NextWeek.UseVisualStyleBackColor = true;
             this.btn_NextWeek.Click += new System.EventHandler(this.btn_NextWeek_Click);
             // 
+            // btn_Help
+            // 
+            this.btn_Help.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_Help.Location = new System.Drawing.Point(1611, 867);
+            this.btn_Help.Name = "btn_Help";
+            this.btn_Help.Size = new System.Drawing.Size(188, 43);
+            this.btn_Help.TabIndex = 37;
+            this.btn_Help.Text = "?";
+            this.btn_Help.UseVisualStyleBackColor = true;
+            this.btn_Help.Click += new System.EventHandler(this.btn_Help_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1884, 1021);
+            this.Controls.Add(this.btn_Help);
             this.Controls.Add(this.btn_NextWeek);
             this.Controls.Add(this.btn_PreviousWeek);
             this.Controls.Add(this.pictureBox_Profile);
@@ -254,6 +267,7 @@
         private System.Windows.Forms.PictureBox pictureBox_Profile;
         private System.Windows.Forms.Button btn_NextWeek;
         private System.Windows.Forms.Button btn_PreviousWeek;
+        private System.Windows.Forms.Button btn_Help;
     }
 }
 

@@ -1,13 +1,9 @@
-﻿using Productivity_Quest_1._0.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Productivity_Quest_1._0.UI;
 
 namespace Productivity_Quest_1._0
 {

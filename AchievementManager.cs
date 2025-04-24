@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Productivity_Quest_1._0
@@ -35,24 +30,21 @@ namespace Productivity_Quest_1._0
         }
         public void AddProgress(string category)
         {
-
-
             foreach (var item in achievements)
             {
 
                 if (!(item.IsUnlocked) && item.Category == category && item.Source == "Tasks")
                 {
-                    item.Progress++;
-                    
+                    item.Progress++;   
                 }
-                
-
             }
         }
-        public void EvaluateAchievements()
+        public List<string> EvaluateAchievements()
         {
+            List<string> unlockedNow = new List<string>();
+
             foreach (var item in achievements)
-            { 
+            {
                 if (!item.IsUnlocked)
                 {
                     switch (item.Source)
@@ -62,33 +54,35 @@ namespace Productivity_Quest_1._0
                             {
                                 item.IsUnlocked = true;
                                 item.UnlockedAt = DateTime.Now;
-                                MessageBox.Show($"Zdobywasz nowe osiągnięcie : {item.Name}");
+                                unlockedNow.Add(item.Name);
                             }
                             break;
+
                         case "Streak":
                             if (player.CalculateStreak() >= item.RequiredCount)
                             {
                                 item.IsUnlocked = true;
                                 item.UnlockedAt = DateTime.Now;
-                                MessageBox.Show($"Zdobywasz nowe osiągnięcie : {item.Name}");
+                                unlockedNow.Add(item.Name);
                             }
                             break;
-                        case "Task":
+
+                        case "Tasks":
                             if (item.Progress >= item.RequiredCount)
                             {
                                 item.IsUnlocked = true;
                                 item.UnlockedAt = DateTime.Now;
-                                MessageBox.Show($"Zdobywasz nowe osiągnięcie : {item.Name}");
+                                unlockedNow.Add(item.Name);
                             }
-                            break;
-                        default:
-
                             break;
                     }
                 }
             }
+
             SaveAchievements();
+            return unlockedNow;
         }
+
         public List<Achievement> AchievementsUnlocked()
         {
             List<Achievement> achievementsUnlocked = new List<Achievement>();

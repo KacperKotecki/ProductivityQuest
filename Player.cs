@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Productivity_Quest_1._0
 {
@@ -27,13 +24,18 @@ namespace Productivity_Quest_1._0
 
         private void CheckLevelUp()
         {
+            bool leveledUp = false;
             while (Experience >= ExperienceToLevelUp)
             {
                 Experience -= ExperienceToLevelUp;
                 Level++;
                 ExperienceToLevelUp += 50;
+                leveledUp = true;
                 
-                
+            }
+            if (leveledUp)
+            {
+                MessageBox.Show($"Gratulacje! Awansowałeś na poziom {Level}!");
             }
         }
 

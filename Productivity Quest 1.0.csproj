@@ -190,82 +190,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_1.png.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\funny_flower_0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sad_flower_0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sad_flower_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sad_flower_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sad_flower_3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sad_flower_4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sad_flower_5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sad_flower_6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-circle.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\Dom_10.png" />
     <None Include="Resources\check-circle_0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-circle_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-circle_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-circle_3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-circle_4.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check-circle_5.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check-circle_6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-circle_7.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check-circle_8.png" />
@@ -333,5 +265,309 @@
   <ItemGroup>
     <None Include="Resources\happy_ghost_9.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image 19 kwi 2025, 00_15_26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dom_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dom_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dom_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dom_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dom_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dom_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dom_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hobby_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level_80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nauka_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Organizacja_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Organizacja_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Organizacja_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Organizacja_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Praca_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relacje_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rozwój osobisty_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Samopoczucie_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_125.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_175.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_175v2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Streak_225.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zdrowie_100.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

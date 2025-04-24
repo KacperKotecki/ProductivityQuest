@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Productivity_Quest_1._0
 {
@@ -185,8 +178,10 @@ namespace Productivity_Quest_1._0
                 string text = item.UnlockedAt.HasValue ? item.UnlockedAt.Value.ToString("dd MMMM yyyy 'godz.' HH:mm", culture) : "";
 
                 var dateLabel = taskPanelBuilder.CreateLabel(text, 9, new Size(350, 60), FontStyle.Regular, new Point(200, 150));
-               
+
                 string iconPath = Path.Combine("Achievements_Icons", item.Icon);
+
+
                 var icon = taskPanelBuilder.CreateIconPictureBox(iconPath, new Size(160, 160), new Point(15, 15));
 
                 achievementsPanel.Controls.Add(icon);

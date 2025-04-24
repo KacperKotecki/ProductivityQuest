@@ -1,7 +1,6 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
-using System;
-using System.Collections.Generic;
 
 namespace Productivity_Quest_1._0
 {
@@ -9,8 +8,8 @@ namespace Productivity_Quest_1._0
     {
         private Player player;
         private CalendarControls calendarControls;
-        private StreakGridRenderer streakGridRenderer;
-        private StreakGridRenderer achievementGridRenderer;
+        private StreakGridRenderer calendarGridRenderer;
+        private StreakGridRenderer achievementsRenderer;
         private AchievementManager achievementManager;
         private TaskPanelBuilder taskPanelBuilder;
         
@@ -23,16 +22,15 @@ namespace Productivity_Quest_1._0
             this.achievementManager = achievementManager;
             this.calendarControls.PanelMain = panel_Main;
             this.calendarControls.flowLayout_Achievments = flowLayout_Achievments;
-            this.streakGridRenderer = streakGridRenderer;
             this.taskPanelBuilder = taskPanelBuilder;
 
             panel1.BackColor = Color.FromArgb(220, 220, 230);
 
-            streakGridRenderer = new StreakGridRenderer(player, panel_Main, taskPanelBuilder);
-            streakGridRenderer.GenerateStreakGrid();
+            calendarGridRenderer = new StreakGridRenderer(player, panel_Main, taskPanelBuilder);
+            calendarGridRenderer.GenerateStreakGrid();
 
-            achievementGridRenderer = new StreakGridRenderer(player, flowLayout_Achievments, taskPanelBuilder);    
-            achievementGridRenderer.GenerateStreakGrid(achievementManager.AchievementsUnlocked());
+            achievementsRenderer = new StreakGridRenderer(player, flowLayout_Achievments, taskPanelBuilder);
+            achievementsRenderer.GenerateStreakGrid(achievementManager.AchievementsUnlocked());
             
 
             

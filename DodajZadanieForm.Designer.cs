@@ -340,7 +340,7 @@
             this.btn_TaskComplited.TabIndex = 30;
             this.btn_TaskComplited.Text = "Wykonane";
             this.btn_TaskComplited.UseVisualStyleBackColor = true;
-            this.btn_TaskComplited.Click += new System.EventHandler(this.btn_TaskComplited_Click);
+            this.btn_TaskComplited.Click += new System.EventHandler(this.btn_TaskCompleted_Click);
             // 
             // btn_RemoveTask
             // 

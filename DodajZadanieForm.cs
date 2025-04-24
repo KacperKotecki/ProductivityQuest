@@ -1,14 +1,4 @@
-﻿using Productivity_Quest_1._0;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Numerics;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Productivity_Quest_1._0
@@ -23,75 +13,16 @@ namespace Productivity_Quest_1._0
         public DodajZadanieForm()
         {
             InitializeComponent();
-            this.manage = manage;
-
-            comboBox1_Priority.Items.AddRange(new string[]
-            {
-                "Niski",
-                "Średni",
-                "Wysoki"
-            });
-            comboBox1_Priority.SelectedIndex = 0;
-
-            comboBox_Time.Items.AddRange(new string[]
-            {
-                "min",
-                "h"
-            });
-            comboBox_Time.SelectedIndex = 0;
-
-            comboBox_Category.Items.AddRange(new string[]
-            {
-                "Nauka",
-                "Praca",
-                "Dom",
-                "Zdrowie",
-                "Rozwój osobisty",
-                "Relacje",
-                "Hobby",
-                "Samopoczucie",
-                "Organizacja",
-                "Inne"
-            });
-            comboBox_Category.SelectedIndex = 0;
-            monthCalendar1.SetDate(DateTime.Now);
-
+            InitializeComboBoxes();
         }
         public DodajZadanieForm(Zadanie taskToEdit, Manage manage)
         {
             InitializeComponent();
+            InitializeComboBoxes();
             EditingTask = taskToEdit;
             this.manage = manage;
 
-            comboBox1_Priority.Items.AddRange(new string[]
-            {
-                "Niski",
-                "Średni",
-                "Wysoki"
-            });
-            comboBox1_Priority.SelectedIndex = 0;
-
-            comboBox_Time.Items.AddRange(new string[]
-            {
-                "min",
-                "h"
-            });
-            comboBox_Time.SelectedIndex = 0;
-
-            comboBox_Category.Items.AddRange(new string[]
-            {
-                "Nauka",
-                "Praca",
-                "Dom",
-                "Zdrowie",
-                "Rozwój osobisty",
-                "Relacje",
-                "Hobby",
-                "Samopoczucie",
-                "Organizacja",
-                "Inne"
-            });
-            comboBox_Category.SelectedIndex = 0;
+            
 
             textBox_Zadanie.Text = taskToEdit.Title;
             comboBox_Category.SelectedItem = taskToEdit.Category;
@@ -110,7 +41,26 @@ namespace Productivity_Quest_1._0
             }
 
         }
+        private void InitializeComboBoxes()
+        {
+            string[] comboboxPriority = new string[] {"Niski","Średni","Wysoki"};
+            string[] comboboxTime = new string[] {"min","h"};
+            string[] comboboxCategory = new string[] {"Nauka","Praca","Dom","Zdrowie","Rozwój osobisty","Relacje","Hobby","Samopoczucie", "Organizacja","Inne"};
+            
+            
+            
+            comboBox1_Priority.Items.AddRange(comboboxPriority);
+            comboBox_Time.Items.AddRange(comboboxTime);
+            comboBox_Category.Items.AddRange(comboboxCategory);
 
+
+            comboBox1_Priority.SelectedIndex = 0;
+            comboBox_Time.SelectedIndex = 0;
+            comboBox_Category.SelectedIndex = 0;
+
+            monthCalendar1.SetDate(DateTime.Now);
+
+        }
         private void buttonZapisz_Click(object sender, EventArgs e)
         {
 
@@ -125,8 +75,9 @@ namespace Productivity_Quest_1._0
             selectedDateTime = new DateTime(selectedDateTime.Year, selectedDateTime.Month, selectedDateTime.Day, hour, minutes, 0);
             if (selectedDateTime < DateTime.Now)
             {
+                
                 MessageBox.Show("Czy na pewno podałeś dobrą datę !", "Błąd", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
+                
             }
 
             EditingTask.Title = textBox_Zadanie.Text;
@@ -156,52 +107,36 @@ namespace Productivity_Quest_1._0
 
 
         }
-        private void RecurringTask()
-        {
-        }
 
-        private void btn_TaskComplited_Click(object sender, EventArgs e)
+        private void btn_TaskCompleted_Click(object sender, EventArgs e)
         {
             if (EditingTask.IsCompleted)
             {
-                MessageBox.Show("To zadanie jest już wykonane !", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("To zadanie jest już wykonane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else
-            {
-                var confirm = MessageBox.Show("Czy na pewno wykonałeś to zadanie ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirm == DialogResult.Yes)
-                {
-                    EditingTask.IsCompleted = true;
-                }
-            }
-            // wywołanie funkcji zliczającej ile zadańz jakiejś kategorii 
 
+            var confirm = MessageBox.Show("Czy na pewno wykonałeś to zadanie?", "Uwaga!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                EditingTask.IsCompleted = true; 
+            }
         }
 
         private void btn_RemoveTask_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Czy napewno chcesz usunąć to zadanie !", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string message = EditingTask.IsCompleted ? "Czy na pewno chcesz usunąć wykonane zadanie?": "Czy na pewno chcesz usunąć niewykonane zadanie?";
 
-            if (!EditingTask.IsCompleted)
-            {
-                confirm = MessageBox.Show("Zadanie nie jest wykonane czy na pewno ?", "Uwaga !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            }
-
+            var confirm = MessageBox.Show(message, "Uwaga!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirm == DialogResult.Yes)
             {
                 manage.Tasks.Remove(EditingTask);
-
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
 
-
-
         }
-
-
     }
 }
 

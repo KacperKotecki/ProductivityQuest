@@ -1,13 +1,9 @@
-﻿using Productivity_Quest_1._0.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Productivity_Quest_1._0.UI;
 
 namespace Productivity_Quest_1._0
 {
@@ -45,10 +41,16 @@ namespace Productivity_Quest_1._0
 
 
 
-            string iconPath = Path.Combine("Profile", "Profilowe.png");
-            controls.PictureProfile.Image = File.Exists("Profilowe.png")
-                ? Image.FromFile("Profilowe.png")
-                : Image.FromFile("Profile/Profilowe.png");
+            string profileImagePath = Path.Combine("Profile", "Profilowe.png");
+
+            if (File.Exists(profileImagePath))
+            {
+                controls.PictureProfile.Image = Image.FromFile(profileImagePath);
+            }
+            else
+            {
+                controls.PictureProfile.Image = Properties.Resources.Level_10;
+            }
 
             controls.PictureProfile.SizeMode = PictureBoxSizeMode.CenterImage;
             controls.PictureProfile.SizeMode = PictureBoxSizeMode.Zoom;

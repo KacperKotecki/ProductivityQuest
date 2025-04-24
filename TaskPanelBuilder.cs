@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Productivity_Quest_1._0
@@ -203,12 +198,15 @@ namespace Productivity_Quest_1._0
                 SizeMode = PictureBoxSizeMode.Zoom,
                 BorderStyle = BorderStyle.None,
                 BackColor = Color.Transparent,
-                Image = File.Exists(iconPath) ? Image.FromFile(iconPath) : Image.FromFile("Achievements_Icons/Level_3.png")
 
+                Image = File.Exists(iconPath)
+                    ? Image.FromFile(iconPath)
+                    : Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Achievements_Icons", "Level_3.png"))
             };
 
             return icon;
         }
+
         public PictureBox CreateIconPictureBox(Image image, Size size, Point location)
         {
             var icon = new PictureBox
@@ -224,5 +222,6 @@ namespace Productivity_Quest_1._0
 
             return icon;
         }
+
     }
 }
