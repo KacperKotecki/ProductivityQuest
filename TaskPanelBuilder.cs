@@ -197,12 +197,28 @@ namespace Productivity_Quest_1._0
                 Location = location,
                 SizeMode = PictureBoxSizeMode.Zoom,
                 BorderStyle = BorderStyle.None,
-                BackColor = Color.Transparent,
-
-                Image = File.Exists(iconPath)
-                    ? Image.FromFile(iconPath)
-                    : Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Achievements_Icons", "Level_3.png"))
+                BackColor = Color.Transparent
             };
+
+            try
+            {
+                
+                if (File.Exists(iconPath))
+                {
+                    icon.Image = Image.FromFile(iconPath);
+                }
+                else
+                {
+                    
+                    icon.Image = Properties.Resources.Level_3;
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show("Błąd ładowania ikony: " + ex.Message);
+                icon.Image = Properties.Resources.Level_3;
+            }
 
             return icon;
         }

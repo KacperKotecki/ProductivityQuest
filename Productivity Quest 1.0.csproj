@@ -130,11 +130,6 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Save-read.cs" />
     <Compile Include="StatsControls.cs" />
     <Compile Include="StatsRefresher.cs" />
@@ -142,6 +137,7 @@
     <Compile Include="TaskPanelBuilder.cs" />
     <Compile Include="WeekViewRenderer.cs" />
     <Compile Include="Zadanie.cs" />
+    <None Include="Resources\ChatGPT Image 19 kwi 2025, 00_15_26 — Kopia.png" />
     <EmbeddedResource Include="DodajZadanieForm.resx">
       <DependentUpon>DodajZadanieForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,8 +150,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="achievements.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="data.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -190,7 +188,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Dom_10.png" />
+    <Content Include="Resources\Dom_10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\check-circle_0.png" />
   </ItemGroup>
   <ItemGroup>
@@ -317,7 +317,9 @@
     <None Include="Resources\Hobby_100.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Level_3.png" />
+    <Content Include="Resources\Level_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Level_5.png" />
@@ -326,7 +328,9 @@
     <None Include="Resources\Level_7.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Level_10.png" />
+    <Content Include="Resources\Level_10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Level_15.png" />
