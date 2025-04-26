@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Productivity_Quest_1._0.UI;
 
@@ -111,7 +113,7 @@ namespace Productivity_Quest_1._0
                 using (var editForm = new DodajZadanieForm(task, manage))
                 {
                     editForm.Text = "Edycja zadania";
-                    
+
 
                     var result = editForm.ShowDialog();
 
@@ -182,6 +184,39 @@ namespace Productivity_Quest_1._0
             weekViewRenderer.GenerateWeekView(currentWeekStart);
             monthCalendar_Form.SetDate(currentWeekStart);
         }
+        
+        private Panel FindParentPanel(Control control)
+        {
+            while (control != null && !(control is Panel))
+            {
+                control = control.Parent;
+            }
+            return control as Panel;
+        }
+        private Point UpdatePanelPosition(Panel clickedPanel, MouseEventArgs e)
+        {
+            Point newLocation = clickedPanel.Location;
+            newLocation.Y += e.Y - dragStartPoint.Y;
+            newLocation.Y = Math.Max(40, Math.Min(920, newLocation.Y));
+
+            return newLocation;
+        }
+        private DateTime UpdateDeadline(Point panelLocation, Zadanie task)
+        {
+            if (!task.Deadline.HasValue)
+                return DateTime.Now;
+
+            int timelinePositionInMinutes = ((panelLocation.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
+            int hours = timelinePositionInMinutes / 60;
+            int minutes = timelinePositionInMinutes % 60;
+
+            return new DateTime(task.Deadline.Value.Year, task.Deadline.Value.Month, task.Deadline.Value.Day, hours, minutes, 0);
+        }
+        private string GetFormattedTaskTime(Zadanie task)
+        {
+            return $"{task.Deadline.Value.Hour}:{task.Deadline.Value.Minute:D2}";
+        }
+
         public void Panel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -190,57 +225,30 @@ namespace Productivity_Quest_1._0
                 dragStartPoint = e.Location; // punkt w panelu, gdzie kliknięto
             }
         }
-
         public void Panel_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDragging)
+            if (!isDragging)
+                return;
+
+            Panel clickedPanel = FindParentPanel(sender as Control);
+            if (clickedPanel == null)
+                return;
+
+            var task = clickedPanel.Tag as Zadanie;
+            if (task == null)
+                return;
+            // Oblicz nową pozycję
+
+            clickedPanel.Location = UpdatePanelPosition(clickedPanel, e);
+
+            task.Deadline = UpdateDeadline(clickedPanel.Location, task);
+
+            var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
+            if (timeLabel != null)
             {
-                Control source = sender as Control;
-                while (source != null && !(source is Panel))
-                {
-                    source = source.Parent;
-                }
-                Panel clickedPanel = source as Panel;
-
-                var zadanie = clickedPanel.Tag as Zadanie;
-
-                // Oblicz nową pozycję
-
-                Point newLocation = clickedPanel.Location;
-                newLocation.Y += e.Y - dragStartPoint.Y;
-                if (newLocation.Y < 40)
-                {
-                    newLocation.Y = 40;
-                }
-                else if (newLocation.Y > 920)
-                {
-                    newLocation.Y = 920;
-                }
-
-
-                clickedPanel.Location = newLocation;
-
-                int timelineToMinutes = ((newLocation.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
-
-                int hours = timelineToMinutes / 60;
-                int min = timelineToMinutes % 60;
-
-
-                if (zadanie.Deadline.HasValue)
-                {
-                    zadanie.Deadline = new DateTime(zadanie.Deadline.Value.Year, zadanie.Deadline.Value.Month, zadanie.Deadline.Value.Day, hours, min, 00);
-                }
-
-                var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
-
-                if (timeLabel != null)
-                {
-                    timeLabel.Text = $"{hours}:{min:D2}";
-
-                }
-
-
+                timeLabel.Text = GetFormattedTaskTime(task);
             }
+
         }
 
         public void Panel_MouseUp(object sender, MouseEventArgs e)
