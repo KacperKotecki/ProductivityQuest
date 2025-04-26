@@ -233,19 +233,19 @@ namespace Productivity_Quest_1._0
             if (clickedPanel == null)
                 return;
 
-            var zadanie = clickedPanel.Tag as Zadanie;
-            if (zadanie == null)
+            var task = clickedPanel.Tag as Zadanie;
+            if (task == null)
                 return;
             // Oblicz nową pozycję
 
             clickedPanel.Location = UpdatePanelPosition(clickedPanel, e);
 
-            zadanie.Deadline = UpdateDeadline(clickedPanel.Location, zadanie);
+            task.Deadline = UpdateDeadline(clickedPanel.Location, task);
 
             var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
             if (timeLabel != null)
             {
-                timeLabel.Text = GetFormattedTaskTime(zadanie);
+                timeLabel.Text = GetFormattedTaskTime(task);
             }
 
         }
