@@ -207,6 +207,17 @@ namespace Productivity_Quest_1._0
 
             return newLocation;
         }
+        private DateTime UpdateDeadline(Point panelLocation, Zadanie task)
+        {
+            if (!task.Deadline.HasValue)
+                return DateTime.Now;
+
+            int timelinePositionInMinutes = ((panelLocation.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
+            int hours = timelinePositionInMinutes / 60;
+            int minutes = timelinePositionInMinutes % 60;
+
+            return new DateTime(task.Deadline.Value.Year, task.Deadline.Value.Month, task.Deadline.Value.Day, hours, minutes, 0);
+        }
         public void Panel_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isDragging)
@@ -223,23 +234,14 @@ namespace Productivity_Quest_1._0
 
             clickedPanel.Location = UpdatePanelPosition(clickedPanel, e);
 
-
-            int timelineToMinutes = ((clickedPanel.Location.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
-
-            int hours = timelineToMinutes / 60;
-            int min = timelineToMinutes % 60;
-
-
-            if (zadanie.Deadline.HasValue)
-            {
-                zadanie.Deadline = new DateTime(zadanie.Deadline.Value.Year, zadanie.Deadline.Value.Month, zadanie.Deadline.Value.Day, hours, min, 00);
-            }
+            zadanie.Deadline = UpdateDeadline(clickedPanel.Location, zadanie);
+            
 
             var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
 
             if (timeLabel != null)
             {
-                timeLabel.Text = $"{hours}:{min:D2}";
+                timeLabel.Text = $"{zadanie.Deadline.Value.Hour}:{zadanie.Deadline.Value.Minute:D2}";
 
             }
 
