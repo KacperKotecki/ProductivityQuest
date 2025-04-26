@@ -101,7 +101,7 @@ namespace Productivity_Quest_1._0
                 panelHeader.Controls.Add(labeldate);
 
 
-                Panel panelTimeline = taskPanelBuilder.CreatePanel(new Size(width, 0), Color.Transparent, DockStyle.Fill);
+                Panel panelTimeline = taskPanelBuilder.CreatePanel(new Size(width, height - 40), Color.Transparent, DockStyle.Top);
                 
                 foreach (var task in manage.Tasks)
                 {
@@ -113,8 +113,9 @@ namespace Productivity_Quest_1._0
                 }
                 Monday = Monday.AddDays(1);
 
-                dayPanelForm.Controls.Add(panelHeader);
                 dayPanelForm.Controls.Add(panelTimeline);
+                dayPanelForm.Controls.Add(panelHeader);
+                
 
                 panelTimeline.DoubleClick += form1.DayPanel_DoubleClick;
             }

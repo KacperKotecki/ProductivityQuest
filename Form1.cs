@@ -197,7 +197,9 @@ namespace Productivity_Quest_1._0
         {
             Point newLocation = clickedPanel.Location;
             newLocation.Y += e.Y - dragStartPoint.Y;
-            newLocation.Y = Math.Max(40, Math.Min(920, newLocation.Y));
+            int timelineHeight = calendarControls.FlowLayoutPanel.Height - 85;
+
+            newLocation.Y = Math.Max(0, Math.Min(timelineHeight, newLocation.Y));
 
             return newLocation;
         }
@@ -206,9 +208,17 @@ namespace Productivity_Quest_1._0
             if (!task.Deadline.HasValue)
                 return DateTime.Now;
 
-            int timelinePositionInMinutes = ((panelLocation.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
+            int timelineHeight = calendarControls.FlowLayoutPanel.Height - 85;
+
+            // Tutaj ograniczamy Y do maksymalnej wartości timelineHeight
+            int safeY = Math.Min(panelLocation.Y, timelineHeight - 1);
+
+            int timelinePositionInMinutes = (safeY * 1440) / timelineHeight;
+
             int hours = timelinePositionInMinutes / 60;
             int minutes = timelinePositionInMinutes % 60;
+
+
 
             return new DateTime(task.Deadline.Value.Year, task.Deadline.Value.Month, task.Deadline.Value.Day, hours, minutes, 0);
         }
