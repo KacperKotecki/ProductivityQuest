@@ -85,39 +85,38 @@ namespace Productivity_Quest_1._0
                 dayPanelForm.Location = new Point(locationX, locationY);
                 dayPanelForm.Size = new Size(width, height);
                 dayPanelForm.BackColor = Color.FromArgb(220, 230, 240);
-                dayPanelForm.Padding = Padding.Empty;
+                dayPanelForm.Padding = new Padding(0,5,0,0);
                 dayPanelForm.Margin = new Padding(2, 0, 2, 0);
                 locationX += width;
                 calendarControls.FlowLayoutPanel.Controls.Add(dayPanelForm);
 
-                string formattedDate = Monday.ToString("dd MMMM", culture);
-                //var labelday = taskPanelBuilder.CreateUniversalLabel(dayInWeek[i], 18, true, 10, false);
-                var labelday = taskPanelBuilder.CreateUniversalLabel(dayInWeek[i],10,new Size(50,18), FontStyle.Bold, false, false);
-                //var labeldate = taskPanelBuilder.CreateUniversalLabel(formattedDate, 18, true, 9, false);
-                var labeldate = taskPanelBuilder.CreateUniversalLabel(formattedDate, 10, new Size(50,18), FontStyle.Bold, false, false);
+
+                Panel panelHeader = taskPanelBuilder.CreatePanel(new Size(width, 40), Color.Transparent, DockStyle.Top);
+
+                string formattedDate = Monday.ToString("dd MMMM", culture);                
+                var labelday = taskPanelBuilder.CreateLabel(dayInWeek[i],10,new Size(width, 18), FontStyle.Bold, DockStyle.Top);               
+                var labeldate = taskPanelBuilder.CreateLabel(formattedDate, 10, new Size(width, 18), FontStyle.Bold, DockStyle.Top);
+
+                panelHeader.Controls.Add(labelday);
+                panelHeader.Controls.Add(labeldate);
+
+
+                Panel panelTimeline = taskPanelBuilder.CreatePanel(new Size(width, 0), Color.Transparent, DockStyle.Fill);
+                
                 foreach (var task in manage.Tasks)
                 {
                     if (task.Deadline.Value.Date == Monday.Date)
                     {
                         var labeltask = taskPanelBuilder.CreateMyPanel(task, width, height);
-                        dayPanelForm.Controls.Add(labeltask);
-
-
-
+                        panelTimeline.Controls.Add(labeltask);
                     }
                 }
                 Monday = Monday.AddDays(1);
 
+                dayPanelForm.Controls.Add(panelHeader);
+                dayPanelForm.Controls.Add(panelTimeline);
 
-
-                labelday.ForeColor = Color.FromArgb(30, 30, 40);
-                labeldate.ForeColor = Color.FromArgb(30, 30, 40);
-
-
-                dayPanelForm.Controls.Add(labeldate);
-                dayPanelForm.Controls.Add(labelday);
-
-                dayPanelForm.DoubleClick += form1.DayPanel_DoubleClick;
+                panelTimeline.DoubleClick += form1.DayPanel_DoubleClick;
             }
 
 
