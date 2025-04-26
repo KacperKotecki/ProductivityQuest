@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Productivity_Quest_1._0.UI;
@@ -214,14 +215,8 @@ namespace Productivity_Quest_1._0
 
             Point newLocation = clickedPanel.Location;
             newLocation.Y += e.Y - dragStartPoint.Y;
-            if (newLocation.Y < 40)
-            {
-                newLocation.Y = 40;
-            }
-            else if (newLocation.Y > 920)
-            {
-                newLocation.Y = 920;
-            }
+
+            newLocation.Y = Math.Max(40, Math.Min(920, newLocation.Y));
 
 
             clickedPanel.Location = newLocation;
