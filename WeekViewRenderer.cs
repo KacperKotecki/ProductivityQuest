@@ -34,6 +34,10 @@ namespace Productivity_Quest_1._0
 
             calendarControls.FlowLayoutPanel.Controls.Clear();
             calendarControls.FlowLayoutPanel.BackColor = Color.FromArgb(240, 240, 245);
+            calendarControls.FlowLayoutPanel.AutoScroll = true;
+            calendarControls.FlowLayoutPanel.Padding = new Padding(0);
+            
+
 
             List<DateTime> dnitygodnia = new List<DateTime>();
             DateTime today = startDate;
@@ -68,13 +72,14 @@ namespace Productivity_Quest_1._0
 
             int locationX = 100;
             int locationY = 100;
-            int height = calendarControls.FlowLayoutPanel.Height;
-            int width = (calendarControls.FlowLayoutPanel.Width - 4 * 7) / 7;
+            int FlowLayoutPanelheight = calendarControls.FlowLayoutPanel.Height;
+            int width = ((calendarControls.FlowLayoutPanel.Width - 4 * 7) / 7) - 2;
+            int height = 1530;
             string[] dayInWeek = { "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela" };
 
 
 
-
+            
             for (int i = 0; i < 7; i++)
             {
 
@@ -85,7 +90,7 @@ namespace Productivity_Quest_1._0
                 dayPanelForm.Location = new Point(locationX, locationY);
                 dayPanelForm.Size = new Size(width, height);
                 dayPanelForm.BackColor = Color.FromArgb(220, 230, 240);
-                dayPanelForm.Padding = new Padding(0,5,0,0);
+                dayPanelForm.Padding = new Padding(0, 5, 0, 0);
                 dayPanelForm.Margin = new Padding(2, 0, 2, 0);
                 locationX += width;
                 calendarControls.FlowLayoutPanel.Controls.Add(dayPanelForm);
@@ -93,8 +98,8 @@ namespace Productivity_Quest_1._0
 
                 Panel panelHeader = taskPanelBuilder.CreatePanel(new Size(width, 40), Color.Transparent, DockStyle.Top);
 
-                string formattedDate = Monday.ToString("dd MMMM", culture);                
-                var labelday = taskPanelBuilder.CreateLabel(dayInWeek[i],10,new Size(width, 18), FontStyle.Bold, DockStyle.Top);               
+                string formattedDate = Monday.ToString("dd MMMM", culture);
+                var labelday = taskPanelBuilder.CreateLabel(dayInWeek[i], 10, new Size(width, 18), FontStyle.Bold, DockStyle.Top);
                 var labeldate = taskPanelBuilder.CreateLabel(formattedDate, 10, new Size(width, 18), FontStyle.Bold, DockStyle.Top);
 
                 panelHeader.Controls.Add(labelday);
@@ -102,7 +107,7 @@ namespace Productivity_Quest_1._0
 
 
                 Panel panelTimeline = taskPanelBuilder.CreatePanel(new Size(width, height - 40), Color.Transparent, DockStyle.Top);
-                
+
                 foreach (var task in manage.Tasks)
                 {
                     if (task.Deadline.Value.Date == Monday.Date)
@@ -115,9 +120,11 @@ namespace Productivity_Quest_1._0
 
                 dayPanelForm.Controls.Add(panelTimeline);
                 dayPanelForm.Controls.Add(panelHeader);
-                
+
 
                 panelTimeline.DoubleClick += form1.DayPanel_DoubleClick;
+
+                
             }
 
 

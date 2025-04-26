@@ -184,7 +184,7 @@ namespace Productivity_Quest_1._0
             weekViewRenderer.GenerateWeekView(currentWeekStart);
             monthCalendar_Form.SetDate(currentWeekStart);
         }
-        
+
         private Panel FindParentPanel(Control control)
         {
             while (control != null && !(control is Panel))
@@ -197,9 +197,8 @@ namespace Productivity_Quest_1._0
         {
             Point newLocation = clickedPanel.Location;
             newLocation.Y += e.Y - dragStartPoint.Y;
-            int timelineHeight = calendarControls.FlowLayoutPanel.Height - 85;
 
-            newLocation.Y = Math.Max(0, Math.Min(timelineHeight, newLocation.Y));
+            newLocation.Y = Math.Max(0, Math.Min(1440, newLocation.Y));
 
             return newLocation;
         }
@@ -208,12 +207,10 @@ namespace Productivity_Quest_1._0
             if (!task.Deadline.HasValue)
                 return DateTime.Now;
 
-            int timelineHeight = calendarControls.FlowLayoutPanel.Height - 85;
-
+            
             // Tutaj ograniczamy Y do maksymalnej wartości timelineHeight
-            int safeY = Math.Min(panelLocation.Y, timelineHeight - 1);
-
-            int timelinePositionInMinutes = (safeY * 1440) / timelineHeight;
+            int safeY = Math.Min(panelLocation.Y, 1439); // ograniczamy do pełnego dnia
+            int timelinePositionInMinutes = (safeY * 1440) / 1440; // teraz to będzie po prostu safeY
 
             int hours = timelinePositionInMinutes / 60;
             int minutes = timelinePositionInMinutes % 60;
@@ -276,7 +273,7 @@ namespace Productivity_Quest_1._0
                 " Podwójne kliknięcie na panel z zadaniem – edycja zadania.\n\n" +
                 " Kliknij ikonę  ? w prawym górnym rogu, by wrócić do tego okna.";
 
-            MessageBox.Show(message, "Pomoc", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         private void btn_Help_Click(object sender, EventArgs e)

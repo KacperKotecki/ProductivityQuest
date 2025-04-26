@@ -54,8 +54,8 @@
             // monthCalendar_Form
             // 
             this.monthCalendar_Form.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.monthCalendar_Form.Location = new System.Drawing.Point(1250, 394);
-            this.monthCalendar_Form.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.monthCalendar_Form.Location = new System.Drawing.Point(0, 0);
+            this.monthCalendar_Form.Margin = new System.Windows.Forms.Padding(7);
             this.monthCalendar_Form.Name = "monthCalendar_Form";
             this.monthCalendar_Form.TabIndex = 3;
             this.monthCalendar_Form.UseWaitCursor = true;
@@ -67,7 +67,7 @@
             this.Progress_Level.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.Progress_Level.BackColor = System.Drawing.SystemColors.Desktop;
             this.Progress_Level.ForeColor = System.Drawing.Color.Maroon;
-            this.Progress_Level.Location = new System.Drawing.Point(1250, 331);
+            this.Progress_Level.Location = new System.Drawing.Point(1260, 326);
             this.Progress_Level.Name = "Progress_Level";
             this.Progress_Level.Size = new System.Drawing.Size(612, 39);
             this.Progress_Level.Step = 1;
@@ -77,7 +77,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(1588, 72);
+            this.label2.Location = new System.Drawing.Point(1598, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 25);
             this.label2.TabIndex = 10;
@@ -101,7 +101,7 @@
             this.lb_XP.BackColor = System.Drawing.Color.Transparent;
             this.lb_XP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lb_XP.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lb_XP.Location = new System.Drawing.Point(1718, 300);
+            this.lb_XP.Location = new System.Drawing.Point(1728, 295);
             this.lb_XP.Name = "lb_XP";
             this.lb_XP.Size = new System.Drawing.Size(28, 19);
             this.lb_XP.TabIndex = 12;
@@ -115,7 +115,7 @@
             // 
             this.lb_Name.AutoSize = true;
             this.lb_Name.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lb_Name.Location = new System.Drawing.Point(1647, 72);
+            this.lb_Name.Location = new System.Drawing.Point(1657, 67);
             this.lb_Name.Name = "lb_Name";
             this.lb_Name.Size = new System.Drawing.Size(61, 25);
             this.lb_Name.TabIndex = 19;
@@ -125,7 +125,7 @@
             // 
             this.lb_Streak.AutoSize = true;
             this.lb_Streak.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lb_Streak.Location = new System.Drawing.Point(76, 376);
+            this.lb_Streak.Location = new System.Drawing.Point(335, 361);
             this.lb_Streak.Name = "lb_Streak";
             this.lb_Streak.Size = new System.Drawing.Size(193, 25);
             this.lb_Streak.TabIndex = 22;
@@ -135,7 +135,7 @@
             // lbn_Awans
             // 
             this.lbn_Awans.AutoSize = true;
-            this.lbn_Awans.Location = new System.Drawing.Point(1582, 534);
+            this.lbn_Awans.Location = new System.Drawing.Point(1592, 529);
             this.lbn_Awans.Name = "lbn_Awans";
             this.lbn_Awans.Size = new System.Drawing.Size(0, 13);
             this.lbn_Awans.TabIndex = 23;
@@ -143,7 +143,7 @@
             // btn_Edit_Player
             // 
             this.btn_Edit_Player.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Edit_Player.Location = new System.Drawing.Point(1583, 190);
+            this.btn_Edit_Player.Location = new System.Drawing.Point(1593, 185);
             this.btn_Edit_Player.Name = "btn_Edit_Player";
             this.btn_Edit_Player.Size = new System.Drawing.Size(216, 52);
             this.btn_Edit_Player.TabIndex = 24;
@@ -153,7 +153,7 @@
             // 
             // pictureBox_Streak
             // 
-            this.pictureBox_Streak.Location = new System.Drawing.Point(6, 0);
+            this.pictureBox_Streak.Location = new System.Drawing.Point(267, 3);
             this.pictureBox_Streak.MaximumSize = new System.Drawing.Size(999, 999);
             this.pictureBox_Streak.Name = "pictureBox_Streak";
             this.pictureBox_Streak.Size = new System.Drawing.Size(324, 307);
@@ -162,23 +162,28 @@
             // 
             // flowLayoutPanel_Calendar
             // 
-            this.flowLayoutPanel_Calendar.Location = new System.Drawing.Point(12, 17);
+            this.flowLayoutPanel_Calendar.Location = new System.Drawing.Point(12, 12);
+            this.flowLayoutPanel_Calendar.MaximumSize = new System.Drawing.Size(1224, 960);
+            this.flowLayoutPanel_Calendar.MinimumSize = new System.Drawing.Size(1224, 960);
             this.flowLayoutPanel_Calendar.Name = "flowLayoutPanel_Calendar";
-            this.flowLayoutPanel_Calendar.Size = new System.Drawing.Size(1204, 960);
+            this.flowLayoutPanel_Calendar.Size = new System.Drawing.Size(1224, 960);
             this.flowLayoutPanel_Calendar.TabIndex = 30;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.pictureBox_Streak);
             this.panel1.Controls.Add(this.lb_Streak);
-            this.panel1.Location = new System.Drawing.Point(1530, 394);
+            this.panel1.Controls.Add(this.monthCalendar_Form);
+            this.panel1.Controls.Add(this.btn_NextWeek);
+            this.panel1.Controls.Add(this.btn_PreviousWeek);
+            this.panel1.Location = new System.Drawing.Point(1260, 401);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(332, 431);
+            this.panel1.Size = new System.Drawing.Size(591, 431);
             this.panel1.TabIndex = 33;
             // 
             // pictureBox_Profile
             // 
-            this.pictureBox_Profile.Location = new System.Drawing.Point(1240, 17);
+            this.pictureBox_Profile.Location = new System.Drawing.Point(1250, 12);
             this.pictureBox_Profile.MaximumSize = new System.Drawing.Size(296, 296);
             this.pictureBox_Profile.Name = "pictureBox_Profile";
             this.pictureBox_Profile.Size = new System.Drawing.Size(279, 256);
@@ -188,7 +193,7 @@
             // btn_PreviousWeek
             // 
             this.btn_PreviousWeek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_PreviousWeek.Location = new System.Drawing.Point(1250, 566);
+            this.btn_PreviousWeek.Location = new System.Drawing.Point(0, 172);
             this.btn_PreviousWeek.Name = "btn_PreviousWeek";
             this.btn_PreviousWeek.Size = new System.Drawing.Size(82, 43);
             this.btn_PreviousWeek.TabIndex = 35;
@@ -199,7 +204,7 @@
             // btn_NextWeek
             // 
             this.btn_NextWeek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_NextWeek.Location = new System.Drawing.Point(1437, 566);
+            this.btn_NextWeek.Location = new System.Drawing.Point(145, 172);
             this.btn_NextWeek.Name = "btn_NextWeek";
             this.btn_NextWeek.Size = new System.Drawing.Size(82, 43);
             this.btn_NextWeek.TabIndex = 36;
@@ -224,8 +229,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1884, 1021);
             this.Controls.Add(this.btn_Help);
-            this.Controls.Add(this.btn_NextWeek);
-            this.Controls.Add(this.btn_PreviousWeek);
             this.Controls.Add(this.pictureBox_Profile);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel_Calendar);
@@ -235,7 +238,6 @@
             this.Controls.Add(this.lb_XP);
             this.Controls.Add(this.lb_Poziom);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.monthCalendar_Form);
             this.Controls.Add(this.Progress_Level);
             this.HelpButton = true;
             this.Name = "Form1";

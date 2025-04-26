@@ -16,7 +16,7 @@ namespace Productivity_Quest_1._0
         public Panel CreateMyPanel(Zadanie Tasks, int width, int height)
         {
             int timeInMinutes = Tasks.Deadline.Value.Hour * 60 + Tasks.Deadline.Value.Minute; // 0 do 1440    1,435
-            double y = (timeInMinutes / 1440d) * (height - 85);// skalowanie timeline może przyjąć wartości do 1440 a panel tylko 960 
+            double y = (timeInMinutes / 1440d) * 1440d;// skalowanie timeline może przyjąć wartości do 1440 a panel tylko 960 
 
             var panelTask = CreatePanel(new Size(width, Tasks.DurationMinutes), Color.FromArgb(80, 220, 120), new Point(0, (int)y));
 
