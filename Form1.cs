@@ -190,17 +190,19 @@ namespace Productivity_Quest_1._0
                 dragStartPoint = e.Location; // punkt w panelu, gdzie kliknięto
             }
         }
-
+        private Panel FindParentPanel(Control control)
+        {
+            while (control != null && !(control is Panel))
+            {
+                control = control.Parent;
+            }
+            return control as Panel;
+        }
         public void Panel_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
             {
-                Control source = sender as Control;
-                while (source != null && !(source is Panel))
-                {
-                    source = source.Parent;
-                }
-                Panel clickedPanel = source as Panel;
+                Panel clickedPanel = FindParentPanel(sender as Control); ;
 
                 var zadanie = clickedPanel.Tag as Zadanie;
 
