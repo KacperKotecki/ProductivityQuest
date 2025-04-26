@@ -111,7 +111,7 @@ namespace Productivity_Quest_1._0
                 using (var editForm = new DodajZadanieForm(task, manage))
                 {
                     editForm.Text = "Edycja zadania";
-                    
+
 
                     var result = editForm.ShowDialog();
 
@@ -200,49 +200,53 @@ namespace Productivity_Quest_1._0
         }
         public void Panel_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDragging)
+            if (!isDragging)
+                return;
+
+            Panel clickedPanel = FindParentPanel(sender as Control);
+            if (clickedPanel == null)
+                return;
+
+            var zadanie = clickedPanel.Tag as Zadanie;
+            if (zadanie == null)
+                return;
+            // Oblicz nową pozycję
+
+            Point newLocation = clickedPanel.Location;
+            newLocation.Y += e.Y - dragStartPoint.Y;
+            if (newLocation.Y < 40)
             {
-                Panel clickedPanel = FindParentPanel(sender as Control); ;
-
-                var zadanie = clickedPanel.Tag as Zadanie;
-
-                // Oblicz nową pozycję
-
-                Point newLocation = clickedPanel.Location;
-                newLocation.Y += e.Y - dragStartPoint.Y;
-                if (newLocation.Y < 40)
-                {
-                    newLocation.Y = 40;
-                }
-                else if (newLocation.Y > 920)
-                {
-                    newLocation.Y = 920;
-                }
+                newLocation.Y = 40;
+            }
+            else if (newLocation.Y > 920)
+            {
+                newLocation.Y = 920;
+            }
 
 
-                clickedPanel.Location = newLocation;
+            clickedPanel.Location = newLocation;
 
-                int timelineToMinutes = ((newLocation.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
+            int timelineToMinutes = ((newLocation.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
 
-                int hours = timelineToMinutes / 60;
-                int min = timelineToMinutes % 60;
+            int hours = timelineToMinutes / 60;
+            int min = timelineToMinutes % 60;
 
 
-                if (zadanie.Deadline.HasValue)
-                {
-                    zadanie.Deadline = new DateTime(zadanie.Deadline.Value.Year, zadanie.Deadline.Value.Month, zadanie.Deadline.Value.Day, hours, min, 00);
-                }
+            if (zadanie.Deadline.HasValue)
+            {
+                zadanie.Deadline = new DateTime(zadanie.Deadline.Value.Year, zadanie.Deadline.Value.Month, zadanie.Deadline.Value.Day, hours, min, 00);
+            }
 
-                var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
+            var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
 
-                if (timeLabel != null)
-                {
-                    timeLabel.Text = $"{hours}:{min:D2}";
-
-                }
-
+            if (timeLabel != null)
+            {
+                timeLabel.Text = $"{hours}:{min:D2}";
 
             }
+
+
+
         }
 
         public void Panel_MouseUp(object sender, MouseEventArgs e)
