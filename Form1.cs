@@ -199,6 +199,14 @@ namespace Productivity_Quest_1._0
             }
             return control as Panel;
         }
+        private Point UpdatePanelPosition(Panel clickedPanel, MouseEventArgs e)
+        {
+            Point newLocation = clickedPanel.Location;
+            newLocation.Y += e.Y - dragStartPoint.Y;
+            newLocation.Y = Math.Max(40, Math.Min(920, newLocation.Y));
+
+            return newLocation;
+        }
         public void Panel_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isDragging)
@@ -213,15 +221,10 @@ namespace Productivity_Quest_1._0
                 return;
             // Oblicz nową pozycję
 
-            Point newLocation = clickedPanel.Location;
-            newLocation.Y += e.Y - dragStartPoint.Y;
-
-            newLocation.Y = Math.Max(40, Math.Min(920, newLocation.Y));
+            clickedPanel.Location = UpdatePanelPosition(clickedPanel, e);
 
 
-            clickedPanel.Location = newLocation;
-
-            int timelineToMinutes = ((newLocation.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
+            int timelineToMinutes = ((clickedPanel.Location.Y - 40) * 1440) / calendarControls.FlowLayoutPanel.Height;
 
             int hours = timelineToMinutes / 60;
             int min = timelineToMinutes % 60;
