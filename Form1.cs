@@ -184,14 +184,7 @@ namespace Productivity_Quest_1._0
             weekViewRenderer.GenerateWeekView(currentWeekStart);
             monthCalendar_Form.SetDate(currentWeekStart);
         }
-        public void Panel_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isDragging = true;
-                dragStartPoint = e.Location; // punkt w panelu, gdzie kliknięto
-            }
-        }
+        
         private Panel FindParentPanel(Control control)
         {
             while (control != null && !(control is Panel))
@@ -224,6 +217,14 @@ namespace Productivity_Quest_1._0
             return $"{task.Deadline.Value.Hour}:{task.Deadline.Value.Minute:D2}";
         }
 
+        public void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                dragStartPoint = e.Location; // punkt w panelu, gdzie kliknięto
+            }
+        }
         public void Panel_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isDragging)

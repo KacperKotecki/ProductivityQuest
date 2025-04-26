@@ -101,6 +101,13 @@ namespace Productivity_Quest_1._0
             panelTask.MouseMove += form1.Panel_MouseMove;
             panelTask.MouseUp += form1.Panel_MouseUp;
 
+            foreach (Control control in panelTask.Controls)
+            {
+                control.MouseDown += form1.Panel_MouseDown;
+                control.MouseMove += form1.Panel_MouseMove;
+                control.MouseUp += form1.Panel_MouseUp;
+            }
+
 
             return panelTask;
         }
