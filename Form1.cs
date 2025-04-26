@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Productivity_Quest_1._0.UI;
 
@@ -218,6 +219,11 @@ namespace Productivity_Quest_1._0
 
             return new DateTime(task.Deadline.Value.Year, task.Deadline.Value.Month, task.Deadline.Value.Day, hours, minutes, 0);
         }
+        private string GetFormattedTaskTime(Zadanie task)
+        {
+            return $"{task.Deadline.Value.Hour}:{task.Deadline.Value.Minute:D2}";
+        }
+
         public void Panel_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isDragging)
@@ -235,17 +241,12 @@ namespace Productivity_Quest_1._0
             clickedPanel.Location = UpdatePanelPosition(clickedPanel, e);
 
             zadanie.Deadline = UpdateDeadline(clickedPanel.Location, zadanie);
-            
 
             var timeLabel = clickedPanel.Controls.OfType<Label>().FirstOrDefault(l => (string)l.Tag == "Time");
-
             if (timeLabel != null)
             {
-                timeLabel.Text = $"{zadanie.Deadline.Value.Hour}:{zadanie.Deadline.Value.Minute:D2}";
-
+                timeLabel.Text = GetFormattedTaskTime(zadanie);
             }
-
-
 
         }
 
