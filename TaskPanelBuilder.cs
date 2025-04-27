@@ -59,33 +59,38 @@ namespace Productivity_Quest_1._0
                 doneIcon.Image = Properties.Resources.check_circle_0;
             }
 
-
-
-
-
             // Height Panel task
-            if (Tasks.DurationMinutes >= 0 && Tasks.DurationMinutes < 65)
+            int panelHeight;
+
+            if (Tasks.DurationMinutes < 24)
             {
-                panelTask.Size = new Size(width, 65);
+                panelHeight = 24;
             }
-            else if (Tasks.DurationMinutes >= 65 && Tasks.DurationMinutes < 80)
+            else if (Tasks.DurationMinutes < 42)
             {
-                panelTask.Size = new Size(width, Tasks.DurationMinutes);
+                panelHeight = 42;
             }
             else
             {
-                panelTask.Size = new Size(width, Tasks.DurationMinutes);
-               
-                panelTask.Controls.Add(CreateUniversalLabel(Tasks.Category, 10, new Size(50, 18), FontStyle.Regular, true, false));
+                panelHeight = Tasks.DurationMinutes;
 
+
+                if (Tasks.DurationMinutes > 80)
+                {
+                    panelTask.Controls.Add(CreateUniversalLabel(Tasks.Category, 10, new Size(50, 18), FontStyle.Regular, true, false));
+                }
+                panelTask.Controls.Add(CreateUniversalLabel(Tasks.Deadline.Value.ToShortTimeString(), 10, new Size(50, 18), FontStyle.Regular, true, true));
             }
+
+            panelTask.Size = new Size(width, panelHeight);
+
 
 
             panelTask.Tag = Tasks;
 
             // Controls ADD 
             panelTask.Controls.Add(doneIcon);
-            panelTask.Controls.Add(CreateUniversalLabel(Tasks.Deadline.Value.ToShortTimeString(), 10, new Size(50, 18), FontStyle.Regular, true, true));
+           
             panelTask.Controls.Add(CreateUniversalLabel(Tasks.Title, 10, new Size(50, 36), FontStyle.Bold, true, false));
 
 
