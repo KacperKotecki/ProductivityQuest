@@ -74,7 +74,7 @@ namespace Productivity_Quest_1._0
             int locationY = 100;
             int FlowLayoutPanelheight = calendarControls.FlowLayoutPanel.Height;
             int width = ((calendarControls.FlowLayoutPanel.Width - 4 * 7) / 7) - 2;
-            int height = 1530;
+            int height = 1525;
             string[] dayInWeek = { "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela" };
 
 
@@ -82,29 +82,23 @@ namespace Productivity_Quest_1._0
             
             for (int i = 0; i < 7; i++)
             {
+                Panel dayPanelForm = taskPanelBuilder.CreatePanel(new Size(width, height), Color.FromArgb(220, 230, 240), new Point(locationX, locationY));
 
-                Panel dayPanelForm = new Panel();
-
-                dayPanelForm.Controls.Clear();
-
-                dayPanelForm.Location = new Point(locationX, locationY);
-                dayPanelForm.Size = new Size(width, height);
-                dayPanelForm.BackColor = Color.FromArgb(220, 230, 240);
                 dayPanelForm.Padding = new Padding(0, 5, 0, 0);
                 dayPanelForm.Margin = new Padding(2, 0, 2, 0);
+
                 locationX += width;
                 calendarControls.FlowLayoutPanel.Controls.Add(dayPanelForm);
-
-
+                
                 Panel panelHeader = taskPanelBuilder.CreatePanel(new Size(width, 40), Color.Transparent, DockStyle.Top);
 
                 string formattedDate = Monday.ToString("dd MMMM", culture);
                 var labelday = taskPanelBuilder.CreateLabel(dayInWeek[i], 10, new Size(width, 18), FontStyle.Bold, DockStyle.Top);
                 var labeldate = taskPanelBuilder.CreateLabel(formattedDate, 10, new Size(width, 18), FontStyle.Bold, DockStyle.Top);
 
-                panelHeader.Controls.Add(labelday);
+                
                 panelHeader.Controls.Add(labeldate);
-
+                panelHeader.Controls.Add(labelday);
 
                 Panel panelTimeline = taskPanelBuilder.CreatePanel(new Size(width, height - 40), Color.Transparent, DockStyle.Top);
 
