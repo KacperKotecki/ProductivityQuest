@@ -72,6 +72,26 @@ namespace Productivity_Quest_1._0
 
             return imageList;
         }
+        public static Bitmap LoadSingleOrFallback(string filePath, Bitmap fallbackImage)
+        {
+            string[] allowedExtensions = new[] { ".png", ".jpg" };
+
+            string extension = Path.GetExtension(filePath).ToLower();
+
+            if (allowedExtensions.Contains(extension) && File.Exists(filePath))
+            {
+                try
+                {
+                    return new Bitmap(filePath);
+                }
+                catch
+                {
+                    MessageBox.Show($"Nie udało się wczytać obrazu:\n{filePath}", "Błąd grafiki", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
+            return fallbackImage;
+        }
     }
 
 
