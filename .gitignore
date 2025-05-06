@@ -4,3 +4,10 @@ bin/
 obj/
 *.user
 *.suo
+
+!bin/debug/
+!bin/debug/Profile/
+!bin/debug/Profile/**
+
+!bin/debug/Achievements_Icons/
+!bin/debug/Achievements_Icons/**

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Productivity_Quest_1._0.UI;
 
@@ -11,6 +12,7 @@ namespace Productivity_Quest_1._0
     {
         private StatsControls controls;
         private Player player;
+        
 
         public StatsRefresher(Player player, StatsControls controls)
         {
@@ -39,46 +41,22 @@ namespace Productivity_Quest_1._0
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.CenterImage;
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.StretchImage;
 
+            string profileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Profile");
+
+            List<Bitmap> avatar = IconLoader.LoadFromFolder(profileFolderPath, Properties.Resources.default_profile, 1);
 
 
-            string profileImagePath = Path.Combine("Profile", "Profilowe.png");
-
-            if (File.Exists(profileImagePath))
-            {
-                controls.PictureProfile.Image = Image.FromFile(profileImagePath);
-            }
-            else
-            {
-                controls.PictureProfile.Image = Properties.Resources.Level_70;
-            }
-
+            controls.PictureProfile.Image = avatar[0];
             controls.PictureProfile.SizeMode = PictureBoxSizeMode.CenterImage;
             controls.PictureProfile.SizeMode = PictureBoxSizeMode.Zoom;
-
         }
 
 
         public Bitmap ChangeImg(int streak)
         {
-            var happy_ghost = new List<Bitmap>();
-            for (int i = 0; i < 10; i++)
-            {
-                string name = $"happy_ghost_{i}";
-                Bitmap img = (Bitmap)Properties.Resources.ResourceManager.GetObject(name);
-                if (img != null)
-                    happy_ghost.Add(img);
-            }
-
-            var sad_ghost = new List<Bitmap>();
-            for (int i = 0; i < 10; i++)
-            {
-                string name = $"sad_ghost_{i}";
-                Bitmap img = (Bitmap)Properties.Resources.ResourceManager.GetObject(name);
-                if (img != null)
-                    sad_ghost.Add(img);
-            }
-
-            Bitmap imgResult = happy_ghost[0]; // default
+            var happy_ghost = IconLoader.LoadFromResources("happy_ghost", 10);
+            var sad_ghost = IconLoader.LoadFromResources("sad_ghost", 10);
+            Bitmap imgResult = happy_ghost[0]; 
 
             int index = streak / 7;
 

@@ -126,6 +126,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconLoader.cs" />
     <Compile Include="Manage.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -194,6 +195,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Achievements_Icons\deafult_achievement.png" />
     <Content Include="Achievements_Icons\Level_10.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -233,6 +235,7 @@
     <Content Include="Achievements_Icons\Streak_7.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Profile\deafult_profileimg.png" />
     <Content Include="Resources\Dom_10.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
