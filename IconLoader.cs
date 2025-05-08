@@ -27,51 +27,7 @@ namespace Productivity_Quest_1._0
             return imageList;
         }
 
-        public static List<Bitmap> LoadFromFolder(string folderPath, Bitmap fallbackImage = null, int maxCount = 200)
-        {
-            var imageList = new List<Bitmap>();
-
-            string[] extensions = new string[] { ".png", ".jpg" };
-
-            if (!Directory.Exists(folderPath))
-                return imageList;
-
-            var files = Directory.GetFiles(folderPath)
-                .Where(file => extensions.Contains(Path.GetExtension(file).ToLower()))
-                .Take(maxCount);
-
-            foreach (var file in files)
-            {
-                try
-                {
-                    Bitmap img = new Bitmap(file);
-                    imageList.Add(img);
-
-                    
-                }
-                catch
-                {
-                    MessageBox.Show($"Nie udało się wczytać obrazu:\n{file}", "Błąd grafiki", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-
-            if (imageList.Count == 0 && fallbackImage != null)
-            {
-                try
-                {
-                    imageList.Add(fallbackImage);
-                }
-                catch
-                {
-                    MessageBox.Show("Nie udało się wczytać obrazu domyślnego.", "Krytyczny błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            
-
-
-            return imageList;
-        }
+        
         public static Bitmap LoadSingleOrFallback(string filePath, Bitmap fallbackImage)
         {
             string[] allowedExtensions = new[] { ".png", ".jpg" };

@@ -41,14 +41,13 @@ namespace Productivity_Quest_1._0
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.CenterImage;
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string profileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Profile");
+            string profileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Profile", "profile.png");
 
-            List<Bitmap> avatar = IconLoader.LoadFromFolder(profileFolderPath, Properties.Resources.default_profile, 1);
+            Bitmap avatar = IconLoader.LoadSingleOrFallback(profileFolderPath, Properties.Resources.default_profile);
 
-
-            controls.PictureProfile.Image = avatar[0];
-            controls.PictureProfile.SizeMode = PictureBoxSizeMode.CenterImage;
+            controls.PictureProfile.Image = avatar;
             controls.PictureProfile.SizeMode = PictureBoxSizeMode.Zoom;
+ 
         }
 
 

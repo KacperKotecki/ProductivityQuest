@@ -186,7 +186,7 @@ namespace Productivity_Quest_1._0
                 PictureBox iconBox = taskPanelBuilder.CreateIconPictureBox(iconBitmap, new Size(160, 160), new Point(15, 15));
 
 
-                achievementsPanel.Controls.Add(iconBox); // tutaj dodać iconBox zamiast icon ? 
+                achievementsPanel.Controls.Add(iconBox); 
                 achievementsPanel.Controls.Add(dateLabel);
                 achievementsPanel.Controls.Add(descLabel);
                 achievementsPanel.Controls.Add(nameLabel);
