@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="IconLoader.cs" />
     <Compile Include="Manage.cs" />
+    <Compile Include="PathHelper.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

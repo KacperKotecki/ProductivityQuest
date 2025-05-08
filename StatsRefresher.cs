@@ -12,7 +12,7 @@ namespace Productivity_Quest_1._0
     {
         private StatsControls controls;
         private Player player;
-        
+
 
         public StatsRefresher(Player player, StatsControls controls)
         {
@@ -41,17 +41,14 @@ namespace Productivity_Quest_1._0
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.CenterImage;
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string profileFolderPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-           
-            string profilePath = Path.Combine(profileFolderPath, "Profile", "duch.png");
-            MessageBox.Show(profileFolderPath + "    " +profilePath);
-            //string profileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Profile", "profile.png");
+            string profilePath = PathHelper.GetProjectPath("Profile", "duch.png");
 
             Bitmap avatar = IconLoader.LoadSingleOrFallback(profilePath, Properties.Resources.default_profile);
 
+
             controls.PictureProfile.Image = avatar;
             controls.PictureProfile.SizeMode = PictureBoxSizeMode.Zoom;
- 
+
         }
 
 
@@ -59,7 +56,7 @@ namespace Productivity_Quest_1._0
         {
             var happy_ghost = IconLoader.LoadFromResources("happy_ghost", 10);
             var sad_ghost = IconLoader.LoadFromResources("sad_ghost", 10);
-            Bitmap imgResult = happy_ghost[0]; 
+            Bitmap imgResult = happy_ghost[0];
 
             int index = streak / 7;
 
