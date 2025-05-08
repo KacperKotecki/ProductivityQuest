@@ -41,9 +41,13 @@ namespace Productivity_Quest_1._0
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.CenterImage;
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string profileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Profile", "profile.png");
+            string profileFolderPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+           
+            string profilePath = Path.Combine(profileFolderPath, "Profile", "duch.png");
+            MessageBox.Show(profileFolderPath + "    " +profilePath);
+            //string profileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Profile", "profile.png");
 
-            Bitmap avatar = IconLoader.LoadSingleOrFallback(profileFolderPath, Properties.Resources.default_profile);
+            Bitmap avatar = IconLoader.LoadSingleOrFallback(profilePath, Properties.Resources.default_profile);
 
             controls.PictureProfile.Image = avatar;
             controls.PictureProfile.SizeMode = PictureBoxSizeMode.Zoom;

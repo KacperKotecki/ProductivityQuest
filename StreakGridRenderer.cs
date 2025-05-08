@@ -181,7 +181,7 @@ namespace Productivity_Quest_1._0
 
                 string iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Achievements_Icons", item.Icon);
 
-                Bitmap iconBitmap = IconLoader.LoadSingleOrFallback(iconPath, Properties.Resources.default_achievement);
+                Bitmap iconBitmap = IconLoader.LoadSingleOrFallback(iconPath, Properties.Resources.deafult_achievement);
 
                 PictureBox iconBox = taskPanelBuilder.CreateIconPictureBox(iconBitmap, new Size(160, 160), new Point(15, 15));
 
