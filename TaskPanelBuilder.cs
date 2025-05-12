@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Productivity_Quest_1._0
 {
@@ -196,42 +197,7 @@ namespace Productivity_Quest_1._0
             };
             return panel;
         }
-
-        public PictureBox CreateIconPictureBox(string iconPath, Size size, Point location)
-        {
-            var icon = new PictureBox
-            {
-                Size = size,
-                Location = location,
-                SizeMode = PictureBoxSizeMode.Zoom,
-                BorderStyle = BorderStyle.None,
-                BackColor = Color.Transparent
-            };
-
-            try
-            {
-                
-                if (File.Exists(iconPath))
-                {
-                    icon.Image = Image.FromFile(iconPath);
-                }
-                else
-                {
-                    
-                    icon.Image = Properties.Resources.Level_3;
-                }
-            }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show("Błąd ładowania ikony: " + ex.Message);
-                icon.Image = Properties.Resources.Level_3;
-            }
-
-            return icon;
-        }
-
-        public PictureBox CreateIconPictureBox(Image image, Size size, Point location)
+        public PictureBox CreateIconPictureBox(Bitmap image, Size size, Point location)
         {
             var icon = new PictureBox
             {
@@ -241,11 +207,26 @@ namespace Productivity_Quest_1._0
                 BorderStyle = BorderStyle.None,
                 BackColor = Color.Transparent,
                 Image = image
-
             };
 
             return icon;
         }
+        public PictureBox CreateIconPictureBox(string iconPath, Size size, Point location)
+        {
+            var icon = new PictureBox
+            {
+                Size = size,
+                Location = location,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BorderStyle = BorderStyle.None,
+                BackColor = Color.Transparent,
+                Image = System.Drawing.Image.FromFile(iconPath)
+            };
+
+            return icon;
+        }
+
+        
 
     }
 }

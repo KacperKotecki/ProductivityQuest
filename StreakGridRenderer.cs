@@ -176,15 +176,17 @@ namespace Productivity_Quest_1._0
                 descLabel.Margin = new Padding(0, 0, 0, 5);
 
                 string text = item.UnlockedAt.HasValue ? item.UnlockedAt.Value.ToString("dd MMMM yyyy 'godz.' HH:mm", culture) : "";
-
+ 
                 var dateLabel = taskPanelBuilder.CreateLabel(text, 9, new Size(350, 60), FontStyle.Regular, new Point(200, 150));
 
-                string iconPath = Path.Combine("Achievements_Icons", item.Icon);
+                string iconPath = PathHelper.GetProjectPath("Achievements_Icons", item.Icon);
+
+                Bitmap achievementIcon = IconLoader.LoadSingleOrFallback(iconPath, Properties.Resources.deafult_achievement);
+
+                PictureBox iconBox = taskPanelBuilder.CreateIconPictureBox(achievementIcon, new Size(160, 160), new Point(15, 15));
 
 
-                var icon = taskPanelBuilder.CreateIconPictureBox(iconPath, new Size(160, 160), new Point(15, 15));
-
-                achievementsPanel.Controls.Add(icon);
+                achievementsPanel.Controls.Add(iconBox); 
                 achievementsPanel.Controls.Add(dateLabel);
                 achievementsPanel.Controls.Add(descLabel);
                 achievementsPanel.Controls.Add(nameLabel);

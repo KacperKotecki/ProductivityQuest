@@ -47,24 +47,20 @@ namespace Productivity_Quest_1._0
         public int CalculateStreak()
         {
             int streak = 0;
-            DateTime todayDate = DateTime.UtcNow.Date;
-            DateTime completedYesterday = DateTime.UtcNow.Date.AddDays(-1);
+            DateTime yesterday = DateTime.UtcNow.Date.AddDays(-1);
 
-
-            while (StreakDays.Contains(todayDate.Date))
+            while (StreakDays.Contains(yesterday.Date))
             {
                 streak++;
-                todayDate = todayDate.AddDays(-1);
+                yesterday = yesterday.AddDays(-1);
             }
-            
-            if (streak == 0 && StreakDays.Contains(completedYesterday.Date))
+
+            DateTime today = DateTime.UtcNow.Date;
+
+            if (!StreakDays.Contains(today.Date))
             {
-                streak = -1;
-                while(StreakDays.Contains(completedYesterday.Date))
-                {
-                    completedYesterday = completedYesterday.AddDays(-1);
-                    streak--;
-                }
+                streak *= -1;
+               
             }
             
                 return streak;
