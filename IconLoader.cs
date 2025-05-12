@@ -10,15 +10,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Productivity_Quest_1._0
 {
-    //public static string GetMainProgramFolder(params string[] folders)
-    //{
-    //    string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-    //    string projectRoot = Directory.GetParent(Directory.GetParent(baseDir).FullName).FullName;
-    //    return Path.Combine(new[] { projectRoot }.Concat(folders).ToArray());
-    //}
 
     public static class IconLoader
     {
+
+       
         public static List<Bitmap> LoadFromResources(string prefix, int count)
         {
             var imageList = new List<Bitmap>();

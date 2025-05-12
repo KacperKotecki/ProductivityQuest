@@ -41,7 +41,7 @@ namespace Productivity_Quest_1._0
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.CenterImage;
             controls.PictureStreak.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string profilePath = PathHelper.GetProjectPath("Profile", "duch.png");
+            string profilePath = PathHelper.GetProjectPath("Profile", "profile.png");
 
             Bitmap avatar = IconLoader.LoadSingleOrFallback(profilePath, Properties.Resources.default_profile);
 
