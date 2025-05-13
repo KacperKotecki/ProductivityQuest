@@ -11,6 +11,7 @@ using Google.Apis.Util.Store;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using static Google.Apis.Calendar.v3.CalendarService;
 namespace Productivity_Quest_1._0.Google_Calendar
 {
     internal class GoogleAuthService
@@ -30,11 +31,13 @@ namespace Productivity_Quest_1._0.Google_Calendar
                     throw new FileNotFoundException("Brak pliku credentials.json. Skopiuj plik z Google Cloud Console.", CredentialsPath);
                 }
 
+             
+
                 using (var stream = new FileStream(CredentialsPath, FileMode.Open, FileAccess.Read))
                 {
                     var credPath = TokenFolder;
                     var credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                        GoogleClientSecrets.Load(stream).Secrets,
+                        GoogleClientSecrets.FromStream(stream).Secrets, // Updated to use FromStream
                         Scopes,
                         "user",
                         CancellationToken.None,
