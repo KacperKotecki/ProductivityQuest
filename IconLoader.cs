@@ -29,6 +29,7 @@ namespace Productivity_Quest_1._0
         }
 
         
+
         public static Bitmap LoadSingleOrFallback(string filePath, Bitmap fallbackImage)
         {
             string[] allowedExtensions = new[] { ".png", ".jpg" };

@@ -3,6 +3,11 @@ bin/
 obj/
 *.user
 *.suo
+/GoogleSync
 /GoogleSync/credentials.json
+credentials.json
 /token_store/
+/packages/
+/*.nupkg
+
 
