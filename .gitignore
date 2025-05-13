@@ -1,7 +1,8 @@
-# Śmieci z Visual Studio
 .vs/
 bin/
 obj/
 *.user
 *.suo
+/GoogleSync/credentials.json
+/token_store/
 
