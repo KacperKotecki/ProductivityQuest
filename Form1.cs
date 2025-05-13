@@ -280,5 +280,19 @@ namespace Productivity_Quest_1._0
         {
             ShowHelpDialog();
         }
+
+        private async void btn_GoogleLogin_Click(object sender, EventArgs e)
+        {
+            var authService = new Google_Calendar.GoogleAuthService();
+            var calendarService = await authService.GetCalendarServiceAsync();
+            if (calendarService != null)
+            {
+                MessageBox.Show("Zalogowano do Google Calendar!");
+                // Możesz tu dodać dalsze operacje na kalendarzu
+            }
+        }
+
+
+        
     }
 }

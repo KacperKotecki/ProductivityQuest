@@ -41,10 +41,11 @@
             this.pictureBox_Streak = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel_Calendar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox_Profile = new System.Windows.Forms.PictureBox();
-            this.btn_PreviousWeek = new System.Windows.Forms.Button();
             this.btn_NextWeek = new System.Windows.Forms.Button();
+            this.btn_PreviousWeek = new System.Windows.Forms.Button();
+            this.pictureBox_Profile = new System.Windows.Forms.PictureBox();
             this.btn_Help = new System.Windows.Forms.Button();
+            this.btn_GoogleLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Streak)).BeginInit();
             this.panel1.SuspendLayout();
@@ -143,7 +144,7 @@
             // btn_Edit_Player
             // 
             this.btn_Edit_Player.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Edit_Player.Location = new System.Drawing.Point(1593, 185);
+            this.btn_Edit_Player.Location = new System.Drawing.Point(1595, 158);
             this.btn_Edit_Player.Name = "btn_Edit_Player";
             this.btn_Edit_Player.Size = new System.Drawing.Size(216, 52);
             this.btn_Edit_Player.TabIndex = 24;
@@ -181,14 +182,16 @@
             this.panel1.Size = new System.Drawing.Size(591, 431);
             this.panel1.TabIndex = 33;
             // 
-            // pictureBox_Profile
+            // btn_NextWeek
             // 
-            this.pictureBox_Profile.Location = new System.Drawing.Point(1250, 12);
-            this.pictureBox_Profile.MaximumSize = new System.Drawing.Size(296, 296);
-            this.pictureBox_Profile.Name = "pictureBox_Profile";
-            this.pictureBox_Profile.Size = new System.Drawing.Size(279, 256);
-            this.pictureBox_Profile.TabIndex = 34;
-            this.pictureBox_Profile.TabStop = false;
+            this.btn_NextWeek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_NextWeek.Location = new System.Drawing.Point(145, 172);
+            this.btn_NextWeek.Name = "btn_NextWeek";
+            this.btn_NextWeek.Size = new System.Drawing.Size(82, 43);
+            this.btn_NextWeek.TabIndex = 36;
+            this.btn_NextWeek.Text = ">>>";
+            this.btn_NextWeek.UseVisualStyleBackColor = true;
+            this.btn_NextWeek.Click += new System.EventHandler(this.btn_NextWeek_Click);
             // 
             // btn_PreviousWeek
             // 
@@ -201,16 +204,14 @@
             this.btn_PreviousWeek.UseVisualStyleBackColor = true;
             this.btn_PreviousWeek.Click += new System.EventHandler(this.btn_PreviousWeek_Click);
             // 
-            // btn_NextWeek
+            // pictureBox_Profile
             // 
-            this.btn_NextWeek.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_NextWeek.Location = new System.Drawing.Point(145, 172);
-            this.btn_NextWeek.Name = "btn_NextWeek";
-            this.btn_NextWeek.Size = new System.Drawing.Size(82, 43);
-            this.btn_NextWeek.TabIndex = 36;
-            this.btn_NextWeek.Text = ">>>";
-            this.btn_NextWeek.UseVisualStyleBackColor = true;
-            this.btn_NextWeek.Click += new System.EventHandler(this.btn_NextWeek_Click);
+            this.pictureBox_Profile.Location = new System.Drawing.Point(1250, 12);
+            this.pictureBox_Profile.MaximumSize = new System.Drawing.Size(296, 296);
+            this.pictureBox_Profile.Name = "pictureBox_Profile";
+            this.pictureBox_Profile.Size = new System.Drawing.Size(279, 256);
+            this.pictureBox_Profile.TabIndex = 34;
+            this.pictureBox_Profile.TabStop = false;
             // 
             // btn_Help
             // 
@@ -223,11 +224,23 @@
             this.btn_Help.UseVisualStyleBackColor = true;
             this.btn_Help.Click += new System.EventHandler(this.btn_Help_Click);
             // 
+            // btn_GoogleLogin
+            // 
+            this.btn_GoogleLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_GoogleLogin.Location = new System.Drawing.Point(1595, 216);
+            this.btn_GoogleLogin.Name = "btn_GoogleLogin";
+            this.btn_GoogleLogin.Size = new System.Drawing.Size(216, 52);
+            this.btn_GoogleLogin.TabIndex = 38;
+            this.btn_GoogleLogin.Text = "Zaloguj przez Google";
+            this.btn_GoogleLogin.UseVisualStyleBackColor = true;
+            this.btn_GoogleLogin.Click += new System.EventHandler(this.btn_GoogleLogin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1884, 1021);
+            this.Controls.Add(this.btn_GoogleLogin);
             this.Controls.Add(this.btn_Help);
             this.Controls.Add(this.pictureBox_Profile);
             this.Controls.Add(this.panel1);
@@ -270,6 +283,7 @@
         private System.Windows.Forms.Button btn_NextWeek;
         private System.Windows.Forms.Button btn_PreviousWeek;
         private System.Windows.Forms.Button btn_Help;
+        private System.Windows.Forms.Button btn_GoogleLogin;
     }
 }
 

@@ -161,7 +161,7 @@
     <Compile Include="TaskPanelBuilder.cs" />
     <Compile Include="WeekViewRenderer.cs" />
     <Compile Include="Zadanie.cs" />
-    <Content Include="credentials.json">
+    <Content Include="GoogleSync\credentials.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\default_profile.png" />
