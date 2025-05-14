@@ -143,6 +143,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Google-Calendar\GoogleAuthService.cs" />
+    <Compile Include="GoogleCalendarReader.cs" />
     <Compile Include="IconLoader.cs" />
     <Compile Include="Manage.cs" />
     <Compile Include="PathHelper.cs" />

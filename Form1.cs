@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Productivity_Quest_1._0.Google_Calendar;
 using Productivity_Quest_1._0.UI;
 
 namespace Productivity_Quest_1._0
@@ -290,9 +291,30 @@ namespace Productivity_Quest_1._0
                 MessageBox.Show("Zalogowano do Google Calendar!");
                 // Możesz tu dodać dalsze operacje na kalendarzu
             }
+
+                var events = await GoogleCalendarReader.GetPrimaryCalendarEventsAsync(calendarService);
+
+                int imported = 0;
+                foreach (var task in events)
+                {
+                    if (task != null)
+                    {
+                        var tasktoadd = GoogleCalendarReader.MapEventToTask(task);
+
+                        if (tasktoadd != null)
+                        manage.Tasks.Add(tasktoadd);
+                        imported++;
+                    }
+                }
+
+                manage.SaveTasks();
+                MessageBox.Show($"Zadania z Google Calendar zostały zaimportowane: {imported}");
+            
+       
+        
         }
 
 
-        
+
     }
 }
