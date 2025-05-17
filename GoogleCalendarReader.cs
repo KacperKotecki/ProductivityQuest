@@ -38,7 +38,7 @@ namespace Productivity_Quest_1._0
                 Category = "Google Calendar",
                 Priority = "Niski",
                 DurationMinutes = GetDuration(ev.Start.DateTime, ev.End.DateTime),
-                Deadline = deadline,
+                Deadline = GetDeadline(ev.Start.DateTime, ev.Start.Date),
                 IsCompleted = false,
                 CreatedAt = DateTime.Now
             };
@@ -55,9 +55,21 @@ namespace Productivity_Quest_1._0
                 return DefaultDurationMinutes;
             }
 
-           
-
             return (int)(end.Value - start.Value).TotalMinutes;
+        }
+
+        private static DateTime? GetDeadline(DateTime? deadline, string date = null)
+        {
+            if (deadline.HasValue)
+                return deadline.Value;
+            
+            if (!string.IsNullOrEmpty(date) && DateTime.TryParse(date, out var result))
+            {
+                return new DateTime(result.Year, result.Month, result.Day, 0,0,0);
+            }
+
+                return null;
+            
         }
     }
 }
