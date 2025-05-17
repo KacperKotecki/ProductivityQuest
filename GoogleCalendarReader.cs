@@ -40,7 +40,9 @@ namespace Productivity_Quest_1._0
                 DurationMinutes = GetDuration(ev.Start.DateTime, ev.End.DateTime),
                 Deadline = GetDeadline(ev.Start.DateTime, ev.Start.Date),
                 IsCompleted = false,
-                CreatedAt = DateTime.Now
+                CreatedAt = ev.Created.HasValue 
+                    ? ev.Created.Value.ToLocalTime() 
+                    : DateTime.Now
             };
 
             return myTask;
