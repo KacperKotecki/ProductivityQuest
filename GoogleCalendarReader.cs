@@ -28,16 +28,8 @@ namespace Productivity_Quest_1._0
         public static Zadanie MapEventToTask(Event ev)
         {
 
-            DateTime startDateTime = ev.Start.DateTime
-                ?? DateTime.Parse(ev.Start.Date).ToLocalTime().Date;
-
-            DateTime endDateTime = ev.End.DateTime
-                ?? DateTime.Parse(ev.End.Date).ToLocalTime().Date;
-
             DateTime deadline = ev.Start.DateTime
                 ?? DateTime.Parse(ev.Start.Date).ToLocalTime().Date;
-
-            int duration = (int)(endDateTime - startDateTime).TotalMinutes;
 
 
             var myTask = new Zadanie
@@ -45,13 +37,27 @@ namespace Productivity_Quest_1._0
                 Title = ev.Summary,
                 Category = "Google Calendar",
                 Priority = "Niski",
-                DurationMinutes = duration,
+                DurationMinutes = GetDuration(ev.Start.DateTime, ev.End.DateTime),
                 Deadline = deadline,
                 IsCompleted = false,
                 CreatedAt = DateTime.Now
             };
 
             return myTask;
+        }
+
+        private static int GetDuration(DateTime? start, DateTime? end)
+        {
+            int DefaultDurationMinutes = 30;
+
+            if(!start.HasValue || !end.HasValue || start.Value > end.Value)
+            {
+                return DefaultDurationMinutes;
+            }
+
+           
+
+            return (int)(end.Value - start.Value).TotalMinutes;
         }
     }
 }
