@@ -14,6 +14,8 @@ namespace Productivity_Quest_1._0
         public bool IsCompleted { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        public DateTime? UpdatedAt { get; set; }
         public override string ToString()
         {
             return $" {Title} | {Category}  | {Priority} | {(IsCompleted ? "Done" : "To do")}    {Deadline?.ToString("HH:mm")}  {Deadline?.ToString("dd.MM.yyyy")}";

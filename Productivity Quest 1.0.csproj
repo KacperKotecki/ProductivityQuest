@@ -124,6 +124,7 @@
     <Compile Include="AchievementManager.cs" />
     <Compile Include="Achievements.cs" />
     <Compile Include="CalendarControls.cs" />
+    <Compile Include="CalendarSynchronizer.cs" />
     <Compile Include="DodajZadanieForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +143,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Google-Calendar\CalendarSynchronizer.cs" />
     <Compile Include="Google-Calendar\GoogleAuthService.cs" />
     <Compile Include="GoogleCalendarReader.cs" />
     <Compile Include="IconLoader.cs" />

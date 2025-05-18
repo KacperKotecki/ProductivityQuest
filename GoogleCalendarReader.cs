@@ -34,21 +34,25 @@ namespace Productivity_Quest_1._0
 
             var myTask = new Zadanie
             {
+                Id = "google_calendar_"+ev.Id,
                 Title = ev.Summary,
                 Category = "Google Calendar",
                 Priority = "Niski",
                 DurationMinutes = GetDuration(ev.Start.DateTime, ev.End.DateTime),
                 Deadline = GetDeadline(ev.Start.DateTime, ev.Start.Date),
                 IsCompleted = false,
-                CreatedAt = ev.Created.HasValue 
+                CreatedAt = ev.CreatedDateTimeOffset.HasValue 
                     ? ev.Created.Value.ToLocalTime() 
+                    : DateTime.Now,
+                UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
+                    ? ev.UpdatedDateTimeOffset.Value.ToLocalTime()
                     : DateTime.Now
             };
 
             return myTask;
         }
 
-        private static int GetDuration(DateTime? start, DateTime? end)
+        public static int GetDuration(DateTime? start, DateTime? end)
         {
             int DefaultDurationMinutes = 30;
 
@@ -60,18 +64,24 @@ namespace Productivity_Quest_1._0
             return (int)(end.Value - start.Value).TotalMinutes;
         }
 
-        private static DateTime? GetDeadline(DateTime? deadline, string date = null)
+        public static DateTime? GetDeadline(DateTime? deadline, string date = null)
         {
             if (deadline.HasValue)
                 return deadline.Value;
-            
+
             if (!string.IsNullOrEmpty(date) && DateTime.TryParse(date, out var result))
             {
-                return new DateTime(result.Year, result.Month, result.Day, 0,0,0);
+                return new DateTime(result.Year, result.Month, result.Day, 0, 0, 0);
             }
 
-                return null;
-            
+            return null;
+
         }
+       
+            
+            
     }
 }
+
+
+

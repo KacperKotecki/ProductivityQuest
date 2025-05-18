@@ -9,9 +9,7 @@ using Productivity_Quest_1._0.UI;
 
 namespace Productivity_Quest_1._0
 {
-    // TODO: dodać gif kwiatka
-    // TODO: ikona aplikacji
-    // FIXME: ogarnąć system powiadomień
+
     public partial class Form1 : Form
     {
         private Player player;
@@ -284,34 +282,24 @@ namespace Productivity_Quest_1._0
 
         private async void btn_GoogleLogin_Click(object sender, EventArgs e)
         {
+            CalendarSynchronizer calendarSynchronizer = new CalendarSynchronizer(manage);
+
             var authService = new Google_Calendar.GoogleAuthService();
             var calendarService = await authService.GetCalendarServiceAsync();
             if (calendarService != null)
             {
                 MessageBox.Show("Zalogowano do Google Calendar!");
-                // Możesz tu dodać dalsze operacje na kalendarzu
-            }
 
-                var events = await GoogleCalendarReader.GetPrimaryCalendarEventsAsync(calendarService);
-
-                int imported = 0;
-                foreach (var task in events)
-                {
-                    if (task != null)
-                    {
-                        var tasktoadd = GoogleCalendarReader.MapEventToTask(task);
-
-                        if (tasktoadd != null)
-                        manage.Tasks.Add(tasktoadd);
-                        imported++;
-                    }
-                }
+                var (added, updated, removed) = await calendarSynchronizer.SynchronizeWithGoogle(calendarService);
 
                 manage.SaveTasks();
-                MessageBox.Show($"Zadania z Google Calendar zostały zaimportowane: {imported}");
-            
-       
-        
+                MessageBox.Show($"Synchronizacja zakończona:\nDodano: {added}\nZaktualizowano: {updated}\nUsunięto: {removed}");
+                weekViewRenderer.GenerateWeekView(currentWeekStart);
+            }
+            else
+            {
+                MessageBox.Show("Nie można połączyć z Google Calendar", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
