@@ -75,6 +75,7 @@ namespace Productivity_Quest_1._0
         public void DayPanel_DoubleClick(object sender, EventArgs e)
         {
             var newTask = new Zadanie();
+            newTask.Id = "PQ_"+Guid.NewGuid().ToString();
             using (var editForm = new DodajZadanieForm(newTask, manage))
             {
                 var result = editForm.ShowDialog();
