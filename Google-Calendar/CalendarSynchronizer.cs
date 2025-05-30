@@ -134,7 +134,51 @@ public class CalendarSynchronizer
             : DateTime.Now;
     }
 
-    
+    public async Task<int> SendTasksToGoogle(CalendarService calendarService, List<Zadanie> tasks)
+    {
+        int sentCount = 0;
+        foreach (var task in tasks.Where(t => !t.IsSyncedWithGoogle && t.Category != "Google Calendar"))
+        {
+            await CreateOrUpdateGoogleEvent(calendarService, task);
+            task.IsSyncedWithGoogle = true;
+            sentCount++;
+        }
+        return sentCount;
+    }
+
+    private async Task CreateOrUpdateGoogleEvent(CalendarService calendarService, Zadanie task)
+    {
+        var newEvent = new Google.Apis.Calendar.v3.Data.Event
+        {
+            Summary = task.Title,
+
+            Start = new Google.Apis.Calendar.v3.Data.EventDateTime
+            {
+                DateTime = task.Deadline.DateTime
+            },
+            End = new Google.Apis.Calendar.v3.Data.EventDateTime
+            {
+                DateTime = task.Deadline.DateTime.AddMinutes(task.DurationMinutes)
+            }
+
+        };
+
+        if (string.IsNullOrEmpty(task.GoogleCalendarEventId))
+        {
+            var insertRequest = calendarService.Events.Insert(newEvent, "primary");
+            var createdEvent = await insertRequest.ExecuteAsync();
+            task.GoogleCalendarEventId = createdEvent.Id;
+        }
+        else
+        {
+            var updateRequest = calendarService.Events.Update(newEvent, "primary", task.GoogleCalendarEventId);
+            await updateRequest.ExecuteAsync();
+        }
+
+        task.UpdatedAt = DateTimeOffset.Now;
+    }
+
+
 
 
 
