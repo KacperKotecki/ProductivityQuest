@@ -104,7 +104,7 @@ namespace Productivity_Quest_1._0
 
                 foreach (var task in manage.Tasks)
                 {
-                    if (task.Deadline.Value.Date == Monday.Date)
+                    if (task.Deadline.Date == Monday.Date)
                     {
                         var labeltask = taskPanelBuilder.CreateMyPanel(task, width, height);
                         panelTimeline.Controls.Add(labeltask);

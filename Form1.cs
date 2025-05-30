@@ -74,8 +74,7 @@ namespace Productivity_Quest_1._0
 
         public void DayPanel_DoubleClick(object sender, EventArgs e)
         {
-            var newTask = new Zadanie();
-            newTask.Id = "PQ_"+Guid.NewGuid().ToString();
+            var newTask = new Zadanie("PQ_" + Guid.NewGuid().ToString());
             using (var editForm = new DodajZadanieForm(newTask, manage))
             {
                 var result = editForm.ShowDialog();
@@ -87,7 +86,7 @@ namespace Productivity_Quest_1._0
 
                     manage.SaveTasks();
                     taskPanelBuilder.CreateMyPanel(newTask, calendarControls.FlowLayoutPanel.Width, calendarControls.FlowLayoutPanel.Height); // powina być dobra szerokośc 
-                    currentWeekStart = newTask.Deadline.Value;
+                    currentWeekStart = newTask.Deadline.Date;// zmiana na 
                     weekViewRenderer.GenerateWeekView(currentWeekStart);
 
                 }
@@ -141,7 +140,8 @@ namespace Productivity_Quest_1._0
 
                 statsRefresher.RefreshStats();
 
-                currentWeekStart = task.Deadline.Value;
+                currentWeekStart = task.Deadline.Date;// Czemu to nie działa ? 
+
                 weekViewRenderer.GenerateWeekView(currentWeekStart);
             }
         }
@@ -204,8 +204,8 @@ namespace Productivity_Quest_1._0
         }
         private DateTime UpdateDeadline(Point panelLocation, Zadanie task)
         {
-            if (!task.Deadline.HasValue)
-                return DateTime.Now;
+            //if (!task.Deadline.HasValue)
+            //    return DateTime.Now;
 
             
             // Tutaj ograniczamy Y do maksymalnej wartości timelineHeight
@@ -217,11 +217,11 @@ namespace Productivity_Quest_1._0
 
 
 
-            return new DateTime(task.Deadline.Value.Year, task.Deadline.Value.Month, task.Deadline.Value.Day, hours, minutes, 0);
+            return new DateTime(task.Deadline.Year, task.Deadline.Month, task.Deadline.Day, hours, minutes, 0);
         }
         private string GetFormattedTaskTime(Zadanie task)
         {
-            return $"{task.Deadline.Value.Hour}:{task.Deadline.Value.Minute:D2}";
+            return $"{task.Deadline.Hour}:{task.Deadline.Minute:D2}";
         }
 
         public void Panel_MouseDown(object sender, MouseEventArgs e)

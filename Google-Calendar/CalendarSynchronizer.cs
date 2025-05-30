@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -126,10 +127,15 @@ public class CalendarSynchronizer
     private void UpdateTask(Zadanie task, Google.Apis.Calendar.v3.Data.Event ev)
     {
         task.Title = ev.Summary;
-        task.Deadline = GoogleCalendarReader.GetDeadline(ev.Start.DateTime, ev.Start.Date);
+        task.Deadline = ev.Start.DateTimeDateTimeOffset.Value;
         task.DurationMinutes = GoogleCalendarReader.GetDuration(ev.Start.DateTime, ev.End.DateTime);
         task.UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
             ? ev.UpdatedDateTimeOffset.Value.LocalDateTime
             : DateTime.Now;
     }
+
+    
+
+
+
 }

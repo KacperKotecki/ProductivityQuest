@@ -29,11 +29,12 @@ namespace Productivity_Quest_1._0
             comboBox1_Priority.SelectedItem = taskToEdit.Priority;
             numericUpDown_CzasNaZadanie.Value = taskToEdit.DurationMinutes;
 
-            if (taskToEdit.Deadline.HasValue)
+            if (true)//taskToEdit.Deadline.HasValue
             {
-                monthCalendar1.SetDate(taskToEdit.Deadline.Value.Date);
-                numericUpDown_Hour.Value = taskToEdit.Deadline.Value.Hour;
-                numericUpDown_Minutes.Value = taskToEdit.Deadline.Value.Minute;
+                
+                monthCalendar1.SetDate(taskToEdit.Deadline.Date);
+                numericUpDown_Hour.Value = taskToEdit.Deadline.Hour;
+                numericUpDown_Minutes.Value = taskToEdit.Deadline.Minute;
             }
             else
             {

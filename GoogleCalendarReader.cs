@@ -27,36 +27,34 @@ namespace Productivity_Quest_1._0
 
         public static Zadanie MapEventToTask(Event ev)
         {
+            var task = new Zadanie(ev.Id, ev.Summary);
 
-            DateTime deadline = ev.Start.DateTime
-                ?? DateTime.Parse(ev.Start.Date).ToLocalTime().Date;
+            // Ustawienie deadlinie
+            var deadline = GetDeadline(ev.Start.DateTime, ev.Start.Date);
+            task.Deadline = deadline ?? DateTimeOffset.Now;
 
+            // Ustawienie czasu trwania
+            task.DurationMinutes = GetDuration(ev.Start.DateTime, ev.End.DateTime);
 
-            var myTask = new Zadanie
-            {
-                Id = "google_calendar_"+ev.Id,
-                Title = ev.Summary,
-                Category = "Google Calendar",
-                Priority = "Niski",
-                DurationMinutes = GetDuration(ev.Start.DateTime, ev.End.DateTime),
-                Deadline = GetDeadline(ev.Start.DateTime, ev.Start.Date),
-                IsCompleted = false,
-                CreatedAt = ev.CreatedDateTimeOffset.HasValue 
-                    ? ev.Created.Value.ToLocalTime() 
-                    : DateTime.Now,
-                UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
-                    ? ev.UpdatedDateTimeOffset.Value.ToLocalTime()
-                    : DateTime.Now
-            };
+            // Ustawienie danych o utworzeniu i aktualizacji
+            task.CreatedAt = ev.CreatedDateTimeOffset.HasValue
+                ? ev.Created.Value.ToLocalTime()
+                : DateTimeOffset.Now;
 
-            return myTask;
+            task.UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
+                ? ev.UpdatedDateTimeOffset.Value.ToLocalTime()
+                : DateTimeOffset.Now;
+
+            return task;
         }
+
+
 
         public static int GetDuration(DateTime? start, DateTime? end)
         {
             int DefaultDurationMinutes = 30;
 
-            if(!start.HasValue || !end.HasValue || start.Value > end.Value)
+            if (!start.HasValue || !end.HasValue || start.Value > end.Value)
             {
                 return DefaultDurationMinutes;
             }
@@ -64,22 +62,20 @@ namespace Productivity_Quest_1._0
             return (int)(end.Value - start.Value).TotalMinutes;
         }
 
-        public static DateTime? GetDeadline(DateTime? deadline, string date = null)
+        public static DateTimeOffset? GetDeadline(DateTimeOffset? deadline, string date = null)// tutaj dopytać 
         {
-            if (deadline.HasValue)
-                return deadline.Value;
 
-            if (!string.IsNullOrEmpty(date) && DateTime.TryParse(date, out var result))
+            if (!string.IsNullOrEmpty(date) && DateTimeOffset.TryParse(date, out var result))
             {
-                return new DateTime(result.Year, result.Month, result.Day, 0, 0, 0);
+                return new DateTimeOffset(result.Year, result.Month, result.Day, 0, 0, 0, TimeSpan.Zero);
             }
 
             return null;
-
         }
-       
-            
-            
+
+
+
+
     }
 }
 
