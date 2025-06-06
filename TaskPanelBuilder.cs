@@ -80,7 +80,7 @@ namespace Productivity_Quest_1._0
                 {
                     panelTask.Controls.Add(CreateUniversalLabel(Tasks.Category, 10, new Size(50, 18), FontStyle.Regular, true, false));
                 }
-                panelTask.Controls.Add(CreateUniversalLabel(Tasks.Deadline.ToString(), 10, new Size(50, 18), FontStyle.Regular, true, true));
+                panelTask.Controls.Add(CreateUniversalLabel(Tasks.Deadline.ToString("HH:mm"), 10, new Size(50, 18), FontStyle.Regular, true, true));
             }
 
             panelTask.Size = new Size(width, panelHeight);
