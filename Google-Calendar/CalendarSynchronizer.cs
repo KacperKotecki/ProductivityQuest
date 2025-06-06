@@ -126,12 +126,17 @@ public class CalendarSynchronizer
     
     private void UpdateTask(Zadanie task, Google.Apis.Calendar.v3.Data.Event ev)
     {
-        task.Title = ev.Summary;
-        task.Deadline = ev.Start.DateTimeDateTimeOffset.Value;
-        task.DurationMinutes = GoogleCalendarReader.GetDuration(ev.Start.DateTime, ev.End.DateTime);
-        task.UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
-            ? ev.UpdatedDateTimeOffset.Value.LocalDateTime
-            : DateTime.Now;
+        if(ev != null)
+        {
+            task.Title = ev.Summary;
+            task.Deadline = ev.Start.DateTimeDateTimeOffset.Value;
+            task.DurationMinutes = GoogleCalendarReader.GetDuration(ev.Start.DateTime, ev.End.DateTime);
+            task.UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
+                ? ev.UpdatedDateTimeOffset.Value.LocalDateTime
+                : DateTime.Now;
+        }
+
+      
     }
 
     public async Task<int> SendTasksToGoogle(CalendarService calendarService, List<Zadanie> tasks)
@@ -178,6 +183,11 @@ public class CalendarSynchronizer
             }
 
             task.UpdatedAt = DateTimeOffset.Now;
+        }
+        catch (Google.GoogleApiException apiEx) when (apiEx.Error != null && (apiEx.Error.Code == 404 || apiEx.Error.Code == 410))
+        {
+            MessageBox.Show($"Wydarzenie dla zadania '{task.Title}' (powi¹zane z Google ID: {task.GoogleCalendarEventId}) nie istnieje w Google Calendar i nie mo¿e byæ zaktualizowane. Prawdopodobnie zosta³o usuniête. Przy nastêpnej synchronizacji zadanie zostanie utworzone jako nowe w Google Calendar.", "Problem z Synchronizacj¹ Wydarzenia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            task.GoogleCalendarEventId = null;
         }
         catch (Exception ex)
         {
