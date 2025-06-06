@@ -154,11 +154,11 @@ public class CalendarSynchronizer
 
             Start = new Google.Apis.Calendar.v3.Data.EventDateTime
             {
-                DateTime = task.Deadline.DateTime
+                DateTime = task.Deadline.UtcDateTime
             },
             End = new Google.Apis.Calendar.v3.Data.EventDateTime
             {
-                DateTime = task.Deadline.DateTime.AddMinutes(task.DurationMinutes)
+                DateTime = task.Deadline.UtcDateTime.AddMinutes(task.DurationMinutes)
             }
 
         };
