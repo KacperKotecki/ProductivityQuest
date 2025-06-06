@@ -56,8 +56,12 @@ public class CalendarSynchronizer
                     else
                     {
                         // Dodaj nowe zadanie
-                        _manage.Tasks.Add(GoogleCalendarReader.MapEventToTask(ev));
-                        added++;
+                        if(ev.Status != "cancelled")
+                        {
+                            _manage.Tasks.Add(GoogleCalendarReader.MapEventToTask(ev));
+                            added++;
+                        }
+                        
                     }
                 }
 

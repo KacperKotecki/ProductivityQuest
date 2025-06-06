@@ -27,6 +27,11 @@ namespace Productivity_Quest_1._0
 
         public static Zadanie MapEventToTask(Event ev)
         {
+
+            if (ev.Status == "cancelled")
+            {
+                return null; // Ignoruj anulowane wydarzenia
+            }
             var task = new Zadanie(ev.Id, ev.Summary);
 
             // Ustawienie deadlinie
