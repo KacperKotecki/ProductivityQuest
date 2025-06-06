@@ -195,11 +195,13 @@ public class CalendarSynchronizer
         {
             MessageBox.Show($"Wydarzenie dla zadania '{task.Title}' (powi¹zane z Google ID: {task.GoogleCalendarEventId}) nie istnieje w Google Calendar i nie mo¿e byæ zaktualizowane. Prawdopodobnie zosta³o usuniête. Przy nastêpnej synchronizacji zadanie zostanie utworzone jako nowe w Google Calendar.", "Problem z Synchronizacj¹ Wydarzenia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             task.GoogleCalendarEventId = null;
+            task.IsSyncedWithGoogle = false;
         }
         catch (Exception ex)
         {
+            task.IsSyncedWithGoogle = false;
             MessageBox.Show($"B³¹d podczas tworzenia/aktualizacji wydarzenia: {ex.Message}");
-            return;
+            
         }
         
     }
