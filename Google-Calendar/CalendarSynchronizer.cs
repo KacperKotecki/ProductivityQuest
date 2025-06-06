@@ -145,8 +145,11 @@ public class CalendarSynchronizer
         foreach (var task in tasks.Where(t => !t.IsSyncedWithGoogle && t.Category != "Google Calendar"))
         {
             await CreateOrUpdateGoogleEvent(calendarService, task);
-            task.IsSyncedWithGoogle = true;
-            sentCount++;
+            if(task.IsSyncedWithGoogle)
+            {
+                sentCount++;
+            }
+           
         }
         return sentCount;
     }
@@ -181,7 +184,7 @@ public class CalendarSynchronizer
                 var updateRequest = calendarService.Events.Update(newEvent, "primary", task.GoogleCalendarEventId);
                 await updateRequest.ExecuteAsync();
             }
-
+            task.IsSyncedWithGoogle = true;
             task.UpdatedAt = DateTimeOffset.Now;
         }
         catch (Google.GoogleApiException apiEx) when (apiEx.Error != null && (apiEx.Error.Code == 404 || apiEx.Error.Code == 410))
