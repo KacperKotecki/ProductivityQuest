@@ -148,34 +148,43 @@ public class CalendarSynchronizer
 
     private async Task CreateOrUpdateGoogleEvent(CalendarService calendarService, Zadanie task)
     {
-        var newEvent = new Google.Apis.Calendar.v3.Data.Event
+        try
         {
-            Summary = task.Title,
+            var newEvent = new Google.Apis.Calendar.v3.Data.Event
+            {
+                Summary = task.Title,
 
-            Start = new Google.Apis.Calendar.v3.Data.EventDateTime
+                Start = new Google.Apis.Calendar.v3.Data.EventDateTime
+                {
+                    DateTime = task.Deadline.UtcDateTime
+                },
+                End = new Google.Apis.Calendar.v3.Data.EventDateTime
+                {
+                    DateTime = task.Deadline.UtcDateTime.AddMinutes(task.DurationMinutes)
+                }
+
+            };
+
+            if (string.IsNullOrEmpty(task.GoogleCalendarEventId))
             {
-                DateTime = task.Deadline.UtcDateTime
-            },
-            End = new Google.Apis.Calendar.v3.Data.EventDateTime
+                var insertRequest = calendarService.Events.Insert(newEvent, "primary");
+                var createdEvent = await insertRequest.ExecuteAsync();
+                task.GoogleCalendarEventId = createdEvent.Id;
+            }
+            else
             {
-                DateTime = task.Deadline.UtcDateTime.AddMinutes(task.DurationMinutes)
+                var updateRequest = calendarService.Events.Update(newEvent, "primary", task.GoogleCalendarEventId);
+                await updateRequest.ExecuteAsync();
             }
 
-        };
-
-        if (string.IsNullOrEmpty(task.GoogleCalendarEventId))
-        {
-            var insertRequest = calendarService.Events.Insert(newEvent, "primary");
-            var createdEvent = await insertRequest.ExecuteAsync();
-            task.GoogleCalendarEventId = createdEvent.Id;
+            task.UpdatedAt = DateTimeOffset.Now;
         }
-        else
+        catch (Exception ex)
         {
-            var updateRequest = calendarService.Events.Update(newEvent, "primary", task.GoogleCalendarEventId);
-            await updateRequest.ExecuteAsync();
+            MessageBox.Show($"B³¹d podczas tworzenia/aktualizacji wydarzenia: {ex.Message}");
+            return;
         }
-
-        task.UpdatedAt = DateTimeOffset.Now;
+        
     }
 
 
