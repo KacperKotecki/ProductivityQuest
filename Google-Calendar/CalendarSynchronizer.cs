@@ -121,7 +121,7 @@ public class CalendarSynchronizer
             return true;
             
         // SprawdŸ deadline
-        var evDeadline = GoogleCalendarReader.GetDeadline(ev.Start.DateTime, ev.Start.Date);
+        var evDeadline = GoogleCalendarReader.GetDeadline(ev.Start?.DateTimeDateTimeOffset, ev.Start.Date);
         if (task.Deadline != evDeadline)
             return true;
             
@@ -133,33 +133,10 @@ public class CalendarSynchronizer
     {
         if (ev.Status != "cancelled")
         {
-            task.Title = ev.Summary;            ;
-            if(ev.Start.DateTimeDateTimeOffset.HasValue)
-            {
-                task.Deadline = ev.Start.DateTimeDateTimeOffset.Value;
-            }
-            else if(!string.IsNullOrEmpty(ev.Start.Date))
-            {
-                
-                if (DateTime.TryParseExact(ev.Start.Date, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime dateOnly))
-                {
-                    task.Deadline = new DateTimeOffset(dateOnly.Year, dateOnly.Month, dateOnly.Day, 0, 0, 0, TimeSpan.Zero);
-                }
-                else
-                {
-                  
-                    MessageBox.Show($"Nieprawid³owy format daty: {ev.Start.Date} dla zadania: {task.Title}");
-                    return;
-                }
-            }
-            else
-            {
-                task.Deadline = DateTimeOffset.Now;
-                MessageBox.Show($"Brak daty rozpoczêcia dla zadania: {task.Title}. Ustawiono na teraz.");
-                //TODO: Dodanie form z monthcalendarpickerem do ustawiania daty
-                //jeœli google nie poda³ daty u¿ytkownik sam j¹ mo¿e wybrac lub ustawiæ na teraz
-            }
+            task.Title = ev.Summary; ;
+            task.Deadline = GoogleCalendarReader.GetDeadline(ev.Start?.DateTimeDateTimeOffset, ev.Start.Date);
 
+            
             task.DurationMinutes = GoogleCalendarReader.GetDuration(ev.Start.DateTimeDateTimeOffset, ev.End.DateTimeDateTimeOffset);
             
             task.UpdatedAt = ev.UpdatedDateTimeOffset.HasValue

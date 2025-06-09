@@ -30,18 +30,18 @@ namespace Productivity_Quest_1._0
 
             if (ev.Status == "cancelled")
             {
-                return null; // Ignoruj anulowane wydarzenia
+                return null; 
             }
             var task = new Zadanie(ev.Id, ev.Summary);
 
-            // Ustawienie deadlinie
-            var deadline = GetDeadline(ev.Start.DateTime, ev.Start.Date);
-            task.Deadline = deadline ?? DateTimeOffset.Now;
+            
+            var deadline = GetDeadline(ev.Start?.DateTimeDateTimeOffset, ev.Start.Date);
+            task.Deadline = deadline;
 
-            // Ustawienie czasu trwania
+            
             task.DurationMinutes = GetDuration(ev.Start.DateTimeDateTimeOffset, ev.End.DateTimeDateTimeOffset);
 
-            // Ustawienie danych o utworzeniu i aktualizacji
+            
             task.CreatedAt = ev.CreatedDateTimeOffset.HasValue
                 ? ev.Created.Value.ToLocalTime()
                 : DateTimeOffset.Now;
@@ -67,17 +67,27 @@ namespace Productivity_Quest_1._0
             return (int)duration.TotalMinutes;
         }
 
-        public static DateTimeOffset? GetDeadline(DateTimeOffset? deadline, string date = null)// tutaj dopytać 
+        public static DateTimeOffset GetDeadline(DateTimeOffset? eventSpecificTime, string eventAllDayDateString = null)
         {
-
-            if (!string.IsNullOrEmpty(date) && DateTimeOffset.TryParse(date, out var result))
+            if (eventSpecificTime.HasValue)
             {
-                return new DateTimeOffset(result.Year, result.Month, result.Day, 0, 0, 0, TimeSpan.Zero);
+                return eventSpecificTime.Value;
             }
 
-            return null;
-        }
+            // Jeśli nie ma konkretnego czasu, spróbuj z datą wydarzenia całodniowego
+            if (!string.IsNullOrEmpty(eventAllDayDateString))
+            {
+                if (DateTime.TryParseExact(eventAllDayDateString, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None,
+                  out DateTime parsedDate))
+                    {
+                    return new DateTimeOffset(parsedDate.Year, parsedDate.Month, parsedDate.Day, 0, 0, 0, TimeSpan.Zero);
+                    }
+               
+            }
 
+
+            return DateTimeOffset.UtcNow;
+        }
 
 
 
