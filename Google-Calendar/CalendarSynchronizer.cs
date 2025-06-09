@@ -139,9 +139,7 @@ public class CalendarSynchronizer
             
             task.DurationMinutes = GoogleCalendarReader.GetDuration(ev.Start.DateTimeDateTimeOffset, ev.End.DateTimeDateTimeOffset);
             
-            task.UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
-                ? ev.UpdatedDateTimeOffset.Value.LocalDateTime
-                : DateTime.Now;
+            task.UpdatedAt = ev.UpdatedDateTimeOffset ?? DateTimeOffset.UtcNow;
         }
         else
         {
@@ -200,7 +198,7 @@ public class CalendarSynchronizer
                 await updateRequest.ExecuteAsync();
             }
             task.IsSyncedWithGoogle = true;
-            task.UpdatedAt = DateTimeOffset.Now;
+            task.UpdatedAt = DateTimeOffset.UtcNow;
         }
         catch (Google.GoogleApiException apiEx) when (apiEx.Error != null && (apiEx.Error.Code == 404 || apiEx.Error.Code == 410))
         {

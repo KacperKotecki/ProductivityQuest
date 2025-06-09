@@ -41,14 +41,10 @@ namespace Productivity_Quest_1._0
             
             task.DurationMinutes = GetDuration(ev.Start.DateTimeDateTimeOffset, ev.End.DateTimeDateTimeOffset);
 
-            
-            task.CreatedAt = ev.CreatedDateTimeOffset.HasValue
-                ? ev.Created.Value.ToLocalTime()
-                : DateTimeOffset.Now;
 
-            task.UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
-                ? ev.UpdatedDateTimeOffset.Value.ToLocalTime()
-                : DateTimeOffset.Now;
+            task.CreatedAt = ev.CreatedDateTimeOffset ?? DateTimeOffset.UtcNow;
+
+            task.UpdatedAt = ev.UpdatedDateTimeOffset ?? DateTimeOffset.UtcNow;
 
             return task;
         }
