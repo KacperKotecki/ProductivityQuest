@@ -98,22 +98,16 @@ public class CalendarSynchronizer
     
     private bool NeedsUpdate(Zadanie task, Google.Apis.Calendar.v3.Data.Event ev)
     {
-        // Jeœli u¿ywasz UpdatedAt:
         if (ev.UpdatedDateTimeOffset.HasValue && task.UpdatedAt.HasValue)
         {
-            // 1. WeŸ czas UTC lub Local w zale¿noœci co chcesz porównywaæ
-            DateTime eventUtc = ev.UpdatedDateTimeOffset.Value.UtcDateTime;
+            DateTimeOffset taskUtc = task.UpdatedAt.Value.ToUniversalTime();
+            DateTimeOffset eventUtc = ev.UpdatedDateTimeOffset.Value.ToUniversalTime();
 
-            // 2. Zamieñ na lokalny i obetnij sekundy
-            DateTime eventDate = new DateTime(
-                eventUtc.Year, eventUtc.Month, eventUtc.Day,
-                eventUtc.Hour, eventUtc.Minute, 0);
+            DateTimeOffset taskUtcTruncated = new DateTimeOffset(taskUtc.Year, taskUtc.Month, taskUtc.Day, taskUtc.Hour, taskUtc.Minute, 0, TimeSpan.Zero);
+            DateTimeOffset eventUtcTruncated = new DateTimeOffset(eventUtc.Year, eventUtc.Month, eventUtc.Day, eventUtc.Hour, eventUtc.Minute, 0, TimeSpan.Zero);
 
-            DateTime taskDate = new DateTime(
-                task.UpdatedAt.Value.Year, task.UpdatedAt.Value.Month, task.UpdatedAt.Value.Day,
-                task.UpdatedAt.Value.Hour, task.UpdatedAt.Value.Minute, 0);
-
-            return taskDate < eventDate;
+            if (taskUtcTruncated < eventUtcTruncated)
+                return true;
         }
 
         // Lub sprawdŸ ró¿nice w polach:
