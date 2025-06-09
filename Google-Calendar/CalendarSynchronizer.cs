@@ -160,7 +160,8 @@ public class CalendarSynchronizer
                 //jeœli google nie poda³ daty u¿ytkownik sam j¹ mo¿e wybrac lub ustawiæ na teraz
             }
 
-            task.DurationMinutes = GoogleCalendarReader.GetDuration(ev.Start.DateTime, ev.End.DateTime);
+            task.DurationMinutes = GoogleCalendarReader.GetDuration(ev.Start.DateTimeDateTimeOffset, ev.End.DateTimeDateTimeOffset);
+            
             task.UpdatedAt = ev.UpdatedDateTimeOffset.HasValue
                 ? ev.UpdatedDateTimeOffset.Value.LocalDateTime
                 : DateTime.Now;

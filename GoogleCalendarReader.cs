@@ -39,7 +39,7 @@ namespace Productivity_Quest_1._0
             task.Deadline = deadline ?? DateTimeOffset.Now;
 
             // Ustawienie czasu trwania
-            task.DurationMinutes = GetDuration(ev.Start.DateTime, ev.End.DateTime);
+            task.DurationMinutes = GetDuration(ev.Start.DateTimeDateTimeOffset, ev.End.DateTimeDateTimeOffset);
 
             // Ustawienie danych o utworzeniu i aktualizacji
             task.CreatedAt = ev.CreatedDateTimeOffset.HasValue
@@ -55,7 +55,7 @@ namespace Productivity_Quest_1._0
 
 
 
-        public static int GetDuration(DateTime? start, DateTime? end)
+        public static int GetDuration(DateTimeOffset? start, DateTimeOffset? end)
         {
             int DefaultDurationMinutes = 30;
 
@@ -63,8 +63,8 @@ namespace Productivity_Quest_1._0
             {
                 return DefaultDurationMinutes;
             }
-
-            return (int)(end.Value - start.Value).TotalMinutes;
+            TimeSpan duration = end.Value - start.Value;
+            return (int)duration.TotalMinutes;
         }
 
         public static DateTimeOffset? GetDeadline(DateTimeOffset? deadline, string date = null)// tutaj dopytać 
