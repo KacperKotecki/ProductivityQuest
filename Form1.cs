@@ -21,7 +21,7 @@ namespace Productivity_Quest_1._0
         public Form1()
         {
             InitializeComponent();
-            ShowHelpDialog();
+            //ShowHelpDialog();
             saveRead = new JsonStorageService();
             manage = new Manage();
             manage.LoadTasks();
@@ -37,26 +37,28 @@ namespace Productivity_Quest_1._0
             weekViewRenderer.GenerateWeekView(DateTime.Today);
         }
 
+        // Zmiana w DayPanel_DoubleClick (dla nowego zadania)
         public void DayPanel_DoubleClick(object sender, EventArgs e)
         {
-            var newTask = new Task(); // Używamy nowej klasy Task
-            using (var editForm = new DodajZadanieForm(newTask, manage))
+            using (var editForm = new DodajZadanieForm()) // Używamy konstruktora bezparametrowego!
             {
                 var result = editForm.ShowDialog();
 
-                if (result == DialogResult.OK && editForm.Task != null)
+                if (result == DialogResult.OK && editForm.CurrentTask != null)
                 {
-                    manage.Tasks.Add(editForm.Task);
+                    // Pobieramy nowo utworzone zadanie z formularza
+                    manage.Tasks.Add(editForm.CurrentTask);
                     manage.SaveTasks();
-                    if (editForm.Task.StartDateTime.HasValue)
+                    if (editForm.CurrentTask.StartDateTime.HasValue)
                     {
-                        currentWeekStart = editForm.Task.StartDateTime.Value;
+                        currentWeekStart = editForm.CurrentTask.StartDateTime.Value;
                     }
                     weekViewRenderer.GenerateWeekView(currentWeekStart);
                 }
             }
         }
 
+        // Zmiana w MyPanel_DoubleClick (dla edycji)
         public void MyPanel_DoubleClick(object sender, EventArgs e)
         {
             Control source = sender as Control;
@@ -66,20 +68,29 @@ namespace Productivity_Quest_1._0
             }
             Panel clickedPanel = source as Panel;
 
-            if (clickedPanel?.Tag is Task task) // Używamy nowej klasy Task
+            if (clickedPanel?.Tag is Task task)
             {
-                using (var editForm = new DodajZadanieForm(task, manage))
+                using (var editForm = new DodajZadanieForm(task)) // Przekazujemy tylko zadanie!
                 {
-                    editForm.Text = "Edycja zadania";
-                    editForm.ShowDialog();
-                }
+                    var result = editForm.ShowDialog();
 
-                manage.SaveTasks();
-                if (task.StartDateTime.HasValue)
-                {
-                    currentWeekStart = task.StartDateTime.Value;
+                    if (result == DialogResult.OK) // Edycja lub oznaczenie jako wykonane
+                    {
+                        manage.SaveTasks();
+                    }
+                    else if (result == DialogResult.Abort) // Nasz nowy sygnał do usunięcia
+                    {
+                        manage.Tasks.Remove(task);
+                        manage.SaveTasks();
+                    }
+
+                    // Odświeżamy widok po każdej akcji (edycja, usunięcie, anulowanie)
+                    if (task.StartDateTime.HasValue)
+                    {
+                        currentWeekStart = task.StartDateTime.Value;
+                    }
+                    weekViewRenderer.GenerateWeekView(currentWeekStart);
                 }
-                weekViewRenderer.GenerateWeekView(currentWeekStart);
             }
         }
 
