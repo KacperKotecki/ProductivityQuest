@@ -37,16 +37,40 @@ namespace Productivity_Quest_1._0
             weekViewRenderer.GenerateWeekView(DateTime.Today);
         }
 
-        // Zmiana w DayPanel_DoubleClick (dla nowego zadania)
-        public void DayPanel_DoubleClick(object sender, EventArgs e)
+
+        public void DayPanel_DoubleClick(object sender, MouseEventArgs e)
         {
-            using (var editForm = new DodajZadanieForm()) // Używamy konstruktora bezparametrowego!
+            // 1. Pobieramy panel, który został kliknięty
+            Panel clickedPanel = sender as Panel;
+            if (clickedPanel == null) return;
+
+            // 2. Obliczamy czas na podstawie pozycji Y kliknięcia
+            // Wysokość panelu (1485px) odpowiada 1440 minutom dnia.
+            double panelHeight = clickedPanel.Height;
+            int totalMinutesInDay = 1440;
+            int clickedMinute = (int)((e.Y / panelHeight) * totalMinutesInDay);
+
+            int hour = clickedMinute / 60;
+            int minute = clickedMinute % 60;
+
+            // 3. Ustalamy datę na podstawie nadrzędnego panelu dnia
+            // Tag panelu dnia przechowuje datę, którą ustawiliśmy w WeekViewRenderer
+            DateTime dayDate = (DateTime)clickedPanel.Parent.Tag;
+            DateTime suggestedStartTime = new DateTime(dayDate.Year, dayDate.Month, dayDate.Day, hour, minute, 0);
+
+            // 4. Tworzymy nowe zadanie z sugerowanym czasem
+            var newTask = new Task
+            {
+                StartDateTime = suggestedStartTime
+            };
+
+            // 5. Otwieramy formularz (reszta logiki pozostaje bez zmian)
+            using (var editForm = new DodajZadanieForm(newTask))
             {
                 var result = editForm.ShowDialog();
 
                 if (result == DialogResult.OK && editForm.CurrentTask != null)
                 {
-                    // Pobieramy nowo utworzone zadanie z formularza
                     manage.Tasks.Add(editForm.CurrentTask);
                     manage.SaveTasks();
                     if (editForm.CurrentTask.StartDateTime.HasValue)

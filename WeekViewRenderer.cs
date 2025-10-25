@@ -46,6 +46,7 @@ namespace Productivity_Quest_1._0
             for (int i = 0; i < 7; i++)
             {
                 Panel dayPanelForm = taskPanelBuilder.CreatePanel(new Size(width, height), Color.FromArgb(220, 230, 240), new Point(0, 0));
+                dayPanelForm.Tag = Monday;
                 dayPanelForm.Padding = new Padding(0, 5, 0, 0);
                 dayPanelForm.Margin = new Padding(2, 0, 2, 0);
 
@@ -76,7 +77,7 @@ namespace Productivity_Quest_1._0
                 dayPanelForm.Controls.Add(panelTimeline);
                 dayPanelForm.Controls.Add(panelHeader);
 
-                panelTimeline.DoubleClick += form1.DayPanel_DoubleClick;
+                panelTimeline.MouseDoubleClick += form1.DayPanel_DoubleClick;
             }
         }
     }
