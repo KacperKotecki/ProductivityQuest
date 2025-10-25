@@ -6,34 +6,32 @@ namespace Productivity_Quest_1._0
     public partial class DodajZadanieForm : Form
     {
 
-        private Zadanie EditingTask;
+        private Task EditingTask;
         private Manage manage;
-        public Zadanie Task => EditingTask;
+        public Task Task => EditingTask;
 
         public DodajZadanieForm()
         {
             InitializeComponent();
             InitializeComboBoxes();
         }
-        public DodajZadanieForm(Zadanie taskToEdit, Manage manage)
+        public DodajZadanieForm(Task taskToEdit, Manage manage)
         {
             InitializeComponent();
             InitializeComboBoxes();
             EditingTask = taskToEdit;
             this.manage = manage;
 
-            
-
             textBox_Zadanie.Text = taskToEdit.Title;
             comboBox_Category.SelectedItem = taskToEdit.Category;
             comboBox1_Priority.SelectedItem = taskToEdit.Priority;
             numericUpDown_CzasNaZadanie.Value = taskToEdit.DurationMinutes;
 
-            if (taskToEdit.Deadline.HasValue)
+            if (taskToEdit.StartDateTime.HasValue)
             {
-                monthCalendar1.SetDate(taskToEdit.Deadline.Value.Date);
-                numericUpDown_Hour.Value = taskToEdit.Deadline.Value.Hour;
-                numericUpDown_Minutes.Value = taskToEdit.Deadline.Value.Minute;
+                monthCalendar1.SetDate(taskToEdit.StartDateTime.Value.Date);
+                numericUpDown_Hour.Value = taskToEdit.StartDateTime.Value.Hour;
+                numericUpDown_Minutes.Value = taskToEdit.StartDateTime.Value.Minute;
             }
             else
             {
@@ -67,6 +65,7 @@ namespace Productivity_Quest_1._0
             if (string.IsNullOrWhiteSpace(textBox_Zadanie.Text) )
             {
                 MessageBox.Show("Uzupełnij wszystkie pola!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Dodano return, aby przerwać wykonywanie metody w przypadku błędu
             }
 
             DateTime selectedDateTime = monthCalendar1.SelectionStart;
@@ -75,16 +74,18 @@ namespace Productivity_Quest_1._0
             selectedDateTime = new DateTime(selectedDateTime.Year, selectedDateTime.Month, selectedDateTime.Day, hour, minutes, 0);
             if (selectedDateTime < DateTime.Now)
             {
-                
-                MessageBox.Show("Czy na pewno podałeś dobrą datę !", "Błąd", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                
+                var dialogResult = MessageBox.Show("Wybrana data jest z przeszłości. Czy na pewno chcesz kontynuować?", "Ostrzeżenie o dacie", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.No)
+                {
+                    return; // Przerwij, jeśli użytkownik nie chce kontynuować
+                }
             }
 
             EditingTask.Title = textBox_Zadanie.Text;
             EditingTask.Category = comboBox_Category.SelectedItem.ToString();
             EditingTask.Priority = comboBox1_Priority.SelectedItem.ToString();
             EditingTask.DurationMinutes = CalculateMinutes((int)numericUpDown_CzasNaZadanie.Value);
-            EditingTask.Deadline = selectedDateTime;
+            EditingTask.StartDateTime = selectedDateTime;
             
 
             this.DialogResult = DialogResult.OK;
@@ -99,7 +100,7 @@ namespace Productivity_Quest_1._0
         private int CalculateMinutes(int duration)
         {
 
-            if (comboBox_Time.SelectedItem == "h")
+            if (comboBox_Time.SelectedItem.ToString() == "h")
             {
                 duration *= 60;
             }
@@ -112,23 +113,24 @@ namespace Productivity_Quest_1._0
         {
             if (EditingTask.IsCompleted)
             {
-                MessageBox.Show("To zadanie jest już wykonane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("To zadanie jest już wykonane!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            var confirm = MessageBox.Show("Czy na pewno wykonałeś to zadanie?", "Uwaga!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirm = MessageBox.Show("Czy na pewno chcesz oznaczyć to zadanie jako wykonane?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirm == DialogResult.Yes)
             {
-                EditingTask.IsCompleted = true; 
+                EditingTask.IsCompleted = true;
+                MessageBox.Show("Zadanie zostało oznaczone jako wykonane.", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btn_RemoveTask_Click(object sender, EventArgs e)
         {
-            string message = EditingTask.IsCompleted ? "Czy na pewno chcesz usunąć wykonane zadanie?": "Czy na pewno chcesz usunąć niewykonane zadanie?";
+            string message = EditingTask.IsCompleted ? "Czy na pewno chcesz usunąć wykonane zadanie?": "Czy na pewno chcesz usunąć to zadanie?";
 
-            var confirm = MessageBox.Show(message, "Uwaga!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var confirm = MessageBox.Show(message, "Potwierdzenie usunięcia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirm == DialogResult.Yes)
             {
                 manage.Tasks.Remove(EditingTask);
