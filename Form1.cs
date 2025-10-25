@@ -40,12 +40,9 @@ namespace Productivity_Quest_1._0
 
         public void DayPanel_DoubleClick(object sender, MouseEventArgs e)
         {
-            // 1. Pobieramy panel, który został kliknięty
             Panel clickedPanel = sender as Panel;
             if (clickedPanel == null) return;
 
-            // 2. Obliczamy czas na podstawie pozycji Y kliknięcia
-            // Wysokość panelu (1485px) odpowiada 1440 minutom dnia.
             double panelHeight = clickedPanel.Height;
             int totalMinutesInDay = 1440;
             int clickedMinute = (int)((e.Y / panelHeight) * totalMinutesInDay);
@@ -53,19 +50,10 @@ namespace Productivity_Quest_1._0
             int hour = clickedMinute / 60;
             int minute = clickedMinute % 60;
 
-            // 3. Ustalamy datę na podstawie nadrzędnego panelu dnia
-            // Tag panelu dnia przechowuje datę, którą ustawiliśmy w WeekViewRenderer
             DateTime dayDate = (DateTime)clickedPanel.Parent.Tag;
             DateTime suggestedStartTime = new DateTime(dayDate.Year, dayDate.Month, dayDate.Day, hour, minute, 0);
 
-            // 4. Tworzymy nowe zadanie z sugerowanym czasem
-            var newTask = new Task
-            {
-                StartDateTime = suggestedStartTime
-            };
-
-            // 5. Otwieramy formularz (reszta logiki pozostaje bez zmian)
-            using (var editForm = new DodajZadanieForm(newTask))
+            using (var editForm = new DodajZadanieForm(suggestedStartTime))
             {
                 var result = editForm.ShowDialog();
 

@@ -16,17 +16,27 @@ namespace Productivity_Quest_1._0
             InitializeComponent();
             InitializeComboBoxes();
 
+        }
+
+        public DodajZadanieForm(DateTime suggestedStartTime)
+        {
+            InitializeComponent();
+            InitializeComboBoxes();
+
             this.Text = "Dodaj nowe zadanie";
             this.CurrentTask = new Task(); // Tworzymy nowy, pusty obiekt
 
-            // Ustawianie wartości domyślnych
+            // --- Ustawianie wartości domyślnych ---
             comboBox_Category.SelectedItem = "Ogólne";
             comboBox1_Priority.SelectedIndex = 0; // "Niski"
             numericUpDown_CzasNaZadanie.Value = 60;
             comboBox_Time.SelectedItem = "min";
-            numericUpDown_Hour.Value = 12;
-            numericUpDown_Minutes.Value = 0;
-            monthCalendar1.SetDate(DateTime.Today);
+
+            // --- Ustawianie czasu na podstawie kliknięcia ---
+            CurrentTask.StartDateTime = suggestedStartTime;
+            monthCalendar1.SetDate(suggestedStartTime.Date);
+            numericUpDown_Hour.Value = suggestedStartTime.Hour;
+            numericUpDown_Minutes.Value = suggestedStartTime.Minute;
 
             // Ukrywamy przyciski, które nie mają sensu przy nowym zadaniu
             btn_TaskComplited.Visible = false;
