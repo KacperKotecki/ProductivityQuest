@@ -127,7 +127,7 @@
             this.numericUpDown_CzasNaZadanie.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericUpDown_CzasNaZadanie.Location = new System.Drawing.Point(22, 208);
             this.numericUpDown_CzasNaZadanie.Maximum = new decimal(new int[] {
-            555,
+            1440,
             0,
             0,
             0});
