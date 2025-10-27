@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Productivity_Quest_1._0
 {
@@ -220,22 +219,9 @@ namespace Productivity_Quest_1._0
                 Image = image,
                 //Margin = new Padding(2),
                 //Dock = DockStyle.Top
-
-            return icon;
-        }
-        public PictureBox CreateIconPictureBox(string iconPath, Size size, Point location)
-        {
-            var icon = new PictureBox
-            {
-                Size = size,
-                Location = location,
-                SizeMode = PictureBoxSizeMode.Zoom,
-                BorderStyle = BorderStyle.None,
-                BackColor = Color.Transparent,
-                Image = System.Drawing.Image.FromFile(iconPath)
             };
-
             return icon;
         }
+        
     }
 }
