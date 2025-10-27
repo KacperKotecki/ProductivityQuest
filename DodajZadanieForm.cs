@@ -5,35 +5,26 @@ namespace Productivity_Quest_1._0
 {
     public partial class DodajZadanieForm : Form
     {
-        // Zmieniono nazwę, aby było jasne, że to jest obiekt, nad którym pracujemy
         public Task CurrentTask { get; private set; }
 
         /// <summary>
-        /// Konstruktor dla NOWEGO zadania.
+        /// Konstruktor dla NOWEGO zadania z sugerowanym czasem.
         /// </summary>
-        public DodajZadanieForm()
-        {
-            InitializeComponent();
-            InitializeComboBoxes();
-
-        }
-
         public DodajZadanieForm(DateTime suggestedStartTime)
         {
             InitializeComponent();
             InitializeComboBoxes();
 
             this.Text = "Dodaj nowe zadanie";
-            this.CurrentTask = new Task(); // Tworzymy nowy, pusty obiekt
+            this.CurrentTask = new Task();
 
-            // --- Ustawianie wartości domyślnych ---
+            // Ustawianie wartości domyślnych
             comboBox_Category.SelectedItem = "Ogólne";
             comboBox1_Priority.SelectedIndex = 0; // "Niski"
             numericUpDown_CzasNaZadanie.Value = 60;
             comboBox_Time.SelectedItem = "min";
 
-            // --- Ustawianie czasu na podstawie kliknięcia ---
-            CurrentTask.StartDateTime = suggestedStartTime;
+            // Ustawianie czasu na podstawie kliknięcia
             monthCalendar1.SetDate(suggestedStartTime.Date);
             numericUpDown_Hour.Value = suggestedStartTime.Hour;
             numericUpDown_Minutes.Value = suggestedStartTime.Minute;
@@ -52,7 +43,7 @@ namespace Productivity_Quest_1._0
             InitializeComboBoxes();
 
             this.Text = "Edycja zadania";
-            this.CurrentTask = taskToEdit; // Pracujemy na przekazanym obiekcie
+            this.CurrentTask = taskToEdit;
 
             // Wczytywanie danych z istniejącego zadania
             textBox_Zadanie.Text = CurrentTask.Title;
@@ -83,7 +74,6 @@ namespace Productivity_Quest_1._0
             string[] comboboxCategory = new string[] { "Ogólne", "Nauka", "Praca", "Dom", "Zdrowie", "Rozwój osobisty", "Relacje", "Hobby", "Samopoczucie", "Organizacja", "Inne" };
             string[] comboboxPriority = new string[] { "Niski", "Średni", "Wysoki" };
             string[] comboboxTime = new string[] { "min", "h" };
-
             comboBox_Category.Items.AddRange(comboboxCategory);
             comboBox1_Priority.Items.AddRange(comboboxPriority);
             comboBox_Time.Items.AddRange(comboboxTime);
@@ -97,20 +87,29 @@ namespace Productivity_Quest_1._0
                 return;
             }
 
-            DateTime selectedDateTime = monthCalendar1.SelectionStart;
-            int hour = (int)numericUpDown_Hour.Value;
-            int minutes = (int)numericUpDown_Minutes.Value;
-            selectedDateTime = new DateTime(selectedDateTime.Year, selectedDateTime.Month, selectedDateTime.Day, hour, minutes, 0);
+            try
+            {
+                DateTime selectedDateTime = new DateTime(
+                    monthCalendar1.SelectionStart.Year,
+                    monthCalendar1.SelectionStart.Month,
+                    monthCalendar1.SelectionStart.Day,
+                    (int)numericUpDown_Hour.Value,
+                    (int)numericUpDown_Minutes.Value,
+                    0);
 
-            // Aktualizujemy obiekt CurrentTask danymi z formularza
-            CurrentTask.Title = textBox_Zadanie.Text;
-            CurrentTask.Category = comboBox_Category.SelectedItem.ToString();
-            CurrentTask.Priority = comboBox1_Priority.SelectedItem.ToString();
-            CurrentTask.DurationMinutes = CalculateMinutes((int)numericUpDown_CzasNaZadanie.Value);
-            CurrentTask.StartDateTime = selectedDateTime;
+                CurrentTask.Title = textBox_Zadanie.Text;
+                CurrentTask.Category = comboBox_Category.SelectedItem.ToString();
+                CurrentTask.Priority = comboBox1_Priority.SelectedItem.ToString();
+                CurrentTask.DurationMinutes = CalculateMinutes((int)numericUpDown_CzasNaZadanie.Value);
+                CurrentTask.StartDateTime = selectedDateTime;
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show($"Błąd walidacji: Czas trwania nie może przekraczać 23 godzin i 59 minut.", "Nieprawidłowa wartość", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private int CalculateMinutes(int duration)
@@ -126,7 +125,6 @@ namespace Productivity_Quest_1._0
         {
             CurrentTask.IsCompleted = !CurrentTask.IsCompleted;
             MessageBox.Show(CurrentTask.IsCompleted ? "Zadanie zostało oznaczone jako wykonane." : "Cofnięto wykonanie zadania.", "Status zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // Odświeżamy widok przycisku, jeśli jest taka potrzeba
         }
 
         private void btn_RemoveTask_Click(object sender, EventArgs e)
@@ -134,7 +132,7 @@ namespace Productivity_Quest_1._0
             var confirm = MessageBox.Show("Czy na pewno chcesz usunąć to zadanie?", "Potwierdzenie usunięcia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirm == DialogResult.Yes)
             {
-                this.DialogResult = DialogResult.Abort; // Używamy nowego wyniku, aby zasygnalizować usunięcie
+                this.DialogResult = DialogResult.Abort;
                 this.Close();
             }
         }
@@ -146,4 +144,3 @@ namespace Productivity_Quest_1._0
         }
     }
 }
-

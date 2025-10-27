@@ -17,8 +17,6 @@ namespace Productivity_Quest_1._0
         {
             if (!task.StartDateTime.HasValue)
             {
-                // Jeśli zadanie nie ma daty, nie możemy go narysować na osi czasu.
-                // Można zwrócić pusty panel lub obsłużyć to w inny sposób.
                 return new Panel { Visible = false };
             }
 
@@ -32,7 +30,10 @@ namespace Productivity_Quest_1._0
             {
                 panelTask.BackColor = Color.FromArgb(144, 238, 144);
                 if (task.IsCompleted)
+                {
                     panelTask.BackColor = Color.FromArgb(80, 220, 120);
+                }
+
             }
             else if (task.Priority == "Średni")
             {
@@ -51,7 +52,8 @@ namespace Productivity_Quest_1._0
 
             //Icons
             var image = task.IsCompleted ? Properties.Resources.check_circle_8 : Properties.Resources.check_circle_0;
-            var doneIcon = CreateIconPictureBox(image, new Size(14, 14), new Point(49, 42));
+            
+            var doneIcon = CreateIconPictureBox(image, new Size(14, 14), new Point(20, 20));
             doneIcon.BackColor = Color.Transparent;
 
             // Height Panel task
@@ -80,8 +82,10 @@ namespace Productivity_Quest_1._0
             panelTask.Tag = task;
 
             // Controls ADD 
-            panelTask.Controls.Add(doneIcon);
+            
             panelTask.Controls.Add(CreateUniversalLabel(task.Title, 10, new Size(50, 36), FontStyle.Bold, true, false));
+            panelTask.Controls.Add(doneIcon);
+
 
             doneIcon.DoubleClick += form1.MyPanel_DoubleClick;
             panelTask.DoubleClick += form1.MyPanel_DoubleClick;
@@ -109,7 +113,8 @@ namespace Productivity_Quest_1._0
                 AutoSize = false,
                 Size = size, // 50,18
                 Margin = new Padding(2),
-                Dock = DockStyle.Top
+                Dock = DockStyle.Top,
+                BackColor = Color.Transparent
             };
 
             if (allowClick)
@@ -211,7 +216,10 @@ namespace Productivity_Quest_1._0
                 SizeMode = PictureBoxSizeMode.Zoom,
                 BorderStyle = BorderStyle.None,
                 BackColor = Color.Transparent,
-                Image = image
+                Image = image,
+                //Margin = new Padding(2),
+                //Dock = DockStyle.Top
+
             };
 
             return icon;

@@ -17,8 +17,23 @@ namespace Productivity_Quest_1._0
 
             if (File.Exists(fullPath))
             {
-                string json = File.ReadAllText(fullPath);
-                return JsonSerializer.Deserialize<T>(json);
+                try
+                {
+                    string json = File.ReadAllText(fullPath);
+
+                    if (string.IsNullOrWhiteSpace(json))
+                    {
+                        return default;
+                    }
+
+                    return JsonSerializer.Deserialize<T>(json);
+                }
+                catch (JsonException)
+                {
+
+                    return default;
+                }
+
             }
 
             return default;

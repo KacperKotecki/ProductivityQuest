@@ -178,16 +178,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\check-circle_0.png" />
+    <None Include="Resources\check-circle_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\check-circle_5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-circle_6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-circle_8.png" />
+    <None Include="Resources\check-circle_8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
